@@ -9,6 +9,7 @@
   <title>Luna AI Desktop Assistant</title>
 
   <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/logo/favicon.ico" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -271,8 +272,66 @@
     }
 
     .feature-icon {
-      font-size: 25px;
+      width: 28px;
+      height: 28px;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(77%) sepia(34%) saturate(1774%) hue-rotate(154deg) brightness(101%) contrast(101%);
       margin-bottom: 18px;
+    }
+
+    .mode-icon {
+      width: 22px;
+      height: 22px;
+      display: inline-block;
+      vertical-align: -5px;
+      margin-inline-end: 8px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(77%) sepia(34%) saturate(1774%) hue-rotate(154deg) brightness(101%) contrast(101%);
+    }
+
+    .technical-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .technical-icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(77%) sepia(34%) saturate(1774%) hue-rotate(154deg) brightness(101%) contrast(101%);
+    }
+
+    .hero-mark {
+      position: absolute;
+      width: clamp(150px, 19vw, 250px);
+      height: auto;
+      right: max(5vw, calc((100vw - var(--width)) / 2));
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .2;
+      pointer-events: none;
+      z-index: 0;
+      object-fit: contain;
+    }
+
+    body[dir="rtl"] .hero-mark {
+      right: auto;
+      left: max(5vw, calc((100vw - var(--width)) / 2));
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
     }
 
     .feature-card h3 { margin: 0 0 10px; }
@@ -432,6 +491,7 @@
   <main>
     <!-- 01 HERO -->
     <section class="hero">
+      <img class="hero-mark" src="assets/logo/luna-logo-neon.png" alt="" aria-hidden="true">
       <div class="container">
         <div class="hero-content">
           <div class="eyebrow"
@@ -514,42 +574,42 @@
 
         <div class="feature-grid">
           <article class="feature-card">
-            <div class="feature-icon">💬</div>
+            <img class="feature-icon" src="assets/icons/brain.svg" alt="" aria-hidden="true">
             <h3 data-en="Conversations" data-ar="المحادثات">Conversations</h3>
             <p data-en="A flexible workspace for your AI conversations."
                data-ar="مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي."></p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon">📁</div>
+            <img class="feature-icon" src="assets/icons/folder.svg" alt="" aria-hidden="true">
             <h3 data-en="File Assistant" data-ar="مساعد الملفات">File Assistant</h3>
             <p data-en="Search, organize, and work with your files with confirmation."
                data-ar="ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك."></p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon">🧠</div>
+            <img class="feature-icon" src="assets/icons/memory.svg" alt="" aria-hidden="true">
             <h3 data-en="Personal Memory" data-ar="الذاكرة الشخصية">Personal Memory</h3>
             <p data-en="Luna remembers information when you explicitly ask."
                data-ar="تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً."></p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon">📄</div>
+            <img class="feature-icon" src="assets/icons/documents.svg" alt="" aria-hidden="true">
             <h3 data-en="Document Intelligence" data-ar="فهم المستندات">Document Intelligence</h3>
             <p data-en="Search and work with supported documents."
                data-ar="ابحث داخل المستندات المدعومة واعمل معها."></p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon">💻</div>
+            <img class="feature-icon" src="assets/icons/computer.svg" alt="" aria-hidden="true">
             <h3 data-en="Local AI Engine" data-ar="محرك ذكاء محلي">Local AI Engine</h3>
             <p data-en="Run local models on your own computer."
                data-ar="شغّل النماذج المحلية على جهازك."></p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon">☁️</div>
+            <img class="feature-icon" src="assets/icons/cloud.svg" alt="" aria-hidden="true">
             <h3 data-en="Hybrid Intelligence" data-ar="الذكاء الهجين">Hybrid Intelligence</h3>
             <p data-en="Choose when to use optional cloud services."
                data-ar="اختر متى تريد استخدام الخدمات السحابية الاختيارية."></p>
@@ -639,17 +699,17 @@
 
         <div class="mode-grid">
           <article class="mode">
-            <h3>💻 <span data-en="Local" data-ar="محلي">Local</span></h3>
+            <h3><img class="mode-icon" src="assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local" data-ar="محلي">Local</span></h3>
             <p data-en="Use local models on your computer."
                data-ar="استخدم النماذج المحلية على جهازك."></p>
           </article>
           <article class="mode">
-            <h3>⛓️ <span data-en="Balanced" data-ar="متوازن">Balanced</span></h3>
+            <h3><img class="mode-icon" src="assets/icons/brain.svg" alt="" aria-hidden="true"><span data-en="Balanced" data-ar="متوازن">Balanced</span></h3>
             <p data-en="Combine local and cloud capabilities when you choose."
                data-ar="اجمع بين إمكانات المعالجة المحلية والسحابية حسب اختيارك."></p>
           </article>
           <article class="mode">
-            <h3>☁️ <span data-en="Cloud" data-ar="سحابي">Cloud</span></h3>
+            <h3><img class="mode-icon" src="assets/icons/cloud.svg" alt="" aria-hidden="true"><span data-en="Cloud" data-ar="سحابي">Cloud</span></h3>
             <p data-en="Prioritize cloud processing when you want to."
                data-ar="امنح المعالجة السحابية الأولوية عندما ترغب بذلك."></p>
           </article>
@@ -669,10 +729,10 @@
         </div>
 
         <div class="technical-list">
-          <div class="technical-item">Windows <span data-en="Desktop platform" data-ar="منصة التشغيل">Desktop platform</span></div>
-          <div class="technical-item">Local AI <span data-en="Run supported local models" data-ar="تشغيل النماذج المحلية المدعومة">Run supported local models</span></div>
-          <div class="technical-item">CUDA / Vulkan <span data-en="Supported acceleration paths" data-ar="مسارات تسريع مدعومة">Supported acceleration paths</span></div>
-          <div class="technical-item">English & Arabic <span data-en="Interface and conversations" data-ar="الواجهة والمحادثات">Interface and conversations</span></div>
+          <div class="technical-item"><img class="technical-icon" src="assets/icons/window.svg" alt="" aria-hidden="true">Windows <span data-en="Desktop platform" data-ar="منصة التشغيل">Desktop platform</span></div>
+          <div class="technical-item"><img class="technical-icon" src="assets/icons/computer.svg" alt="" aria-hidden="true">Local AI <span data-en="Run supported local models" data-ar="تشغيل النماذج المحلية المدعومة">Run supported local models</span></div>
+          <div class="technical-item"><img class="technical-icon" src="assets/icons/settings.svg" alt="" aria-hidden="true">CUDA / Vulkan <span data-en="Supported acceleration paths" data-ar="مسارات تسريع مدعومة">Supported acceleration paths</span></div>
+          <div class="technical-item"><img class="technical-icon" src="assets/icons/languages.svg" alt="" aria-hidden="true">English & Arabic <span data-en="Interface and conversations" data-ar="الواجهة والمحادثات">Interface and conversations</span></div>
         </div>
       </div>
     </section>
@@ -760,7 +820,7 @@
   <!-- 11 FOOTER -->
   <footer>
     <div class="container footer-inner">
-      <span>© <span id="year"></span> Luna AI Desktop Assistant</span>
+      <span class="footer-brand"><img class="footer-logo" src="assets/logo/luna-logo-mono.svg" alt="" aria-hidden="true">© <span id="year"></span> Luna AI Desktop Assistant</span>
       <span data-en="Built by Hussain (EinMM)"
             data-ar="تطوير حسين (EinMM)">
         Built by Hussain (EinMM)
