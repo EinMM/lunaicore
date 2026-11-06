@@ -1,0 +1,17 @@
+{
+  "product": "desktop-windows",
+  "channel": "stable",
+  "version": "0.1.0",
+  "release_date": "2026-11-06",
+  "release_page": "https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0",
+  "notes": {
+    "ar": "أول إصدار تجريبي عام من لونا لنظام ويندوز.",
+    "en": "First public Beta of Luna for Windows."
+  },
+  "installer": {
+    "name": "LunaSetup-0.1.0.exe",
+    "sha256": "2ed24c91382b8f8c5a6ded6797d0bfa05931c7fb508bb9096a386f6c7d30a1cc",
+    "size": 55716340
+  },
+  "signature": "P0fZVbcDPQC0NDQry4jZ2c49KJ9X/iVVObLldaGvvfOshuFkr8oKYTeO3q41PIKZVzTTiO7YDUMf8nxKQxlaDA=="
+}
