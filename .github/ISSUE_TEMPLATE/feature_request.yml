@@ -1,0 +1,50 @@
+name: "Feature request · اقتراح ميزة"
+description: "An idea to make Luna better · فكرة لتحسين لونا"
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please do not include personal data, file paths, file contents or API keys.**
+        **من فضلك لا تضع بيانات شخصية أو مسارات ملفات أو محتوى ملفات أو مفاتيح API.**
+  - type: input
+    id: luna_version
+    attributes:
+      label: "Luna version · إصدار لونا"
+      placeholder: "0.1.0"
+  - type: input
+    id: windows_version
+    attributes:
+      label: "Windows version · إصدار ويندوز"
+      placeholder: "Windows 11 24H2"
+  - type: input
+    id: engine
+    attributes:
+      label: "Engine · المحرّك"
+      placeholder: "Luna Engine (local) · محرّك لونا (محلي) — vulkan"
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What would you like to do? · ماذا تريد أن تفعل؟"
+      description: "The need or problem behind the idea · الحاجة أو المشكلة وراء الفكرة"
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: "Your idea · فكرتك"
+      description: "How Luna could help · كيف يمكن أن تساعد لونا"
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Anything else? · أي شيء آخر؟"
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: "Privacy · الخصوصية"
+      options:
+        - label: "This request contains no personal data or file paths · هذا الاقتراح لا يحتوي على بيانات شخصية أو مسارات ملفات"
+          required: true
