@@ -1,0 +1,65 @@
+name: "Bug report · بلاغ عن مشكلة"
+description: "Something in Luna does not work as expected · شيء في لونا لا يعمل كما يجب"
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please do not include personal data, file paths, file contents, API keys or conversation text.**
+        **من فضلك لا تضع بيانات شخصية أو مسارات ملفات أو محتوى ملفات أو مفاتيح API أو نص محادثات.**
+        Tip: Settings → About → "Copy system info" gives versions only (no paths). · نصيحة: الإعدادات ← حول ← "نسخ معلومات النظام" تعطي الإصدارات فقط (بدون مسارات).
+  - type: input
+    id: luna_version
+    attributes:
+      label: "Luna version · إصدار لونا"
+      description: "Settings → About · الإعدادات ← حول"
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: windows_version
+    attributes:
+      label: "Windows version · إصدار ويندوز"
+      placeholder: "Windows 11 23H2"
+    validations:
+      required: true
+  - type: input
+    id: engine
+    attributes:
+      label: "Engine · المحرّك"
+      description: "Filled in by Luna's \"Send feedback\" (local / cloud / hybrid + backend) · تعبّئه لونا من «إرسال ملاحظة»"
+      placeholder: "Luna Engine (local) · محرّك لونا (محلي) — vulkan"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to reproduce · خطوات إعادة المشكلة"
+      description: "Numbered steps, without personal data or paths · خطوات مرقّمة، بدون بيانات شخصية أو مسارات"
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected result · النتيجة المتوقعة"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual result · النتيجة الفعلية"
+      description: "Error text is welcome; remove any paths or names first · نص الخطأ مفيد؛ احذف أي مسارات أو أسماء أولًا"
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: "Privacy · الخصوصية"
+      options:
+        - label: "I removed personal data and file paths from this report · حذفت البيانات الشخصية ومسارات الملفات من هذا البلاغ"
+          required: true
