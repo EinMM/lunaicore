@@ -8,7 +8,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 
 **[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
 
-![Luna main chat window](assets/screenshots/Luna-ai-01-en.png)
+![Luna main chat window](assets/screenshots/Luna-AI-01-en.png)
 
 ## What Luna can do
 
@@ -28,7 +28,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 - **Your API keys** are stored in Windows Credential Manager, not in plain-text files.
 - **Updates:** Luna checks for new versions and lets you know — it never installs anything by itself. You can turn off update checks in Settings.
 
-![Luna settings: choose local or cloud AI and your privacy options](assets/screenshots/Luna-ai-03-en.png)
+![Luna settings: choose local or cloud AI and your privacy options](assets/screenshots/Luna-AI-03-en.png)
 
 ## Install Luna Beta 0.1
 
