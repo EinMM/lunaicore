@@ -7,6 +7,18 @@
   <meta name="description" content="Luna AI Desktop Assistant. Your AI. Your PC. Your Rules.">
   <title>Luna AI Desktop Assistant</title>
 
+  <!-- Link previews (WhatsApp, X, Discord...). Absolute URLs: update them if the site moves to lunaicore.com. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luna AI Desktop Assistant">
+  <meta property="og:title" content="Luna AI Desktop Assistant: Your AI. Your PC. Your Rules.">
+  <meta property="og:description" content="A local-first AI desktop assistant for Windows, in English and Arabic. Beta 0.1 is available now.">
+  <meta property="og:url" content="https://einmm.github.io/lunaicore/">
+  <meta property="og:image" content="https://einmm.github.io/lunaicore/assets/social/luna-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Luna AI Desktop Assistant: Your AI. Your PC. Your Rules.">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/logo/favicon.png" type="image/png" sizes="32x32">
 
@@ -225,6 +237,29 @@
       color: var(--muted);
       font-size: 12px;
       margin-top: 28px;
+    }
+
+    .hero-meta a,
+    .cta-links a {
+      color: var(--cyan);
+    }
+
+    .hero-meta a:hover,
+    .cta-links a:hover {
+      text-decoration: underline;
+    }
+
+    .button-icon {
+      width: 18px;
+      height: 18px;
+      margin-inline-end: 9px;
+      filter: brightness(0) invert(1);
+    }
+
+    .cta-links {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 18px;
     }
 
     section {
@@ -453,6 +488,58 @@
       flex-wrap: wrap;
     }
 
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-links a:hover { color: white; }
+
+    .hash {
+      display: block;
+      margin-top: 12px;
+      padding: 10px 12px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text);
+      background: rgba(0,0,0,.3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      word-break: break-all;
+      direction: ltr;
+      text-align: left;
+      user-select: all;
+    }
+
+    .feature-card p.hash-label { margin-top: 12px; }
+
+    .hash.cmd { word-break: normal; overflow-wrap: anywhere; }
+
+    .mode-options {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mode-options li {
+      color: var(--muted);
+      font-size: 14px;
+      padding-inline-start: 12px;
+      border-inline-start: 2px solid rgba(121,87,245,.6);
+    }
+
+    .mode-options strong {
+      color: var(--text);
+      display: block;
+    }
+
     [hidden] { display: none !important; }
 
     @media(max-width:850px) {
@@ -485,6 +572,9 @@
 </head>
 
 <body>
+  <!-- NEW RELEASE CHECKLIST: search this file for "0.1.0" and update every match
+       (download links, release-notes links, version text), then update the
+       installer size ("53" in both languages) and the SHA-256 in the FAQ from the new stable.json. -->
   <header class="navbar">
     <div class="container nav-inner">
       <a class="brand" href="#">
@@ -501,8 +591,8 @@
 
       <div class="nav-actions">
         <button class="lang-button" id="languageToggle">عربي</button>
-        <a class="button" href="https://github.com/EinMM/lunaicore"
-           data-en="Explore Luna" data-ar="استكشف لونا">Explore Luna</a>
+        <a class="button" href="https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe"
+           data-en="Download" data-ar="تحميل">Download</a>
       </div>
     </div>
   </header>
@@ -535,10 +625,10 @@
           </p>
 
           <div class="hero-actions">
-            <a class="button" href="https://github.com/EinMM/lunaicore"
-               data-en="Explore Luna on GitHub"
-               data-ar="استكشف لونا على GitHub">
-              Explore Luna on GitHub
+            <a class="button" href="https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe">
+              <img class="button-icon" src="assets/icons/download.svg" alt="" aria-hidden="true">
+              <span data-en="Download for Windows"
+                    data-ar="تحميل لنظام Windows">Download for Windows</span>
             </a>
             <a class="button secondary" href="#meet"
                data-en="Discover Luna"
@@ -547,10 +637,12 @@
             </a>
           </div>
 
-          <div class="hero-meta"
-               data-en="Windows · English & Arabic · Beta coming soon"
-               data-ar="Windows · العربية والإنجليزية · النسخة التجريبية قريباً">
-            Windows · English & Arabic · Beta coming soon
+          <div class="hero-meta">
+            <span data-en="Beta 0.1 (v0.1.0) · Windows 11 recommended · English & Arabic · 53 MB"
+                  data-ar="الإصدار التجريبي 0.1 (v0.1.0) · يُوصى بنظام Windows 11 · العربية والإنجليزية · 53 ميجابايت">Beta 0.1 (v0.1.0) · Windows 11 recommended · English & Arabic · 53 MB</span>
+            ·
+            <a href="https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0"
+               data-en="Release notes" data-ar="ملاحظات الإصدار">Release notes</a>
           </div>
         </div>
       </div>
@@ -596,42 +688,42 @@
             <img class="feature-icon" src="assets/icons/brain.svg" alt="" aria-hidden="true">
             <h3 data-en="Conversations" data-ar="المحادثات">Conversations</h3>
             <p data-en="A flexible workspace for your AI conversations."
-               data-ar="مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي."></p>
+               data-ar="مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي.">A flexible workspace for your AI conversations.</p>
           </article>
 
           <article class="feature-card">
             <img class="feature-icon" src="assets/icons/folder.svg" alt="" aria-hidden="true">
             <h3 data-en="File Assistant" data-ar="مساعد الملفات">File Assistant</h3>
             <p data-en="Search, organize, and work with your files with confirmation."
-               data-ar="ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك."></p>
+               data-ar="ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك.">Search, organize, and work with your files with confirmation.</p>
           </article>
 
           <article class="feature-card">
             <img class="feature-icon" src="assets/icons/memory.svg" alt="" aria-hidden="true">
             <h3 data-en="Personal Memory" data-ar="الذاكرة الشخصية">Personal Memory</h3>
             <p data-en="Luna remembers information when you explicitly ask."
-               data-ar="تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً."></p>
+               data-ar="تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً.">Luna remembers information when you explicitly ask.</p>
           </article>
 
           <article class="feature-card">
             <img class="feature-icon" src="assets/icons/documents.svg" alt="" aria-hidden="true">
             <h3 data-en="Document Intelligence" data-ar="فهم المستندات">Document Intelligence</h3>
             <p data-en="Search and work with supported documents."
-               data-ar="ابحث داخل المستندات المدعومة واعمل معها."></p>
+               data-ar="ابحث داخل المستندات المدعومة واعمل معها.">Search and work with supported documents.</p>
           </article>
 
           <article class="feature-card">
             <img class="feature-icon" src="assets/icons/computer.svg" alt="" aria-hidden="true">
             <h3 data-en="Local AI Engine" data-ar="محرك ذكاء محلي">Local AI Engine</h3>
             <p data-en="Run local models on your own computer."
-               data-ar="شغّل النماذج المحلية على جهازك."></p>
+               data-ar="شغّل النماذج المحلية على جهازك.">Run local models on your own computer.</p>
           </article>
 
           <article class="feature-card">
             <img class="feature-icon" src="assets/icons/cloud.svg" alt="" aria-hidden="true">
             <h3 data-en="Hybrid Intelligence" data-ar="الذكاء الهجين">Hybrid Intelligence</h3>
             <p data-en="Choose when to use optional cloud services."
-               data-ar="اختر متى تريد استخدام الخدمات السحابية الاختيارية."></p>
+               data-ar="اختر متى تريد استخدام الخدمات السحابية الاختيارية.">Choose when to use optional cloud services.</p>
           </article>
         </div>
       </div>
@@ -653,28 +745,28 @@
             <img src="assets/screenshots/luna-arabic-chat.webp" alt="Arabic conversation">
             <h3 data-en="Natural conversations" data-ar="محادثات طبيعية">Natural conversations</h3>
             <p data-en="Work in English or Arabic."
-               data-ar="تحدث بالإنجليزية أو العربية."></p>
+               data-ar="تحدث بالإنجليزية أو العربية.">Work in English or Arabic.</p>
           </article>
 
           <article class="showcase-item">
             <img src="assets/screenshots/luna-file-assistant.webp" alt="File assistant">
             <h3 data-en="Your files, within reach" data-ar="ملفاتك في متناولك">Your files, within reach</h3>
             <p data-en="Search and manage files with permission controls."
-               data-ar="ابحث عن الملفات وأدرها مع ضوابط الصلاحيات."></p>
+               data-ar="ابحث عن الملفات وأدرها مع ضوابط الصلاحيات.">Search and manage files with permission controls.</p>
           </article>
 
           <article class="showcase-item">
             <img src="assets/screenshots/luna-privacy-settings.webp" alt="Privacy settings">
             <h3 data-en="Control your privacy" data-ar="تحكم بخصوصيتك">Control your privacy</h3>
             <p data-en="Manage access and control your data."
-               data-ar="تحكم في الوصول إلى ملفاتك وبياناتك."></p>
+               data-ar="تحكم في الوصول إلى ملفاتك وبياناتك.">Manage access and control your data.</p>
           </article>
 
           <article class="showcase-item">
             <img src="assets/screenshots/luna-knowledge.webp" alt="Knowledge and memory">
             <h3 data-en="Knowledge that stays organized" data-ar="معرفة منظمة">Knowledge that stays organized</h3>
             <p data-en="Search your personal knowledge and supported documents."
-               data-ar="ابحث في معرفتك الشخصية ومستنداتك المدعومة."></p>
+               data-ar="ابحث في معرفتك الشخصية ومستنداتك المدعومة.">Search your personal knowledge and supported documents.</p>
           </article>
         </div>
       </div>
@@ -719,18 +811,26 @@
         <div class="mode-grid">
           <article class="mode">
             <h3><img class="mode-icon" src="assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local" data-ar="محلي">Local</span></h3>
-            <p data-en="Use local models on your computer."
-               data-ar="استخدم النماذج المحلية على جهازك."></p>
-          </article>
-          <article class="mode">
-            <h3><img class="mode-icon" src="assets/icons/brain.svg" alt="" aria-hidden="true"><span data-en="Balanced" data-ar="متوازن">Balanced</span></h3>
-            <p data-en="Combine local and cloud capabilities when you choose."
-               data-ar="اجمع بين إمكانات المعالجة المحلية والسحابية حسب اختيارك."></p>
+            <p data-en="Everything runs on your computer with Luna Engine, and works offline once a model is installed."
+               data-ar="كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.">Everything runs on your computer with Luna Engine, and works offline once a model is installed.</p>
           </article>
           <article class="mode">
             <h3><img class="mode-icon" src="assets/icons/cloud.svg" alt="" aria-hidden="true"><span data-en="Cloud" data-ar="سحابي">Cloud</span></h3>
-            <p data-en="Prioritize cloud processing when you want to."
-               data-ar="امنح المعالجة السحابية الأولوية عندما ترغب بذلك."></p>
+            <p data-en="Use Google Gemini or OpenAI with your own API key, stored securely on your PC."
+               data-ar="استخدم Google Gemini أو OpenAI بمفتاح API الخاص بك، ويُحفظ المفتاح بأمان على جهازك.">Use Google Gemini or OpenAI with your own API key, stored securely on your PC.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="assets/icons/brain.svg" alt="" aria-hidden="true"><span data-en="Hybrid" data-ar="هجين">Hybrid</span></h3>
+            <p data-en="Local and cloud together, in one of two styles:"
+               data-ar="المحلي والسحابة معًا، بأحد أسلوبين:">Local and cloud together, in one of two styles:</p>
+            <ul class="mode-options">
+              <li><strong data-en="Balanced" data-ar="متوازن">Balanced</strong>
+                <span data-en="Local first. The cloud steps in only when the local engine is unavailable."
+                      data-ar="المحلي أولًا، ولا تتدخل السحابة إلا إذا تعذّر المحرّك المحلي.">Local first. The cloud steps in only when the local engine is unavailable.</span></li>
+              <li><strong data-en="Lighten the PC" data-ar="تخفيف الجهاز">Lighten the PC</strong>
+                <span data-en="The cloud handles everyday requests, while sensitive messages stay on your PC."
+                      data-ar="تتولى السحابة الطلبات العادية، وتبقى الرسائل الحساسة على جهازك.">The cloud handles everyday requests, while sensitive messages stay on your PC.</span></li>
+            </ul>
           </article>
         </div>
       </div>
@@ -797,19 +897,41 @@
             <h3 data-en="Does Luna need internet?"
                 data-ar="هل تحتاج لونا إلى الإنترنت؟">Does Luna need internet?</h3>
             <p data-en="Local model conversations can work without internet after the model is installed."
-               data-ar="يمكن للمحادثات باستخدام نموذج محلي أن تعمل دون إنترنت بعد تثبيت النموذج."></p>
+               data-ar="يمكن للمحادثات باستخدام نموذج محلي أن تعمل دون إنترنت بعد تثبيت النموذج.">Local model conversations can work without internet after the model is installed.</p>
           </article>
           <article class="feature-card">
             <h3 data-en="Is cloud use required?"
                 data-ar="هل استخدام السحابة إلزامي؟">Is cloud use required?</h3>
             <p data-en="No. Cloud processing is optional and under your control."
-               data-ar="لا. المعالجة السحابية اختيارية وتخضع لتحكمك."></p>
+               data-ar="لا. المعالجة السحابية اختيارية وتخضع لتحكمك.">No. Cloud processing is optional and under your control.</p>
           </article>
           <article class="feature-card">
-            <h3 data-en="Which platform is supported?"
-                data-ar="ما النظام المدعوم؟">Which platform is supported?</h3>
-            <p data-en="The current version is designed for Windows."
-               data-ar="الإصدار الحالي مصمم لنظام Windows."></p>
+            <h3 data-en="Does Luna work on Windows 10?"
+                data-ar="هل تعمل لونا على Windows 10؟">Does Luna work on Windows 10?</h3>
+            <p data-en="Windows 11 (64-bit) is recommended. Windows 10 is not officially supported in this Beta: cloud AI works on it in our testing, but some features may not work as expected."
+               data-ar="يُوصى بنظام Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي: الذكاء السحابي يعمل عليه في اختباراتنا، لكن قد لا تعمل بعض الميزات كما هو متوقع.">Windows 11 (64-bit) is recommended. Windows 10 is not officially supported in this Beta: cloud AI works on it in our testing, but some features may not work as expected.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="Why does Windows show a SmartScreen warning?"
+                data-ar="لماذا يظهر تحذير SmartScreen؟">Why does Windows show a SmartScreen warning?</h3>
+            <p data-en="The Beta installer is not code-signed yet, so Windows may show “Windows protected your PC”. Click More info, then Run anyway — only for installers downloaded from this page or the official Releases page."
+               data-ar="ملف التثبيت غير موقّع رقميًا بعد، لذلك قد تظهر رسالة «⁨Windows protected your PC⁩». اضغط ⁨More info⁩ ثم ⁨Run anyway⁩، ولا تفعل ذلك إلا مع الملفات المنزّلة من هذه الصفحة أو من صفحة الإصدارات الرسمية.">The Beta installer is not code-signed yet, so Windows may show “Windows protected your PC”. Click More info, then Run anyway — only for installers downloaded from this page or the official Releases page.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="How can I verify the installer?"
+                data-ar="كيف أتحقق من ملف التثبيت؟">How can I verify the installer?</h3>
+            <p data-en="Run this command in PowerShell, in the folder of the downloaded file:"
+               data-ar="نفّذ هذا الأمر في PowerShell داخل مجلد الملف المنزَّل:">Run this command in PowerShell, in the folder of the downloaded file:</p>
+            <code class="hash cmd">Get-FileHash .\LunaSetup-0.1.0.exe -Algorithm SHA256</code>
+            <p class="hash-label" data-en="The result must match this SHA-256 exactly:"
+               data-ar="يجب أن تطابق النتيجة هذه البصمة (SHA-256) تمامًا:">The result must match this SHA-256 exactly:</p>
+            <code class="hash">2ed24c91382b8f8c5a6ded6797d0bfa05931c7fb508bb9096a386f6c7d30a1cc</code>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="How do I report a problem?"
+                data-ar="كيف أبلّغ عن مشكلة؟">How do I report a problem?</h3>
+            <p data-en="Use “Report a problem” at the bottom of this page, and read the tester guide first. Security issues must be reported privately, never in a public report."
+               data-ar="استخدم رابط «الإبلاغ عن مشكلة» أسفل هذه الصفحة، واقرأ دليل المجرّبين أولًا. أمّا المشكلات الأمنية فيجب الإبلاغ عنها بشكل خاص، وليس في بلاغ عام.">Use “Report a problem” at the bottom of this page, and read the tester guide first. Security issues must be reported privately, never in a public report.</p>
           </article>
         </div>
       </div>
@@ -818,20 +940,35 @@
     <!-- 10 GET LUNA -->
     <section class="cta">
       <div class="container">
-        <div class="eyebrow" data-en="LUNA BETA" data-ar="نسخة لونا التجريبية">LUNA BETA</div>
+        <div class="eyebrow" data-en="BETA 0.1 — FOUNDATION BETA" data-ar="الإصدار التجريبي 0.1 — الإصدار التأسيسي">BETA 0.1 — FOUNDATION BETA</div>
         <h2 data-en="Your AI. Your PC. Your Rules."
             data-ar="ذكاؤك الاصطناعي. جهازك. قواعدك.">
           Your AI. Your PC. Your Rules.
         </h2>
-        <p data-en="Luna is getting ready. Follow the project on GitHub."
-           data-ar="لونا تستعد للانطلاق. تابع المشروع على GitHub.">
-          Luna is getting ready. Follow the project on GitHub.
+        <p data-en="The first public Beta of Luna is here. Download it, try it, and share your feedback."
+           data-ar="الإصدار التجريبي العام الأول من لونا متاح الآن. حمّلها وجرّبها وشاركنا ملاحظاتك.">
+          The first public Beta of Luna is here. Download it, try it, and share your feedback.
         </p>
-        <a class="button" href="https://github.com/EinMM/lunaicore"
-           data-en="Explore Luna on GitHub"
-           data-ar="استكشف لونا على GitHub">
-          Explore Luna on GitHub
+        <a class="button" href="https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe">
+          <img class="button-icon" src="assets/icons/download.svg" alt="" aria-hidden="true">
+          <span data-en="Download Luna for Windows"
+                data-ar="تحميل لونا لنظام Windows">Download Luna for Windows</span>
         </a>
+        <div class="cta-links">
+          <a href="https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0"
+             data-en="Release notes" data-ar="ملاحظات الإصدار">Release notes</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+             data-href-en="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+             data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+             data-en="Tester guide" data-ar="دليل المجرّبين">Tester guide</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore/issues/new?template=bug_report.yml"
+             data-en="Report a problem" data-ar="الإبلاغ عن مشكلة">Report a problem</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore"
+             data-en="View on GitHub" data-ar="عرض المشروع على GitHub">View on GitHub</a>
+        </div>
       </div>
     </section>
   </main>
@@ -846,6 +983,21 @@
       </span>
       <a href="https://github.com/EinMM/lunaicore">GitHub ↗</a>
     </div>
+
+    <nav class="container footer-links" aria-label="Help and feedback">
+      <a href="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+         data-href-en="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+         data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+         data-en="Tester guide" data-ar="دليل المجرّبين">Tester guide</a>
+      <a href="https://github.com/EinMM/lunaicore/issues/new?template=bug_report.yml"
+         data-en="Report a problem" data-ar="الإبلاغ عن مشكلة">Report a problem</a>
+      <a href="https://github.com/EinMM/lunaicore/issues/new?template=feature_request.yml"
+         data-en="Suggest a feature" data-ar="اقتراح ميزة">Suggest a feature</a>
+      <a href="https://github.com/EinMM/lunaicore/issues"
+         data-en="All reports" data-ar="جميع البلاغات">All reports</a>
+      <a href="https://github.com/EinMM/lunaicore/blob/main/SECURITY.md"
+         data-en="Security policy" data-ar="سياسة الأمان">Security policy</a>
+    </nav>
   </footer>
 
   <script>
@@ -860,6 +1012,14 @@
           language === "ar"
             ? element.dataset.ar
             : element.dataset.en;
+      });
+
+      // Links with a version per language (e.g. TESTERS.md / TESTERS.ar.md).
+      document.querySelectorAll("[data-href-en][data-href-ar]").forEach(link => {
+        link.href =
+          language === "ar"
+            ? link.dataset.hrefAr
+            : link.dataset.hrefEn;
       });
 
       languageToggle.textContent =
