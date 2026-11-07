@@ -88,7 +88,7 @@ Use Luna for your real daily tasks for a few days. Your honest impressions ("thi
 - **Don't give Luna Full access to important folders.** Use a dedicated test folder with copies of files. This is a Beta.
 - **Don't rely on Luna for anything critical** — work deadlines, legal/medical/financial decisions, or your only copy of a file.
 - **Never post API keys, passwords or personal data in GitHub Issues.** Issues are **public**.
-- **Don't upload your whole data or logs folder** to an issue. Logs may contain parts of your conversations. Copy only the relevant lines and remove anything private first.
+- **Don't post logs or files from your data folder** in an issue. They may contain file paths and parts of your conversations. We'll ask privately if we need them.
 - **Don't run Luna as Administrator.** It doesn't need it.
 - **Don't edit files inside the data folder by hand** unless we ask you to.
 - **Don't set a high cloud spending cap.** Keep it low while testing — cloud usage costs real money on your own account.
@@ -99,19 +99,22 @@ Use Luna for your real daily tasks for a few days. Your honest impressions ("thi
 
 All feedback goes to **[GitHub Issues](https://github.com/EinMM/lunaicore/issues)**. You can write in **Arabic or English**.
 
+**Easiest way:** use **Send feedback** inside Luna — it opens the right form with your version and engine already filled in. Or use **Settings → About → Copy system info** (versions only, no paths) and paste it into the form.
+
 Choose one of two types:
 
 ### 🐞 Bug report — something doesn't work
-Please include:
+The form will ask for:
 1. **Title:** short and specific — e.g. *"Stop button doesn't stop cloud answer"*, not *"Bug"*.
-2. **Luna version** (Settings → About).
-3. **Your PC:** Windows version, CPU, GPU, RAM.
-4. **Mode & model:** Local / Cloud / Hybrid, model name, engine (CPU / Vulkan / CUDA).
+2. **Luna version** and **Windows version**.
+3. **Engine & model:** Local / Cloud / Hybrid, engine (CPU / Vulkan / CUDA), model name.
+4. **Hardware** *(optional, but very helpful for speed or GPU problems)*: CPU, GPU, RAM — model names only.
 5. **Steps to reproduce:** 1… 2… 3…
-6. **What you expected** vs. **what actually happened.**
+6. **What you expected** vs. **what actually happened** — error text and screenshots are welcome, but **hide any paths, names or conversation text first**.
 7. **How often:** always / sometimes / once.
-8. **Screenshot or short video** if possible.
-9. **Relevant log lines** (from the `logs\` folder) — **check them for private content first**.
+8. **Severity** *(optional)* — see the guide below.
+
+> **Logs:** please don't paste log files or log lines into issues — they can contain file paths and parts of your conversations. If we need them, we'll ask you and explain how to share them privately.
 
 ### 💡 Feature request — an idea or improvement
 Please include:
