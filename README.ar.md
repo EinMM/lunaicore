@@ -10,7 +10,7 @@
 
 **[تنزيل Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe)** · [ملاحظات الإصدار](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0) · [موقع المشروع](https://einmm.github.io/lunaicore/) · [دليل المجرّبين](TESTERS.ar.md)
 
-![نافذة المحادثة الرئيسية في لونا](assets/screenshots/Luna-ai-01-ar.png)
+![نافذة المحادثة الرئيسية في لونا](assets/screenshots/Luna-AI-01-ar.png)
 
 ## ماذا تستطيع لونا أن تفعل؟
 
@@ -20,7 +20,7 @@
 - **ذاكرة شخصية:** أنت تقرر ما تتذكره لونا، وتستطيع مراجعته أو حذفه من الإعدادات.
 - **مساعدة داخل التطبيق:** اكتب `/help` لفتح الدليل المدمج.
 
-![لونا تطلب تأكيدك قبل تعديل ملف](assets/screenshots/Luna-ai-02-ar.png)
+![لونا تطلب تأكيدك قبل تعديل ملف](assets/screenshots/Luna-AI-02-ar.png)
 
 ## الخصوصية وأوضاع الذكاء
 
@@ -30,7 +30,7 @@
 - **مفاتيح الـ API** تُحفظ في مدير بيانات الاعتماد في Windows (Credential Manager)، لا في ملفات نصية مكشوفة.
 - **التحديثات:** تتحقق لونا من وجود إصدار جديد وتخبرك فقط، ولا تثبّت أي شيء بنفسها. ويمكنك إيقاف التحقق من التحديثات من الإعدادات.
 
-![إعدادات لونا: اختيار الذكاء المحلي أو السحابي وخيارات الخصوصية](assets/screenshots/Luna-ai-03-ar.png)
+![إعدادات لونا: اختيار الذكاء المحلي أو السحابي وخيارات الخصوصية](assets/screenshots/Luna-AI-03-ar.png)
 
 ## تثبيت Luna Beta 0.1
 
