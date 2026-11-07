@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: "🔒 Security or privacy issue · مشكلة أمنية أو تتعلق بالخصوصية"
-    url: "mailto:lunaicore@outlook.com"
-    about: "Please do not post these publicly — email us instead · من فضلك لا تنشرها علنًا، وراسلنا بالبريد"
+    url: "https://github.com/EinMM/lunaicore/security/advisories/new"
+    about: "Report privately — never in a public issue (or email lunaicore@outlook.com) · أبلغ بشكل خاص، لا في بلاغ عام (أو راسل lunaicore@outlook.com)"
   - name: "📖 Tester guide · دليل المجرّبين"
     url: "https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
     about: "What to test, what to avoid and how to report · ماذا تجرّب، وما تتجنبه، وكيف ترسل ملاحظاتك"
