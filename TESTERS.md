@@ -1,6 +1,6 @@
 # Luna — Beta Tester Guide
 
-> **Beta 0.1 — Foundation Beta** · Windows 10/11 only · [العربية](TESTERS.ar.md)
+> **Beta 0.1 — Foundation Beta** · Windows 11 recommended · Windows 10: not officially supported (cloud AI works) · [العربية](TESTERS.ar.md)
 
 Thank you for helping test Luna! Luna is a desktop AI assistant for Windows that runs **locally on your PC** by default, with optional cloud models (OpenAI / Google Gemini) using your own API keys.
 
@@ -13,7 +13,7 @@ This is an **early Beta**. Things will break — that is exactly why you are her
 - **It is a Beta.** Expect bugs, slow answers on weaker PCs, rough edges in the UI, and occasional wrong answers from the AI.
 - **Windows SmartScreen warning.** The Beta installer is **not code-signed yet**, so Windows may show *"Windows protected your PC"*. Click **More info → Run anyway**. Only do this for installers downloaded from the official [Releases page](https://github.com/EinMM/lunaicore/releases).
 - **Local AI needs resources.** The first model download is large, and answers depend on your CPU/GPU and RAM. A slow answer is not always a bug — but tell us about it (with your hardware).
-- **Your data stays on your PC.** Conversations, settings and memory are stored only on your machine. Nothing is sent anywhere unless *you* choose a cloud model.
+- **Your data stays on your PC.** Conversations, settings and memory are stored only on your machine. Nothing is sent anywhere unless *you* choose a cloud model — except the optional update check, which you can turn off in Settings.
 - **Features may change** between Beta builds, and data from one Beta may not always carry over perfectly to the next.
 
 ### Not included in this Beta (please don't report these as missing)

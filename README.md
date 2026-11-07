@@ -6,9 +6,9 @@
 
 Luna is a Windows desktop assistant that works with the files on your PC — and never changes them without asking you first. Chat in Arabic or English, and choose between local AI that runs on your own device and cloud AI from a provider you configure.
 
-**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0) · [Project website](https://einmm.github.io/lunaicore/)
+**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
 
-<!-- Screenshot: main chat window -->
+![Luna main chat window](assets/screenshots/Luna-ai-01-en.png)
 
 ## What Luna can do
 
@@ -18,7 +18,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 - **Keep a personal memory:** you decide what Luna remembers, and you can review or delete it in Settings.
 - **Get help in the app:** type `/help` for the built-in guide.
 
-<!-- Screenshot: file change confirmation dialog -->
+![Luna asks for your confirmation before changing a file](assets/screenshots/Luna-ai-02-en.png)
 
 ## Privacy and AI modes
 
@@ -28,7 +28,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 - **Your API keys** are stored in Windows Credential Manager, not in plain-text files.
 - **Updates:** Luna checks for new versions and lets you know — it never installs anything by itself. You can turn off update checks in Settings.
 
-<!-- Screenshot: Settings → privacy / AI mode -->
+![Luna settings: choose local or cloud AI and your privacy options](assets/screenshots/Luna-ai-03-en.png)
 
 ## Install Luna Beta 0.1
 
@@ -57,7 +57,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 
 ## Share feedback
 
-This is an early beta, and your experience can help shape what comes next.
+This is an early beta, and your experience can help shape what comes next. New to testing Luna? Start with the **[Beta tester guide](TESTERS.md)** — it covers what to test, what to avoid, and how to write a useful report.
 
 - In Luna: **Settings → About → Send feedback**
 - [Report an issue or request a feature](https://github.com/EinMM/lunaicore/issues)
