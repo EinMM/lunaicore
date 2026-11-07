@@ -21,8 +21,8 @@ body:
   - type: input
     id: engine
     attributes:
-      label: "Engine · المحرّك"
-      placeholder: "Luna Engine (local) · محرّك لونا (محلي) — vulkan"
+      label: "Engine & model · المحرّك والنموذج"
+      placeholder: "Luna Engine (local) · محرّك لونا (محلي) — vulkan — gemma4:12b"
   - type: textarea
     id: problem
     attributes:

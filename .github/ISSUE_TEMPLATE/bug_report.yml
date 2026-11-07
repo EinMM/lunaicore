@@ -9,6 +9,7 @@ body:
         **Please do not include personal data, file paths, file contents, API keys or conversation text.**
         **من فضلك لا تضع بيانات شخصية أو مسارات ملفات أو محتوى ملفات أو مفاتيح API أو نص محادثات.**
         Tip: Settings → About → "Copy system info" gives versions only (no paths). · نصيحة: الإعدادات ← حول ← "نسخ معلومات النظام" تعطي الإصدارات فقط (بدون مسارات).
+        Security or privacy problem? Do not post it here — email lunaicore@outlook.com · مشكلة أمنية أو تتعلق بالخصوصية؟ لا تنشرها هنا — راسلنا على lunaicore@outlook.com
   - type: input
     id: luna_version
     attributes:
@@ -21,17 +22,23 @@ body:
     id: windows_version
     attributes:
       label: "Windows version · إصدار ويندوز"
-      placeholder: "Windows 11 23H2"
+      placeholder: "Windows 11 24H2"
     validations:
       required: true
   - type: input
     id: engine
     attributes:
-      label: "Engine · المحرّك"
-      description: "Filled in by Luna's \"Send feedback\" (local / cloud / hybrid + backend) · تعبّئه لونا من «إرسال ملاحظة»"
-      placeholder: "Luna Engine (local) · محرّك لونا (محلي) — vulkan"
+      label: "Engine & model · المحرّك والنموذج"
+      description: "Filled in by Luna's \"Send feedback\" (local / cloud / hybrid + backend + model) · تعبّئه لونا من «إرسال ملاحظة»"
+      placeholder: "Luna Engine (local) · محرّك لونا (محلي) — vulkan — gemma4:12b"
     validations:
       required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: "Hardware (optional) · مواصفات الجهاز (اختياري)"
+      description: "Helpful for speed or GPU problems. Model names only · مفيدة لمشكلات السرعة أو كرت الشاشة. أسماء القطع فقط"
+      placeholder: "CPU: Ryzen 7 5800X · GPU: RTX 3060 12GB · RAM: 32GB"
   - type: textarea
     id: steps
     attributes:
@@ -53,9 +60,29 @@ body:
     id: actual
     attributes:
       label: "Actual result · النتيجة الفعلية"
-      description: "Error text is welcome; remove any paths or names first · نص الخطأ مفيد؛ احذف أي مسارات أو أسماء أولًا"
+      description: "Error text and screenshots are welcome; hide any paths, names or conversation text first · نص الخطأ ولقطات الشاشة مفيدة؛ أخفِ أي مسارات أو أسماء أو نص محادثات أولًا"
     validations:
       required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: "How often? · كم مرة تحدث؟"
+      options:
+        - "Always · دائمًا"
+        - "Sometimes · أحيانًا"
+        - "Once · مرة واحدة"
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity (optional) · الخطورة (اختياري)"
+      description: "See the severity guide in TESTERS.md · راجع دليل الخطورة في TESTERS.ar.md"
+      options:
+        - "🔴 Critical · حرج — data loss, crash on start, file action without confirmation, private data sent to cloud · فقدان بيانات، انهيار عند التشغيل، عملية على ملف دون تأكيد، إرسال بيانات خاصة للسحابة"
+        - "🟠 High · عالٍ — a main feature does not work at all · ميزة رئيسية لا تعمل إطلاقًا"
+        - "🟡 Medium · متوسط — works, but wrong or unreliable · تعمل لكن بشكل خاطئ أو غير موثوق"
+        - "🟢 Low · منخفض — cosmetic, text, small UI issue · مظهر أو نص أو مشكلة صغيرة في الواجهة"
   - type: checkboxes
     id: privacy
     attributes:
