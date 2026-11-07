@@ -18,7 +18,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 - **Keep a personal memory:** you decide what Luna remembers, and you can review or delete it in Settings.
 - **Get help in the app:** type `/help` for the built-in guide.
 
-![Luna asks for your confirmation before changing a file](assets/screenshots/Luna-ai-02-en.png)
+![Luna asks for your confirmation before changing a file](assets/screenshots/Luna-AI-02-en.png)
 
 ## Privacy and AI modes
 
