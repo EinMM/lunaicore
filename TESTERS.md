@@ -134,7 +134,7 @@ Please include:
 | 🟡 Medium | Works, but wrong or unreliable |
 | 🟢 Low | Cosmetic, text, small UI issue |
 
-> 🔴 **Security or privacy issue?** Please **don't** post it publicly. Email **lunaicore@outlook.com** instead.
+> 🔴 **Security or privacy issue?** Please **don't** post it publicly — see **[SECURITY.md](SECURITY.md)** to report it privately.
 
 ---
 
