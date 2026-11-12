@@ -1,12 +1,13 @@
+<!-- luna-doc-version: 2026-11-08 -->
 # Terms of Use · شروط الاستخدام
 
 [English](#english) · [العربية](#arabic)
 
-**Applies to:** Luna AI Desktop Assistant for Windows, Beta 0.1 and later · **Effective:** 8 November 2026
-
 <a id="english"></a>
 
 ## English
+
+**Applies to:** Luna AI Desktop Assistant for Windows, Beta 0.1 and later · **Effective:** 8 November 2026
 
 These terms are an agreement between you and **Hussain (EinMM)** ("the developer") about the use of Luna AI Desktop Assistant ("Luna"). By installing or using Luna, you accept them. If you don't accept them, don't install or use Luna.
 
@@ -82,6 +83,8 @@ See also: [Privacy Policy](PRIVACY.md) · [Security Policy](SECURITY.md)
 <div dir="rtl">
 
 ## العربية
+
+**ينطبق على:** Luna AI Desktop Assistant لنظام Windows، الإصدار التجريبي 0.1 وما بعده · **سارية اعتبارًا من:** 8 نوفمبر 2026
 
 هذه الشروط اتفاق بينك وبين **حسين (EinMM)** («المطوّر») بشأن استخدام Luna AI Desktop Assistant («لونا»). وبتثبيتك لونا أو استخدامك لها فإنك توافق على هذه الشروط. وإن لم توافق عليها، فلا تثبّت لونا ولا تستخدمها.
 
