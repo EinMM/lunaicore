@@ -30,7 +30,7 @@ This is an **early Beta**. Things will break — that is exactly why you are her
 ## 2. Installing Luna
 
 1. Download the latest installer from **[Releases](https://github.com/EinMM/lunaicore/releases)**.
-2. Run it. Luna installs **per user** (no administrator rights needed) into:
+2. Run it and accept the Terms of Use and Privacy Policy pages. Luna installs **per user** (no administrator rights needed) into:
    `%LOCALAPPDATA%\Programs\Luna`
 3. Start Luna and follow the **welcome / setup screen**.
 4. Let Luna pick or download a local model suited to your PC.
@@ -99,7 +99,7 @@ Use Luna for your real daily tasks for a few days. Your honest impressions ("thi
 
 All feedback goes to **[GitHub Issues](https://github.com/EinMM/lunaicore/issues)**. You can write in **Arabic or English**.
 
-**Easiest way:** use **Send feedback** inside Luna — it opens the right form with your version and engine already filled in. Or use **Settings → About → Copy system info** (versions only, no paths) and paste it into the form.
+**Easiest way:** use the **Send feedback** button in the side bar (also in **Settings → About**) — it opens the right form with your version and engine already filled in. Or use **Settings → About → Copy system info** (versions only, no paths) and paste it into the form.
 
 Choose one of two types:
 
