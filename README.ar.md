@@ -8,7 +8,7 @@
 
 لونا مساعد ذكي لسطح المكتب على Windows، يعمل مع ملفاتك على جهازك، ولا يغيّر أي ملف قبل أن يستأذنك. تحدّث معها بالعربية أو الإنجليزية، واختر بين ذكاء محلي يعمل على جهازك أو ذكاء سحابي من مزوّد تختاره أنت.
 
-**[تنزيل Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe)** · [ملاحظات الإصدار](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0) · [موقع المشروع](https://einmm.github.io/lunaicore/) · [دليل المجرّبين](TESTERS.ar.md)
+**[تنزيل Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe)** · [ملاحظات الإصدار](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1) · [موقع المشروع](https://einmm.github.io/lunaicore/) · [دليل المجرّبين](TESTERS.ar.md)
 
 ![نافذة المحادثة الرئيسية في لونا](assets/screenshots/Luna-AI-01-ar.png)
 
@@ -34,13 +34,13 @@
 
 ## تثبيت Luna Beta 0.1
 
-1. نزّل الملف [LunaSetup-0.1.0.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe).
+1. نزّل الملف [LunaSetup-0.1.1.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe).
 2. **يُنصح به:** تحقّق من سلامة الملف. افتح PowerShell في مجلد التنزيلات وشغّل:
 
 </div>
 
 ```powershell
-Get-FileHash .\LunaSetup-0.1.0.exe -Algorithm SHA256
+Get-FileHash .\LunaSetup-0.1.1.exe -Algorithm SHA256
 ```
 
 <div dir="rtl">
@@ -50,12 +50,12 @@ Get-FileHash .\LunaSetup-0.1.0.exe -Algorithm SHA256
 </div>
 
 ```
-2ED24C91382B8F8C5A6DED6797D0BFA05931C7FB508BB9096A386F6C7D30A1CC
+6DC247705961FC37EDA70AA36D2582E7E8D7CAD245D6C8102957072EA09C2028
 ```
 
 <div dir="rtl">
 
-3. شغّل ملف التثبيت. لا يحتاج صلاحيات المسؤول (Administrator).
+3. شغّل ملف التثبيت ووافق على صفحتي شروط الاستخدام وسياسة الخصوصية. لا يحتاج صلاحيات المسؤول (Administrator).
 4. قد يظهر لك تحذير «Windows protected your PC» لأن ملف التثبيت لا يحمل شهادة توقيع تجارية حتى الآن. إذا كانت البصمة مطابقة، اختر **More info ← Run anyway**.
 5. اتبع خطوات الترحيب في لونا لإكمال الإعداد.
 
@@ -69,7 +69,7 @@ Get-FileHash .\LunaSetup-0.1.0.exe -Algorithm SHA256
 
 هذا إصدار تجريبي مبكر، وتجربتك تساعد في تشكيل ما سيأتي بعده. إذا كانت هذه أول مرة تجرّب فيها لونا، ابدأ بـ **[دليل المجرّبين](TESTERS.ar.md)**: يشرح ماذا تجرّب، وما يجب تجنبه، وكيف تكتب بلاغًا مفيدًا.
 
-- من داخل لونا: **الإعدادات ← حول ← إرسال ملاحظات**
+- من داخل لونا: زر **«إرسال ملاحظة»** في الشريط الجانبي (وفي **الإعدادات ← حول** أيضًا)
 - [أبلغ عن مشكلة أو اطلب ميزة](https://github.com/EinMM/lunaicore/issues)
 - البريد: [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
 

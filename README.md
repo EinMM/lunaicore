@@ -6,7 +6,7 @@
 
 Luna is a Windows desktop assistant that works with the files on your PC — and never changes them without asking you first. Chat in Arabic or English, and choose between local AI that runs on your own device and cloud AI from a provider you configure.
 
-**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.0) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
+**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
 
 ![Luna main chat window](assets/screenshots/Luna-AI-01-en.png)
 
@@ -32,20 +32,20 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 
 ## Install Luna Beta 0.1
 
-1. Download [LunaSetup-0.1.0.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.0/LunaSetup-0.1.0.exe).
+1. Download [LunaSetup-0.1.1.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe).
 2. **Recommended:** verify the download. Open PowerShell in your Downloads folder and run:
 
    ```powershell
-   Get-FileHash .\LunaSetup-0.1.0.exe -Algorithm SHA256
+   Get-FileHash .\LunaSetup-0.1.1.exe -Algorithm SHA256
    ```
 
    The result should match:
 
    ```
-   2ED24C91382B8F8C5A6DED6797D0BFA05931C7FB508BB9096A386F6C7D30A1CC
+   6DC247705961FC37EDA70AA36D2582E7E8D7CAD245D6C8102957072EA09C2028
    ```
 
-3. Run the installer. Administrator rights are not required.
+3. Run the installer and accept the Terms of Use and Privacy Policy pages. Administrator rights are not required.
 4. Windows may show “Windows protected your PC” because the installer does not have a commercial code-signing certificate yet. If the file hash matches, select **More info → Run anyway**.
 5. Follow Luna’s welcome steps to finish setup.
 
@@ -59,7 +59,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 
 This is an early beta, and your experience can help shape what comes next. New to testing Luna? Start with the **[Beta tester guide](TESTERS.md)** — it covers what to test, what to avoid, and how to write a useful report.
 
-- In Luna: **Settings → About → Send feedback**
+- In Luna: the **Send feedback** button in the side bar (also in **Settings → About**)
 - [Report an issue or request a feature](https://github.com/EinMM/lunaicore/issues)
 - Email: [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
 
