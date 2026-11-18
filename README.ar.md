@@ -6,9 +6,9 @@
 
 [English](README.md) · [العربية](README.ar.md)
 
-لونا مساعد ذكي لسطح المكتب على Windows، يعمل مع ملفاتك على جهازك، ولا يغيّر أي ملف قبل أن يستأذنك. تحدّث معها بالعربية أو الإنجليزية، واختر بين ذكاء محلي يعمل على جهازك أو ذكاء سحابي من مزوّد تختاره أنت.
+لونا مساعد ذكاء اصطناعي لسطح المكتب على Windows، يعمل محليًا أولًا مع ملفاتك على جهازك، ولا يغيّر أي ملف قبل أن يستأذنك. تحدّث معها بالعربية أو الإنجليزية، واختر بين ذكاء محلي يعمل على جهازك أو ذكاء سحابي من مزوّد تختاره أنت.
 
-**[تنزيل Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe)** · [ملاحظات الإصدار](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1) · [موقع المشروع](https://einmm.github.io/lunaicore/) · [دليل المجرّبين](TESTERS.ar.md)
+**[تنزيل Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe)** · [ملاحظات الإصدار](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1) · [موقع المشروع](https://lunaicore.com/ar/) · [دليل المجرّبين](TESTERS.ar.md)
 
 ![نافذة المحادثة الرئيسية في لونا](assets/screenshots/Luna-AI-01-ar.png)
 

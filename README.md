@@ -4,9 +4,9 @@
 
 [English](README.md) · [العربية](README.ar.md)
 
-Luna is a Windows desktop assistant that works with the files on your PC — and never changes them without asking you first. Chat in Arabic or English, and choose between local AI that runs on your own device and cloud AI from a provider you configure.
+Luna is a local-first AI desktop assistant for Windows that works with the files on your PC — and never changes them without asking you first. Chat in Arabic or English, and choose between local AI that runs on your own device and cloud AI from a provider you configure.
 
-**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
+**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1) · [Project website](https://lunaicore.com) · [Beta tester guide](TESTERS.md)
 
 ![Luna main chat window](assets/screenshots/Luna-AI-01-en.png)
 
