@@ -1398,24 +1398,24 @@
 
         <div class="provider-groups">
           <article class="provider-group">
-            <h3><img class="mode-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local engines" data-ar="محرّكات محلية">محرّكات محلية</span></h3>
-            <p data-en="Private by design. Works offline once a model is installed."
-               data-ar="خصوصية بحكم التصميم، وتعمل دون إنترنت بعد تثبيت النموذج.">خصوصية بحكم التصميم، وتعمل دون إنترنت بعد تثبيت النموذج.</p>
+            <h3><img class="mode-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local models" data-ar="النماذج المحلية">النماذج المحلية</span></h3>
+            <p data-en="Models run on Luna Engine, built on llama.cpp, for better performance. Works offline once a model is installed."
+               data-ar="تعمل النماذج على محرّك Luna Engine المبني على llama.cpp لأداء أفضل، ودون إنترنت بعد تثبيت النموذج.">تعمل النماذج على محرّك Luna Engine المبني على llama.cpp لأداء أفضل، ودون إنترنت بعد تثبيت النموذج.</p>
             <ul class="provider-list">
               <li class="provider">
-                <span class="provider-mark" aria-hidden="true">LE</span>
+                <span class="provider-mark" aria-hidden="true">GE</span>
                 <div>
-                  <strong>Luna Engine <span class="badge default" data-en="Default" data-ar="افتراضي">افتراضي</span></strong>
-                  <small data-en="Built on llama.cpp, with automatic CUDA, Vulkan or CPU selection."
-                         data-ar="مبني على llama.cpp، ويختار تلقائيًا بين CUDA وVulkan والمعالج.">مبني على llama.cpp، ويختار تلقائيًا بين CUDA وVulkan والمعالج.</small>
+                  <strong>Gemma</strong>
+                  <small data-en="Google’s open model family, run locally on your PC."
+                         data-ar="عائلة نماذج Google المفتوحة، وتعمل محليًا على جهازك.">عائلة نماذج Google المفتوحة، وتعمل محليًا على جهازك.</small>
                 </div>
               </li>
               <li class="provider">
-                <span class="provider-mark" aria-hidden="true">OL</span>
+                <span class="provider-mark" aria-hidden="true">QW</span>
                 <div>
-                  <strong>Ollama <span class="badge optional" data-en="Optional" data-ar="اختياري">اختياري</span></strong>
-                  <small data-en="Advanced: use your existing Ollama installation instead of Luna Engine."
-                         data-ar="للمستخدمين المتقدمين: استخدم تثبيت Ollama الموجود لديك بدلًا من محرّك لونا.">للمستخدمين المتقدمين: استخدم تثبيت Ollama الموجود لديك بدلًا من محرّك لونا.</small>
+                  <strong>Qwen</strong>
+                  <small data-en="Alibaba’s open model family, run locally on your PC."
+                         data-ar="عائلة نماذج Alibaba المفتوحة، وتعمل محليًا على جهازك.">عائلة نماذج Alibaba المفتوحة، وتعمل محليًا على جهازك.</small>
                 </div>
               </li>
             </ul>
@@ -1657,10 +1657,10 @@
     // Paste the full https:// address of each profile. Empty ones stay hidden,
     // and the whole "Follow Luna" block hides itself if all four are empty.
     const SOCIAL = [
-      { name: "TikTok",    url: "" },
-      { name: "Instagram", url: "" },
-      { name: "X",         url: "" },
-      { name: "YouTube",   url: "" }
+      { name: "TikTok", url: "https://www.tiktok.com/@lunaicore" },
+      { name: "Instagram", url: "https://www.instagram.com/lunaicore/" },
+      { name: "X", url: "https://x.com/lunaicore" },
+      { name: "YouTube", url: "https://www.youtube.com/@lunaicore" }
     ];
 
     (function buildSocial() {
