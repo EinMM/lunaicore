@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b19">
+  <meta name="description" content="لونا مساعد ذكاء اصطناعي لسطح المكتب على Windows يعمل محليًا أولًا، بالعربية والإنجليزية. شغّل النماذج المحلية، وتعامل مع ملفاتك، واستخدم الذكاء السحابي فقط عندما تختار.">
+  <link rel="canonical" href="https://lunaicore.com/ar/">
+  <link rel="alternate" hreflang="en" href="https://lunaicore.com/">
+  <link rel="alternate" hreflang="ar" href="https://lunaicore.com/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://lunaicore.com/">
+  <title>لونا | مساعد ذكاء اصطناعي لسطح المكتب يعمل محليًا على Windows</title>
+
+  <!-- Link previews (WhatsApp, X, Discord...). Absolute URLs: update them if the site moves to lunaicore.com. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luna AI Desktop Assistant">
+  <meta property="og:title" content="لونا: ذكاؤك الاصطناعي. جهازك. قواعدك.">
+  <meta property="og:description" content="مساعد ذكاء اصطناعي لسطح المكتب على Windows بالعربية والإنجليزية. نماذج محلية، وملفاتك بين يديك، والسحابة فقط عند اختيارك.">
+  <meta property="og:url" content="https://lunaicore.com/ar/">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:image" content="https://einmm.github.io/lunaicore/assets/social/luna-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="لونا: ذكاؤك الاصطناعي. جهازك. قواعدك.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Luna AI Desktop Assistant",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Windows 11",
+    "softwareVersion": "0.1.1",
+    "inLanguage": ["ar", "en"],
+    "url": "https://lunaicore.com/ar/",
+    "downloadUrl": "https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe",
+    "author": { "@type": "Person", "name": "Hussain (EinMM)" },
+    "description": "لونا مساعد ذكاء اصطناعي لسطح المكتب على Windows يعمل محليًا أولًا، بالعربية والإنجليزية. شغّل النماذج المحلية، وتعامل مع ملفاتك، واستخدم الذكاء السحابي فقط عندما تختار."
+  }
+  </script>
+
+  <link rel="icon" href="../assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/logo/favicon.png" type="image/png" sizes="32x32">
+
+  <style>
+    @font-face {
+      font-family: "Inter";
+      src: url("../assets/fonts/inter-variable.woff2") format("woff2");
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    /* IBM Plex Sans Arabic is a static font: one file per weight. */
+    @font-face {
+      font-family: "IBM Plex Arabic";
+      src: url("../assets/fonts/IBMPlexSansArabic-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "IBM Plex Arabic";
+      src: url("../assets/fonts/IBMPlexSansArabic-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "IBM Plex Arabic";
+      src: url("../assets/fonts/IBMPlexSansArabic-SemiBold.woff2") format("woff2");
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "IBM Plex Arabic";
+      src: url("../assets/fonts/IBMPlexSansArabic-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #080b19;
+      --surface: #11182a;
+      --surface-2: #172139;
+      --text: #f2f4fa;
+      --muted: #a8b3c9;
+      --purple: #7957f5;
+      --cyan: #26c6f5;
+      --border: rgba(255,255,255,.09);
+      --width: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body[dir="rtl"] {
+      font-family: "IBM Plex Arabic", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(var(--width), calc(100% - 48px));
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,11,25,.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-button {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.2;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+      padding: 8px 13px;
+      border-radius: 9px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 10px;
+      background: linear-gradient(110deg,var(--purple),#6044d9);
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      border: 0;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(121,87,245,.25);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+    }
+
+    .hero {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg,rgba(8,11,25,.96),rgba(8,11,25,.68)),
+        url("../assets/backgrounds/luna-hero-background.webp")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 110px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px,7vw,76px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin: 22px 0;
+    }
+
+    body[dir="rtl"] h1 {
+      letter-spacing: 0;
+      line-height: 1.4;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg,#a58bff,#43d3ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 600px;
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-meta {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-meta a,
+    .cta-links a {
+      color: var(--cyan);
+    }
+
+    .hero-meta a:hover,
+    .cta-links a:hover {
+      text-decoration: underline;
+    }
+
+    .button-icon {
+      width: 18px;
+      height: 18px;
+      margin-inline-end: 9px;
+      filter: brightness(0) invert(1);
+    }
+
+    .cta-links {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 18px;
+    }
+
+    section {
+      padding: 112px 0;
+      position: relative;
+    }
+
+    .section-texture {
+      background:
+        linear-gradient(rgba(8,11,25,.91),rgba(8,11,25,.91)),
+        url("../assets/backgrounds/luna-section-texture.webp")
+        center/cover;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px,4vw,48px);
+      line-height: 1.25;
+      margin: 12px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .product-image {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: 0 25px 80px rgba(0,0,0,.3);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 28px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: transform .2s,border-color .2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(121,87,245,.5);
+    }
+
+    .feature-icon {
+      width: 28px;
+      height: 28px;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(77%) sepia(34%) saturate(1774%) hue-rotate(154deg) brightness(101%) contrast(101%);
+      margin-bottom: 18px;
+    }
+
+    .mode-icon {
+      width: 22px;
+      height: 22px;
+      display: inline-block;
+      vertical-align: -5px;
+      margin-inline-end: 8px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(77%) sepia(34%) saturate(1774%) hue-rotate(154deg) brightness(101%) contrast(101%);
+    }
+
+    .technical-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .technical-icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(77%) sepia(34%) saturate(1774%) hue-rotate(154deg) brightness(101%) contrast(101%);
+    }
+
+    .hero-mark {
+      position: absolute;
+      width: clamp(150px, 19vw, 250px);
+      height: auto;
+      right: max(5vw, calc((100vw - var(--width)) / 2));
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .2;
+      pointer-events: none;
+      z-index: 0;
+      object-fit: contain;
+    }
+
+    body[dir="rtl"] .hero-mark {
+      right: auto;
+      left: max(5vw, calc((100vw - var(--width)) / 2));
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .feature-card h3 { margin: 0 0 10px; }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 24px;
+    }
+
+    .showcase-item img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .showcase-item h3 { margin-bottom: 4px; }
+
+    .showcase-item p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 0;
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .mode {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+
+    .mode h3 { margin-top: 0; }
+
+    .mode p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .technical-list {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+    }
+
+    .technical-item {
+      background: var(--surface);
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .technical-item span {
+      color: var(--muted);
+      font-size: 13px;
+      display: block;
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at center,rgba(121,87,245,.17),transparent 65%),
+        var(--bg);
+    }
+
+    .cta h2 {
+      font-size: clamp(34px,5vw,54px);
+      line-height: 1.2;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-links a:hover { color: white; }
+
+    .hash {
+      display: block;
+      margin-top: 12px;
+      padding: 10px 12px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text);
+      background: rgba(0,0,0,.3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      word-break: break-all;
+      direction: ltr;
+      text-align: left;
+      user-select: all;
+    }
+
+    .feature-card p.hash-label { margin-top: 12px; }
+
+    .hash.cmd { word-break: normal; overflow-wrap: anywhere; }
+
+    .mode-options {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mode-options li {
+      color: var(--muted);
+      font-size: 14px;
+      padding-inline-start: 12px;
+      border-inline-start: 2px solid rgba(121,87,245,.6);
+    }
+
+    .mode-options strong {
+      color: var(--text);
+      display: block;
+    }
+
+
+    /* ---------- Accessibility ---------- */
+    .skip-link {
+      position: absolute;
+      inset-inline-start: 12px;
+      top: -64px;
+      z-index: 400;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--purple);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ---------- Scroll progress ---------- */
+    .progress {
+      position: fixed;
+      top: 0;
+      inset-inline: 0;
+      height: 3px;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    .progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--purple), var(--cyan));
+    }
+
+    body[dir="rtl"] .progress span { transform-origin: right; }
+
+    /* ---------- Menu button + side drawer ---------- */
+    .menu-button {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-content: center;
+      gap: 5px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: transparent;
+      transition: border-color .2s, background .2s;
+    }
+
+    .menu-button:hover {
+      border-color: rgba(38,198,245,.5);
+      background: rgba(255,255,255,.04);
+    }
+
+    .menu-button i {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--text);
+    }
+
+    .menu-button i:nth-child(2) { width: 12px; }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(4,6,16,.62);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s, visibility .25s;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      inset-inline-end: 0;
+      z-index: 310;
+      width: min(360px, 88vw);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding: 20px 22px 26px;
+      overflow-y: auto;
+      background:
+        radial-gradient(ellipse at top, rgba(121,87,245,.16), transparent 60%),
+        linear-gradient(180deg, #121a2f, #0a0f21);
+      border-inline-start: 1px solid var(--border);
+      box-shadow: -30px 0 80px rgba(0,0,0,.45);
+      transform: translateX(100%);
+      visibility: hidden;
+      transition: transform .32s cubic-bezier(.2,.8,.2,1), visibility .32s;
+    }
+
+    body[dir="rtl"] .drawer {
+      box-shadow: 30px 0 80px rgba(0,0,0,.45);
+      transform: translateX(-100%);
+    }
+
+    body.menu-open { overflow: hidden; }
+    body.menu-open .drawer { transform: none; visibility: visible; }
+    body.menu-open .drawer-backdrop { opacity: 1; visibility: visible; }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-head img { width: 40px; height: 40px; object-fit: contain; }
+
+    .drawer-close {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .drawer-close:hover { border-color: rgba(38,198,245,.5); }
+
+    .drawer-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 9px 14px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 15px;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .drawer-link .num {
+      min-width: 22px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: rgba(168,179,201,.55);
+      direction: ltr;
+    }
+
+    .drawer-link:hover { background: rgba(255,255,255,.05); color: #fff; }
+
+    .drawer-link.active {
+      color: #fff;
+      background: linear-gradient(110deg, rgba(121,87,245,.22), rgba(38,198,245,.08));
+      border-color: rgba(121,87,245,.45);
+    }
+
+    .drawer-link.active .num { color: var(--cyan); }
+
+    .drawer-foot {
+      margin-top: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .drawer-foot .button { width: 100%; }
+
+    .drawer-label {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    body[dir="rtl"] .drawer-label { letter-spacing: 0; }
+
+    /* ---------- Section rail (wide screens) ---------- */
+    .rail {
+      position: fixed;
+      inset-inline-end: 12px;
+      top: 50%;
+      z-index: 90;
+      transform: translateY(-50%);
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    @media (min-width: 1280px) { .rail { display: flex; } }
+
+    .rail a {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+    }
+
+    .rail a::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.28);
+      transition: transform .25s, background .25s, box-shadow .25s;
+    }
+
+    .rail a:hover::after { background: rgba(255,255,255,.7); }
+
+    .rail a.active::after {
+      background: var(--cyan);
+      transform: scale(1.55);
+      box-shadow: 0 0 14px rgba(38,198,245,.75);
+    }
+
+    .rail a span {
+      position: absolute;
+      inset-inline-end: 32px;
+      padding: 4px 11px;
+      white-space: nowrap;
+      font-size: 12px;
+      color: var(--text);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateX(6px);
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+    }
+
+    body[dir="rtl"] .rail a span { transform: translateX(-6px); }
+
+    .rail a:hover span,
+    .rail a:focus-visible span { opacity: 1; transform: none; }
+
+    /* ---------- Social links ---------- */
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cta .social { justify-content: center; }
+
+    .social a {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 13px;
+      transition: transform .2s, border-color .2s, color .2s;
+    }
+
+    .social a::after { content: " \2197"; opacity: .55; }
+
+    .social a:hover {
+      color: var(--cyan);
+      border-color: rgba(38,198,245,.6);
+      transform: translateY(-2px);
+    }
+
+    .cta-social { margin-top: 26px; }
+
+    .cta-social .drawer-label { margin-bottom: 12px; }
+
+    .footer-follow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 18px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-follow .drawer-label { margin: 0; }
+
+    /* ---------- Supported providers ---------- */
+    .provider-groups {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .provider-group {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .provider-group h3 { margin: 0 0 6px; }
+
+    .provider-group > p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .provider-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .provider {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .provider:hover { border-color: rgba(121,87,245,.5); transform: translateY(-2px); }
+
+    .provider-mark {
+      flex: 0 0 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(121,87,245,.38), rgba(38,198,245,.22));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      direction: ltr;
+    }
+
+    .provider strong { display: block; font-size: 15px; }
+
+    .provider small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .badge {
+      margin-inline-start: 8px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      vertical-align: 1px;
+    }
+
+    .badge.default { background: rgba(38,198,245,.14); color: var(--cyan); }
+    .badge.optional { background: rgba(255,255,255,.08); color: var(--muted); }
+
+    .provider-note {
+      max-width: 820px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media(max-width:850px) {
+      .nav-links { display: none; }
+      .split { grid-template-columns: 1fr; gap: 35px; }
+      .provider-groups { grid-template-columns: 1fr; }
+      .feature-grid { grid-template-columns: repeat(2,1fr); }
+      .mode-grid { grid-template-columns: 1fr; }
+      section { padding: 80px 0; }
+      .hero { min-height: 620px; }
+    }
+
+    @media(max-width:560px) {
+      .container { width: calc(100% - 32px); }
+      .feature-grid,.showcase-grid,.technical-list {
+        grid-template-columns: 1fr;
+      }
+      .hero-content { padding: 80px 0; }
+      h1 { letter-spacing: -1px; }
+      .nav-inner { height: 66px; }
+      .nav-actions .button { display: none; }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body dir="rtl">
+  <a class="skip-link" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">تخطَّ إلى المحتوى</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- NEW RELEASE CHECKLIST: search BOTH this file and ar/index.html for the current version (now "0.1.1") and update every match
+       (download links, release-notes links, version text, JSON-LD softwareVersion/downloadUrl), then update the
+       installer size ("53" in both languages) and the SHA-256 in the FAQ from the new stable.json. -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#" aria-label="Luna">
+        <img src="../assets/logo/luna-logo-flat.png" alt="Luna">
+      </a>
+
+      <nav class="nav-links">
+        <a href="#meet" data-en="Meet Luna" data-ar="تعرّف على لونا">تعرّف على لونا</a>
+        <a href="#features" data-en="Why Luna" data-ar="لماذا لونا">لماذا لونا</a>
+        <a href="#showcase" data-en="Showcase" data-ar="استعراض البرنامج">استعراض البرنامج</a>
+        <a href="#privacy" data-en="Privacy" data-ar="الخصوصية">الخصوصية</a>
+        <a href="#providers" data-en="Providers" data-ar="المزوّدون">المزوّدون</a>
+        <a href="#faq" data-en="FAQ" data-ar="الأسئلة الشائعة">الأسئلة الشائعة</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="lang-button" id="languageToggle" href="../" hreflang="en" lang="en">English</a>
+        <a class="button" href="https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe"
+           data-en="Download" data-ar="تحميل">تحميل</a>
+        <button class="menu-button" id="menuButton" type="button"
+                aria-expanded="false" aria-controls="drawer" aria-label="فتح القائمة"
+                data-aria-en="Open menu" data-aria-ar="فتح القائمة"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section rail (wide screens) -->
+  <nav class="rail" id="rail" aria-label="أقسام الصفحة"
+       data-aria-en="Page sections" data-aria-ar="أقسام الصفحة"></nav>
+
+  <!-- Side menu -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="القائمة" data-aria-en="Menu" data-aria-ar="القائمة">
+    <div class="drawer-head">
+      <img src="../assets/logo/luna-logo-flat.png" alt="Luna">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="إغلاق القائمة"
+              data-aria-en="Close menu" data-aria-ar="إغلاق القائمة">&times;</button>
+    </div>
+
+    <nav aria-label="أقسام الصفحة" data-aria-en="Page sections" data-aria-ar="أقسام الصفحة">
+      <ol class="drawer-list" id="drawerList"></ol>
+    </nav>
+
+    <div class="drawer-foot">
+      <div class="social-wrap">
+        <p class="drawer-label" data-en="Follow Luna" data-ar="تابع لونا">تابع لونا</p>
+        <div class="social" data-social-list></div>
+      </div>
+      <a class="button" href="https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe"
+         data-en="Download for Windows" data-ar="تحميل لنظام Windows">تحميل لنظام Windows</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- 01 HERO -->
+    <section class="hero" id="top">
+      <img class="hero-mark" src="../assets/logo/luna-logo-neon.png" alt="" aria-hidden="true">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow"
+               data-en="LUNA AI DESKTOP ASSISTANT"
+               data-ar="مساعد لونا للذكاء الاصطناعي">مساعد لونا للذكاء الاصطناعي</div>
+
+          <h1>
+            <span data-en="Your AI. Your PC."
+                  data-ar="ذكاؤك الاصطناعي.">ذكاؤك الاصطناعي.</span>
+            <br>
+            <span class="gradient-text"
+                  data-en="Your Rules."
+                  data-ar="جهازك. قواعدك.">جهازك. قواعدك.</span>
+          </h1>
+
+          <p class="hero-description"
+             data-en="A local-first AI desktop assistant designed around privacy, control, and productivity."
+             data-ar="مساعد ذكاء اصطناعي لسطح المكتب، صُمم ليمنحك الخصوصية والتحكم والإنتاجية، مع أولوية التشغيل المحلي.">مساعد ذكاء اصطناعي لسطح المكتب، صُمم ليمنحك الخصوصية والتحكم والإنتاجية، مع أولوية التشغيل المحلي.</p>
+
+          <div class="hero-actions">
+            <a class="button" href="https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe">
+              <img class="button-icon" src="../assets/icons/download.svg" alt="" aria-hidden="true">
+              <span data-en="Download for Windows"
+                    data-ar="تحميل لنظام Windows">تحميل لنظام Windows</span>
+            </a>
+            <a class="button secondary" href="#meet"
+               data-en="Discover Luna"
+               data-ar="اكتشف لونا">اكتشف لونا</a>
+          </div>
+
+          <div class="hero-meta">
+            <span data-en="Beta 0.1 (v0.1.1) · Windows 11 recommended · English & Arabic · 53 MB"
+                  data-ar="الإصدار التجريبي 0.1 (v0.1.1) · يُوصى بنظام Windows 11 · العربية والإنجليزية · 53 ميجابايت">الإصدار التجريبي 0.1 (v0.1.1) · يُوصى بنظام Windows 11 · العربية والإنجليزية · 53 ميجابايت</span>
+            ·
+            <a href="https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1"
+               data-en="Release notes" data-ar="ملاحظات الإصدار">ملاحظات الإصدار</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 MEET LUNA -->
+    <section id="meet" class="section-texture">
+      <div class="container split">
+        <div>
+          <div class="eyebrow" data-en="MEET LUNA" data-ar="تعرّف على لونا">تعرّف على لونا</div>
+          <h2 data-en="AI that works on your terms."
+              data-ar="ذكاء اصطناعي يعمل وفق اختياراتك.">ذكاء اصطناعي يعمل وفق اختياراتك.</h2>
+          <p data-en="Luna brings local AI, file assistance, personal memory, and optional cloud intelligence into one Windows desktop experience."
+             data-ar="تجمع لونا بين الذكاء الاصطناعي المحلي ومساعدة الملفات والذاكرة الشخصية والذكاء السحابي الاختياري، ضمن تجربة واحدة على Windows.">تجمع لونا بين الذكاء الاصطناعي المحلي ومساعدة الملفات والذاكرة الشخصية والذكاء السحابي الاختياري، ضمن تجربة واحدة على Windows.</p>
+        </div>
+        <img class="product-image" loading="lazy" decoding="async"
+             src="../assets/screenshots/luna-main-interface.webp"
+             alt="Luna main interface">
+      </div>
+    </section>
+
+    <!-- 03 WHY LUNA -->
+    <section id="features">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="WHY LUNA" data-ar="لماذا لونا">لماذا لونا</div>
+          <h2 data-en="More than a chat window."
+              data-ar="أكثر من مجرد نافذة محادثة.">أكثر من مجرد نافذة محادثة.</h2>
+          <p data-en="A desktop assistant designed to help you work with your conversations, files, and knowledge."
+             data-ar="مساعد لسطح المكتب يساعدك في محادثاتك وملفاتك ومعرفتك الشخصية.">مساعد لسطح المكتب يساعدك في محادثاتك وملفاتك ومعرفتك الشخصية.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/brain.svg" alt="" aria-hidden="true">
+            <h3 data-en="Conversations" data-ar="المحادثات">المحادثات</h3>
+            <p data-en="A flexible workspace for your AI conversations."
+               data-ar="مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي.">مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/folder.svg" alt="" aria-hidden="true">
+            <h3 data-en="File Assistant" data-ar="مساعد الملفات">مساعد الملفات</h3>
+            <p data-en="Search, organize, and work with your files with confirmation."
+               data-ar="ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك.">ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/memory.svg" alt="" aria-hidden="true">
+            <h3 data-en="Personal Memory" data-ar="الذاكرة الشخصية">الذاكرة الشخصية</h3>
+            <p data-en="Luna remembers information when you explicitly ask."
+               data-ar="تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً.">تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/documents.svg" alt="" aria-hidden="true">
+            <h3 data-en="Document Intelligence" data-ar="فهم المستندات">فهم المستندات</h3>
+            <p data-en="Search and work with supported documents."
+               data-ar="ابحث داخل المستندات المدعومة واعمل معها.">ابحث داخل المستندات المدعومة واعمل معها.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true">
+            <h3 data-en="Local AI Engine" data-ar="محرك ذكاء محلي">محرك ذكاء محلي</h3>
+            <p data-en="Run local models on your own computer."
+               data-ar="شغّل النماذج المحلية على جهازك.">شغّل النماذج المحلية على جهازك.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/cloud.svg" alt="" aria-hidden="true">
+            <h3 data-en="Hybrid Intelligence" data-ar="الذكاء الهجين">الذكاء الهجين</h3>
+            <p data-en="Choose when to use optional cloud services."
+               data-ar="اختر متى تريد استخدام الخدمات السحابية الاختيارية.">اختر متى تريد استخدام الخدمات السحابية الاختيارية.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PRODUCT SHOWCASE -->
+    <section id="showcase" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="PRODUCT SHOWCASE" data-ar="استعراض لونا">استعراض لونا</div>
+          <h2 data-en="Designed for real work."
+              data-ar="مصممة لإنجاز أعمال حقيقية.">مصممة لإنجاز أعمال حقيقية.</h2>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-arabic-chat.webp" alt="Arabic conversation">
+            <h3 data-en="Natural conversations" data-ar="محادثات طبيعية">محادثات طبيعية</h3>
+            <p data-en="Work in English or Arabic."
+               data-ar="تحدث بالإنجليزية أو العربية.">تحدث بالإنجليزية أو العربية.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-file-assistant.webp" alt="File assistant">
+            <h3 data-en="Your files, within reach" data-ar="ملفاتك في متناولك">ملفاتك في متناولك</h3>
+            <p data-en="Search and manage files with permission controls."
+               data-ar="ابحث عن الملفات وأدرها مع ضوابط الصلاحيات.">ابحث عن الملفات وأدرها مع ضوابط الصلاحيات.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-privacy-settings.webp" alt="Privacy settings">
+            <h3 data-en="Control your privacy" data-ar="تحكم بخصوصيتك">تحكم بخصوصيتك</h3>
+            <p data-en="Manage access and control your data."
+               data-ar="تحكم في الوصول إلى ملفاتك وبياناتك.">تحكم في الوصول إلى ملفاتك وبياناتك.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-knowledge.webp" alt="Knowledge and memory">
+            <h3 data-en="Knowledge that stays organized" data-ar="معرفة منظمة">معرفة منظمة</h3>
+            <p data-en="Search your personal knowledge and supported documents."
+               data-ar="ابحث في معرفتك الشخصية ومستنداتك المدعومة.">ابحث في معرفتك الشخصية ومستنداتك المدعومة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 PRIVACY -->
+    <section id="privacy">
+      <div class="container split">
+        <div>
+          <div class="eyebrow" data-en="PRIVACY & SECURITY" data-ar="الخصوصية والأمان">الخصوصية والأمان</div>
+          <h2 data-en="Your data. Your decisions."
+              data-ar="بياناتك. قراراتك.">بياناتك. قراراتك.</h2>
+          <p data-en="Luna is local-first. File operations require confirmation, folder access is controlled, and cloud use remains optional."
+             data-ar="تعتمد لونا التشغيل المحلي أولاً. تتطلب عمليات الملفات تأكيدك، وتخضع صلاحيات المجلدات للتحكم، ويبقى استخدام السحابة اختيارياً.">تعتمد لونا التشغيل المحلي أولاً. تتطلب عمليات الملفات تأكيدك، وتخضع صلاحيات المجلدات للتحكم، ويبقى استخدام السحابة اختيارياً.</p>
+        </div>
+        <img class="product-image" loading="lazy" decoding="async"
+             src="../assets/screenshots/luna-privacy-settings.webp"
+             alt="Luna privacy controls">
+      </div>
+    </section>
+
+    <!-- 06 LOCAL & HYBRID -->
+    <section id="modes" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="LOCAL & HYBRID INTELLIGENCE"
+              data-ar="الذكاء المحلي والهجين">الذكاء المحلي والهجين</div>
+          <h2 data-en="Choose how Luna thinks."
+              data-ar="اختر كيف تعمل لونا.">اختر كيف تعمل لونا.</h2>
+          <p data-en="Start locally and choose cloud processing when you need it."
+             data-ar="ابدأ بالمعالجة المحلية، واختر المعالجة السحابية عندما تحتاج إليها.">ابدأ بالمعالجة المحلية، واختر المعالجة السحابية عندما تحتاج إليها.</p>
+        </div>
+
+        <div class="mode-grid">
+          <article class="mode">
+            <h3><img class="mode-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local" data-ar="محلي">محلي</span></h3>
+            <p data-en="Everything runs on your computer with Luna Engine, and works offline once a model is installed."
+               data-ar="كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.">كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="../assets/icons/cloud.svg" alt="" aria-hidden="true"><span data-en="Cloud" data-ar="سحابي">سحابي</span></h3>
+            <p data-en="Use Google Gemini or OpenAI with your own API key, stored securely on your PC."
+               data-ar="استخدم Google Gemini أو OpenAI بمفتاح API الخاص بك، ويُحفظ المفتاح بأمان على جهازك.">استخدم Google Gemini أو OpenAI بمفتاح API الخاص بك، ويُحفظ المفتاح بأمان على جهازك.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="../assets/icons/brain.svg" alt="" aria-hidden="true"><span data-en="Hybrid" data-ar="هجين">هجين</span></h3>
+            <p data-en="Local and cloud together, in one of two styles:"
+               data-ar="المحلي والسحابة معًا، بأحد أسلوبين:">المحلي والسحابة معًا، بأحد أسلوبين:</p>
+            <ul class="mode-options">
+              <li><strong data-en="Balanced" data-ar="متوازن">متوازن</strong>
+                <span data-en="Local first. The cloud steps in only when the local engine is unavailable."
+                      data-ar="المحلي أولًا، ولا تتدخل السحابة إلا إذا تعذّر المحرّك المحلي.">المحلي أولًا، ولا تتدخل السحابة إلا إذا تعذّر المحرّك المحلي.</span></li>
+              <li><strong data-en="Lighten the PC" data-ar="تخفيف الجهاز">تخفيف الجهاز</strong>
+                <span data-en="The cloud handles everyday requests, while sensitive messages stay on your PC."
+                      data-ar="تتولى السحابة الطلبات العادية، وتبقى الرسائل الحساسة على جهازك.">تتولى السحابة الطلبات العادية، وتبقى الرسائل الحساسة على جهازك.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06b SUPPORTED PROVIDERS -->
+    <section id="providers">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="SUPPORTED PROVIDERS" data-ar="المزوّدون المدعومون">المزوّدون المدعومون</div>
+          <h2 data-en="Bring the engine you trust."
+              data-ar="اختر المحرّك الذي تثق به.">اختر المحرّك الذي تثق به.</h2>
+          <p data-en="Luna works with the engines and services below. AI requests never pass through a Luna server: local models run on your PC, and cloud providers are reached directly with your own API key."
+             data-ar="تعمل لونا مع المحرّكات والخدمات التالية. لا تمرّ طلبات الذكاء الاصطناعي عبر أي خادم تابع للونا: النماذج المحلية تعمل على جهازك، ويُتصل بمزوّدي السحابة مباشرةً بمفتاح API الخاص بك.">تعمل لونا مع المحرّكات والخدمات التالية. لا تمرّ طلبات الذكاء الاصطناعي عبر أي خادم تابع للونا: النماذج المحلية تعمل على جهازك، ويُتصل بمزوّدي السحابة مباشرةً بمفتاح API الخاص بك.</p>
+        </div>
+
+        <div class="provider-groups">
+          <article class="provider-group">
+            <h3><img class="mode-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local engines" data-ar="محرّكات محلية">محرّكات محلية</span></h3>
+            <p data-en="Private by design. Works offline once a model is installed."
+               data-ar="خصوصية بحكم التصميم، وتعمل دون إنترنت بعد تثبيت النموذج.">خصوصية بحكم التصميم، وتعمل دون إنترنت بعد تثبيت النموذج.</p>
+            <ul class="provider-list">
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">LE</span>
+                <div>
+                  <strong>Luna Engine <span class="badge default" data-en="Default" data-ar="افتراضي">افتراضي</span></strong>
+                  <small data-en="Built on llama.cpp, with automatic CUDA, Vulkan or CPU selection."
+                         data-ar="مبني على llama.cpp، ويختار تلقائيًا بين CUDA وVulkan والمعالج.">مبني على llama.cpp، ويختار تلقائيًا بين CUDA وVulkan والمعالج.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">OL</span>
+                <div>
+                  <strong>Ollama <span class="badge optional" data-en="Optional" data-ar="اختياري">اختياري</span></strong>
+                  <small data-en="Advanced: use your existing Ollama installation instead of Luna Engine."
+                         data-ar="للمستخدمين المتقدمين: استخدم تثبيت Ollama الموجود لديك بدلًا من محرّك لونا.">للمستخدمين المتقدمين: استخدم تثبيت Ollama الموجود لديك بدلًا من محرّك لونا.</small>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="provider-group">
+            <h3><img class="mode-icon" src="../assets/icons/cloud.svg" alt="" aria-hidden="true"><span data-en="Cloud AI" data-ar="ذكاء سحابي">ذكاء سحابي</span></h3>
+            <p data-en="Optional. Use your own API key, stored in Windows Credential Manager."
+               data-ar="اختياري. استخدم مفتاح API الخاص بك، ويُحفظ في مدير بيانات اعتماد Windows.">اختياري. استخدم مفتاح API الخاص بك، ويُحفظ في مدير بيانات اعتماد Windows.</p>
+            <ul class="provider-list">
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">GM</span>
+                <div>
+                  <strong>Google Gemini</strong>
+                  <small data-en="Connect with your own Google AI API key."
+                         data-ar="اتصل بمفتاح Google AI API الخاص بك.">اتصل بمفتاح Google AI API الخاص بك.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">OA</span>
+                <div>
+                  <strong>OpenAI</strong>
+                  <small data-en="Connect with your own OpenAI API key."
+                         data-ar="اتصل بمفتاح OpenAI API الخاص بك.">اتصل بمفتاح OpenAI API الخاص بك.</small>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="provider-note"
+           data-en="More providers are added one at a time, only after reviewing their privacy and terms. Provider names and trademarks belong to their owners; Luna is an independent project and is not affiliated with or endorsed by them."
+           data-ar="تُضاف مزوّدات أخرى تدريجيًا، بعد مراجعة سياسة الخصوصية والشروط لكل منها. أسماء المزوّدين وعلاماتهم التجارية ملك لأصحابها، ولونا مشروع مستقل غير تابع لهم ولا مدعوم منهم.">تُضاف مزوّدات أخرى تدريجيًا، بعد مراجعة سياسة الخصوصية والشروط لكل منها. أسماء المزوّدين وعلاماتهم التجارية ملك لأصحابها، ولونا مشروع مستقل غير تابع لهم ولا مدعوم منهم.</p>
+      </div>
+    </section>
+
+    <!-- 07 TECHNICAL OVERVIEW -->
+    <section id="tech">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="TECHNICAL OVERVIEW" data-ar="نظرة تقنية">نظرة تقنية</div>
+          <h2 data-en="Built for your desktop."
+              data-ar="مصممة لحاسوبك.">مصممة لحاسوبك.</h2>
+        </div>
+
+        <div class="technical-list">
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/window.svg" alt="" aria-hidden="true">Windows <span data-en="Desktop platform" data-ar="منصة التشغيل">منصة التشغيل</span></div>
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true">Local AI <span data-en="Run supported local models" data-ar="تشغيل النماذج المحلية المدعومة">تشغيل النماذج المحلية المدعومة</span></div>
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/settings.svg" alt="" aria-hidden="true">CUDA / Vulkan <span data-en="Supported acceleration paths" data-ar="مسارات تسريع مدعومة">مسارات تسريع مدعومة</span></div>
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/languages.svg" alt="" aria-hidden="true">English & Arabic <span data-en="Interface and conversations" data-ar="الواجهة والمحادثات">الواجهة والمحادثات</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 WHAT'S NEXT -->
+    <section id="next" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="WHAT'S NEXT" data-ar="ماذا بعد؟">ماذا بعد؟</div>
+          <h2 data-en="The journey continues."
+              data-ar="الرحلة مستمرة.">الرحلة مستمرة.</h2>
+          <p data-en="Future possibilities for the Luna ecosystem. These capabilities are not available in the current version."
+             data-ar="إمكانات مستقبلية ضمن منظومة لونا. هذه الميزات غير متاحة في الإصدار الحالي.">إمكانات مستقبلية ضمن منظومة لونا. هذه الميزات غير متاحة في الإصدار الحالي.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><h3>Luna Vision</h3><p data-en="Coming soon" data-ar="قريباً">قريباً</p></article>
+          <article class="feature-card"><h3>Luna Voice</h3><p data-en="Coming soon" data-ar="قريباً">قريباً</p></article>
+          <article class="feature-card"><h3>Desktop Agent</h3><p data-en="Coming soon" data-ar="قريباً">قريباً</p></article>
+          <article class="feature-card"><h3>Skills & Plugins</h3><p data-en="Coming soon" data-ar="قريباً">قريباً</p></article>
+          <article class="feature-card"><h3>Luna Connect</h3><p data-en="Coming soon" data-ar="قريباً">قريباً</p></article>
+          <article class="feature-card"><h3>Luna Web</h3><p data-en="Coming soon" data-ar="قريباً">قريباً</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">FAQ</div>
+          <h2 data-en="Frequently asked questions"
+              data-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3 data-en="Does Luna need internet?"
+                data-ar="هل تحتاج لونا إلى الإنترنت؟">هل تحتاج لونا إلى الإنترنت؟</h3>
+            <p data-en="Local model conversations can work without internet after the model is installed."
+               data-ar="يمكن للمحادثات باستخدام نموذج محلي أن تعمل دون إنترنت بعد تثبيت النموذج.">يمكن للمحادثات باستخدام نموذج محلي أن تعمل دون إنترنت بعد تثبيت النموذج.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="Is cloud use required?"
+                data-ar="هل استخدام السحابة إلزامي؟">هل استخدام السحابة إلزامي؟</h3>
+            <p data-en="No. Cloud processing is optional and under your control."
+               data-ar="لا. المعالجة السحابية اختيارية وتخضع لتحكمك.">لا. المعالجة السحابية اختيارية وتخضع لتحكمك.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="Does Luna work on Windows 10?"
+                data-ar="هل تعمل لونا على Windows 10؟">هل تعمل لونا على Windows 10؟</h3>
+            <p data-en="Windows 11 (64-bit) is recommended. Windows 10 is not officially supported in this Beta: cloud AI works on it in our testing, but some features may not work as expected."
+               data-ar="يُوصى بنظام Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي: الذكاء السحابي يعمل عليه في اختباراتنا، لكن قد لا تعمل بعض الميزات كما هو متوقع.">يُوصى بنظام Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي: الذكاء السحابي يعمل عليه في اختباراتنا، لكن قد لا تعمل بعض الميزات كما هو متوقع.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="Why does Windows show a SmartScreen warning?"
+                data-ar="لماذا يظهر تحذير SmartScreen؟">لماذا يظهر تحذير SmartScreen؟</h3>
+            <p data-en="The Beta installer is not code-signed yet, so Windows may show “Windows protected your PC”. Click More info, then Run anyway — only for installers downloaded from this page or the official Releases page."
+               data-ar="ملف التثبيت غير موقّع رقميًا بعد، لذلك قد تظهر رسالة «⁨Windows protected your PC⁩». اضغط ⁨More info⁩ ثم ⁨Run anyway⁩، ولا تفعل ذلك إلا مع الملفات المنزّلة من هذه الصفحة أو من صفحة الإصدارات الرسمية.">ملف التثبيت غير موقّع رقميًا بعد، لذلك قد تظهر رسالة «⁨Windows protected your PC⁩». اضغط ⁨More info⁩ ثم ⁨Run anyway⁩، ولا تفعل ذلك إلا مع الملفات المنزّلة من هذه الصفحة أو من صفحة الإصدارات الرسمية.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="How can I verify the installer?"
+                data-ar="كيف أتحقق من ملف التثبيت؟">كيف أتحقق من ملف التثبيت؟</h3>
+            <p data-en="Run this command in PowerShell, in the folder of the downloaded file:"
+               data-ar="نفّذ هذا الأمر في PowerShell داخل مجلد الملف المنزَّل:">نفّذ هذا الأمر في PowerShell داخل مجلد الملف المنزَّل:</p>
+            <code class="hash cmd">Get-FileHash .\LunaSetup-0.1.1.exe -Algorithm SHA256</code>
+            <p class="hash-label" data-en="The result must match this SHA-256 exactly:"
+               data-ar="يجب أن تطابق النتيجة هذه البصمة (SHA-256) تمامًا:">يجب أن تطابق النتيجة هذه البصمة (SHA-256) تمامًا:</p>
+            <code class="hash">6dc247705961fc37eda70aa36d2582e7e8d7cad245d6c8102957072ea09c2028</code>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="How do I report a problem?"
+                data-ar="كيف أبلّغ عن مشكلة؟">كيف أبلّغ عن مشكلة؟</h3>
+            <p data-en="Use “Report a problem” at the bottom of this page, and read the tester guide first. Security issues must be reported privately, never in a public report."
+               data-ar="استخدم رابط «الإبلاغ عن مشكلة» أسفل هذه الصفحة، واقرأ دليل المجرّبين أولًا. أمّا المشكلات الأمنية فيجب الإبلاغ عنها بشكل خاص، وليس في بلاغ عام.">استخدم رابط «الإبلاغ عن مشكلة» أسفل هذه الصفحة، واقرأ دليل المجرّبين أولًا. أمّا المشكلات الأمنية فيجب الإبلاغ عنها بشكل خاص، وليس في بلاغ عام.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 GET LUNA -->
+    <section id="get" class="cta">
+      <div class="container">
+        <div class="eyebrow" data-en="BETA 0.1 — FOUNDATION BETA" data-ar="الإصدار التجريبي 0.1 — الإصدار التأسيسي">الإصدار التجريبي 0.1 — الإصدار التأسيسي</div>
+        <h2 data-en="Your AI. Your PC. Your Rules."
+            data-ar="ذكاؤك الاصطناعي. جهازك. قواعدك.">ذكاؤك الاصطناعي. جهازك. قواعدك.</h2>
+        <p data-en="The first public Beta of Luna is here. Download it, try it, and share your feedback."
+           data-ar="الإصدار التجريبي العام الأول من لونا متاح الآن. حمّلها وجرّبها وشاركنا ملاحظاتك.">الإصدار التجريبي العام الأول من لونا متاح الآن. حمّلها وجرّبها وشاركنا ملاحظاتك.</p>
+        <a class="button" href="https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe">
+          <img class="button-icon" src="../assets/icons/download.svg" alt="" aria-hidden="true">
+          <span data-en="Download Luna for Windows"
+                data-ar="تحميل لونا لنظام Windows">تحميل لونا لنظام Windows</span>
+        </a>
+        <div class="cta-links">
+          <a href="https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1"
+             data-en="Release notes" data-ar="ملاحظات الإصدار">ملاحظات الإصدار</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+             data-href-en="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+             data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+             data-en="Tester guide" data-ar="دليل المجرّبين">دليل المجرّبين</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore/issues/new?template=bug_report.yml"
+             data-en="Report a problem" data-ar="الإبلاغ عن مشكلة">الإبلاغ عن مشكلة</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore"
+             data-en="View on GitHub" data-ar="عرض المشروع على GitHub">عرض المشروع على GitHub</a>
+        </div>
+        <div class="social-wrap cta-social">
+          <p class="drawer-label" data-en="Follow Luna" data-ar="تابع لونا">تابع لونا</p>
+          <div class="social" data-social-list></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11 FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand"><img class="footer-logo" src="../assets/logo/luna-logo-mono.png" alt="" aria-hidden="true">© <span id="year"></span> Luna AI Desktop Assistant</span>
+      <span data-en="Built by Hussain (EinMM)"
+            data-ar="تطوير حسين (EinMM)">تطوير حسين (EinMM)</span>
+      <a href="https://github.com/EinMM/lunaicore">GitHub ↗</a>
+    </div>
+
+    <div class="container footer-follow social-wrap">
+      <p class="drawer-label" data-en="Follow Luna" data-ar="تابع لونا">تابع لونا</p>
+      <div class="social" data-social-list></div>
+    </div>
+
+    <nav class="container footer-links" aria-label="Help and feedback">
+      <a href="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+         data-href-en="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+         data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+         data-en="Tester guide" data-ar="دليل المجرّبين">دليل المجرّبين</a>
+      <a href="https://github.com/EinMM/lunaicore/issues/new?template=bug_report.yml"
+         data-en="Report a problem" data-ar="الإبلاغ عن مشكلة">الإبلاغ عن مشكلة</a>
+      <a href="https://github.com/EinMM/lunaicore/issues/new?template=feature_request.yml"
+         data-en="Suggest a feature" data-ar="اقتراح ميزة">اقتراح ميزة</a>
+      <a href="https://github.com/EinMM/lunaicore/issues"
+         data-en="All reports" data-ar="جميع البلاغات">جميع البلاغات</a>
+      <a href="https://github.com/EinMM/lunaicore/blob/main/SECURITY.md"
+         data-en="Security policy" data-ar="سياسة الأمان">سياسة الأمان</a>
+      <a href="https://github.com/EinMM/lunaicore/blob/main/PRIVACY.md#arabic"
+         data-href-en="https://github.com/EinMM/lunaicore/blob/main/PRIVACY.md#english"
+         data-href-ar="https://github.com/EinMM/lunaicore/blob/main/PRIVACY.md#arabic"
+         data-en="Privacy policy" data-ar="سياسة الخصوصية">سياسة الخصوصية</a>
+      <a href="https://github.com/EinMM/lunaicore/blob/main/TERMS.md#arabic"
+         data-href-en="https://github.com/EinMM/lunaicore/blob/main/TERMS.md#english"
+         data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TERMS.md#arabic"
+         data-en="Terms of use" data-ar="شروط الاستخدام">شروط الاستخدام</a>
+    </nav>
+  </footer>
+
+  <script>
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.body.dir = language === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll("[data-en][data-ar]").forEach(element => {
+        element.textContent =
+          language === "ar"
+            ? element.dataset.ar
+            : element.dataset.en;
+      });
+
+      document.querySelectorAll("[data-aria-en][data-aria-ar]").forEach(element => {
+        element.setAttribute(
+          "aria-label",
+          language === "ar" ? element.dataset.ariaAr : element.dataset.ariaEn
+        );
+      });
+
+      // Links with a version per language (e.g. TESTERS.md / TESTERS.ar.md).
+      document.querySelectorAll("[data-href-en][data-href-ar]").forEach(link => {
+        link.href =
+          language === "ar"
+            ? link.dataset.hrefAr
+            : link.dataset.hrefEn;
+      });
+
+      document.title =
+        language === "ar"
+          ? "لونا | مساعد ذكاء اصطناعي لسطح المكتب يعمل محليًا على Windows"
+          : "Luna AI Desktop Assistant – Local-First AI for Windows";
+
+    }
+
+    // ---- Social links ----------------------------------------------------
+    // Paste the full https:// address of each profile. Empty ones stay hidden,
+    // and the whole "Follow Luna" block hides itself if all four are empty.
+    const SOCIAL = [
+      { name: "TikTok",    url: "" },
+      { name: "Instagram", url: "" },
+      { name: "X",         url: "" },
+      { name: "YouTube",   url: "" }
+    ];
+
+    (function buildSocial() {
+      const active = SOCIAL.filter(item => /^https:\/\//.test(item.url));
+
+      document.querySelectorAll("[data-social-list]").forEach(list => {
+        active.forEach(item => {
+          const link = document.createElement("a");
+          link.href = item.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer me";
+          link.textContent = item.name;
+          list.appendChild(link);
+        });
+
+        if (!active.length) {
+          const wrap = list.closest(".social-wrap");
+          if (wrap) wrap.hidden = true;
+        }
+      });
+    })();
+
+    // ---- Side menu, section rail, progress bar ---------------------------
+    // One list feeds both the drawer and the dot rail: [id, English, Arabic].
+    const SECTIONS = [
+      ["top",       "Home",          "الرئيسية"],
+      ["meet",      "Meet Luna",     "تعرّف على لونا"],
+      ["features",  "Why Luna",      "لماذا لونا"],
+      ["showcase",  "Showcase",      "استعراض البرنامج"],
+      ["privacy",   "Privacy",       "الخصوصية"],
+      ["modes",     "Local & Hybrid","محلي وهجين"],
+      ["providers", "Providers",     "المزوّدون"],
+      ["tech",      "Technical",     "نظرة تقنية"],
+      ["next",      "What's next",   "ماذا بعد؟"],
+      ["faq",       "FAQ",           "الأسئلة الشائعة"],
+      ["get",       "Download",      "تحميل"]
+    ];
+
+    (function buildNavigation() {
+      const rail = document.getElementById("rail");
+      const list = document.getElementById("drawerList");
+      const drawer = document.getElementById("drawer");
+      const menuButton = document.getElementById("menuButton");
+      const closeButton = document.getElementById("drawerClose");
+      const backdrop = document.getElementById("drawerBackdrop");
+
+      function label(text, en, ar) {
+        const span = document.createElement("span");
+        span.dataset.en = en;
+        span.dataset.ar = ar;
+        span.textContent = text;
+        return span;
+      }
+
+      SECTIONS.forEach(([id, en, ar], index) => {
+        const dot = document.createElement("a");
+        dot.href = "#" + id;
+        dot.dataset.target = id;
+        dot.appendChild(label(en, en, ar));
+        rail.appendChild(dot);
+
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.className = "drawer-link";
+        link.href = "#" + id;
+        link.dataset.target = id;
+        const number = document.createElement("span");
+        number.className = "num";
+        number.textContent = String(index + 1).padStart(2, "0");
+        link.append(number, label(en, en, ar));
+        item.appendChild(link);
+        list.appendChild(item);
+      });
+
+      // Highlight the section that crosses the middle of the screen.
+      const targets = document.querySelectorAll("[data-target]");
+
+      function setActive(id) {
+        targets.forEach(link => {
+          const on = link.dataset.target === id;
+          link.classList.toggle("active", on);
+          if (on) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+      }
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        }, { rootMargin: "-45% 0px -50% 0px" });
+
+        SECTIONS.forEach(([id]) => {
+          const section = document.getElementById(id);
+          if (section) observer.observe(section);
+        });
+      }
+      setActive("top");
+
+      // Drawer open / close.
+      drawer.inert = true;
+
+      function setMenu(open) {
+        document.body.classList.toggle("menu-open", open);
+        menuButton.setAttribute("aria-expanded", String(open));
+        drawer.inert = !open;
+        (open ? closeButton : menuButton).focus({ preventScroll: true });
+      }
+
+      menuButton.addEventListener("click", () => setMenu(true));
+      closeButton.addEventListener("click", () => setMenu(false));
+      backdrop.addEventListener("click", () => setMenu(false));
+      list.addEventListener("click", event => {
+        if (event.target.closest("a")) setMenu(false);
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
+          setMenu(false);
+        }
+      });
+
+      // Reading progress bar.
+      const bar = document.querySelector(".progress span");
+      let ticking = false;
+
+      function updateProgress() {
+        const root = document.documentElement;
+        const max = root.scrollHeight - root.clientHeight;
+        const ratio = max > 0 ? Math.min(1, root.scrollTop / max) : 0;
+        bar.style.transform = "scaleX(" + ratio + ")";
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateProgress);
+        }
+      }, { passive: true });
+      updateProgress();
+    })();
+
+    // Each language has its own static page; the page declares which one it is.
+    const initialLanguage = document.documentElement.lang === "ar" ? "ar" : "en";
+
+    setLanguage(initialLanguage);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
