@@ -861,6 +861,78 @@
 
     .footer-follow .drawer-label { margin: 0; }
 
+    /* ---------- Comparison ---------- */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .compare-card {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .compare-card h3 {
+      margin: 0 0 24px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .compare-card dl {
+      margin: 0;
+      display: grid;
+      gap: 20px;
+    }
+
+    .compare-card dt {
+      margin-bottom: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(168,179,201,.6);
+    }
+
+    body[dir="rtl"] .compare-card dt { letter-spacing: 0; font-size: 12px; }
+
+    .compare-card dd {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .compare-card.us {
+      order: -1;
+      background: linear-gradient(180deg, rgba(121,87,245,.22), rgba(17,24,42,.96) 65%);
+      border-color: rgba(121,87,245,.65);
+      box-shadow: 0 24px 80px rgba(121,87,245,.22);
+    }
+
+    .compare-card.us h3 {
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .compare-card.us dt { color: var(--cyan); }
+
+    .compare-card.us dd {
+      position: relative;
+      padding-inline-start: 24px;
+      color: var(--text);
+    }
+
+    .compare-card.us dd::before {
+      content: "\2713";
+      position: absolute;
+      inset-inline-start: 0;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
     /* ---------- Supported providers ---------- */
     .provider-groups {
       display: grid;
@@ -954,6 +1026,7 @@
       .nav-links { display: none; }
       .split { grid-template-columns: 1fr; gap: 35px; }
       .provider-groups { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
       .feature-grid { grid-template-columns: repeat(2,1fr); }
       .mode-grid { grid-template-columns: 1fr; }
       section { padding: 80px 0; }
@@ -1279,8 +1352,65 @@
       </div>
     </section>
 
+    <!-- 06a COMPARISON -->
+    <section id="compare">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="HONEST COMPARISON" data-ar="مقارنة صريحة">HONEST COMPARISON</div>
+          <h2 data-en="How is Luna different?" data-ar="كيف تختلف لونا؟">How is Luna different?</h2>
+          <p data-en="Three kinds of AI assistants, differing in where the AI runs, how much control you have over your files, and how well they support Arabic."
+             data-ar="ثلاثة أنواع من المساعدات الذكية، وتختلف في المكان الذي يعمل فيه الذكاء، وفي تحكمك بملفاتك، وفي دعم العربية.">Three kinds of AI assistants, differing in where the AI runs, how much control you have over your files, and how well they support Arabic.</p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="compare-card">
+            <h3 data-en="Cloud AI apps" data-ar="تطبيقات الذكاء السحابية">Cloud AI apps</h3>
+            <dl>
+            <dt data-en="Where does the AI run?" data-ar="أين يعمل الذكاء؟">Where does the AI run?</dt>
+            <dd data-en="On the provider’s servers" data-ar="على خوادم المزوّد">On the provider’s servers</dd>
+            <dt data-en="Arabic interface and conversations" data-ar="الواجهة والمحادثة بالعربية">Arabic interface and conversations</dt>
+            <dd data-en="Varies by app" data-ar="تختلف بحسب التطبيق">Varies by app</dd>
+            <dt data-en="Working with files" data-ar="التعامل مع الملفات">Working with files</dt>
+            <dd data-en="Depends on uploading files to the provider" data-ar="يعتمد على رفع الملفات إلى المزوّد">Depends on uploading files to the provider</dd>
+            <dt data-en="Cloud use" data-ar="استخدام السحابة">Cloud use</dt>
+            <dd data-en="Essential: the service stops without it" data-ar="أساسي، والخدمة تتوقف دونه">Essential: the service stops without it</dd>
+            </dl>
+          </article>
+          <article class="compare-card">
+            <h3 data-en="General local-model tools" data-ar="أدوات النماذج المحلية العامة">General local-model tools</h3>
+            <dl>
+            <dt data-en="Where does the AI run?" data-ar="أين يعمل الذكاء؟">Where does the AI run?</dt>
+            <dd data-en="On your PC" data-ar="على جهازك">On your PC</dd>
+            <dt data-en="Arabic interface and conversations" data-ar="الواجهة والمحادثة بالعربية">Arabic interface and conversations</dt>
+            <dd data-en="Varies by tool" data-ar="تختلف بحسب الأداة">Varies by tool</dd>
+            <dt data-en="Working with files" data-ar="التعامل مع الملفات">Working with files</dt>
+            <dd data-en="Varies by tool" data-ar="يختلف بحسب الأداة">Varies by tool</dd>
+            <dt data-en="Cloud use" data-ar="استخدام السحابة">Cloud use</dt>
+            <dd data-en="Optional in some tools" data-ar="اختياري في بعض الأدوات">Optional in some tools</dd>
+            </dl>
+          </article>
+          <article class="compare-card us">
+            <h3>Luna</h3>
+            <dl>
+            <dt data-en="Where does the AI run?" data-ar="أين يعمل الذكاء؟">Where does the AI run?</dt>
+            <dd data-en="On your PC by default; cloud only when you choose" data-ar="على جهازك افتراضيًا، والسحابة فقط عندما تختارها">On your PC by default; cloud only when you choose</dd>
+            <dt data-en="Arabic interface and conversations" data-ar="الواجهة والمحادثة بالعربية">Arabic interface and conversations</dt>
+            <dd data-en="Full Arabic interface and conversations, alongside English" data-ar="واجهة ومحادثات عربية كاملة، إلى جانب الإنجليزية">Full Arabic interface and conversations, alongside English</dd>
+            <dt data-en="Working with files" data-ar="التعامل مع الملفات">Working with files</dt>
+            <dd data-en="Every file operation asks for your confirmation, and each folder has its own permission (read-only or full access)" data-ar="كل عملية على الملفات تطلب تأكيدك، وصلاحية كل مجلد مستقلة (قراءة فقط أو وصول كامل)">Every file operation asks for your confirmation, and each folder has its own permission (read-only or full access)</dd>
+            <dt data-en="Cloud use" data-ar="استخدام السحابة">Cloud use</dt>
+            <dd data-en="Always optional, with your own API key stored in Windows Credential Manager" data-ar="اختياري دائمًا، بمفتاح API الخاص بك المحفوظ في مدير بيانات اعتماد Windows">Always optional, with your own API key stored in Windows Credential Manager</dd>
+            </dl>
+          </article>
+        </div>
+
+        <p class="provider-note" data-en="This comparison describes general categories as of November 2026; individual products within each category may differ. Luna plans to support additional languages in the future, with no date set yet."
+           data-ar="تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع. وتخطط لونا لدعم لغات إضافية في المستقبل، دون موعد محدد بعد.">This comparison describes general categories as of November 2026; individual products within each category may differ. Luna plans to support additional languages in the future, with no date set yet.</p>
+      </div>
+    </section>
+
     <!-- 06b SUPPORTED PROVIDERS -->
-    <section id="providers">
+    <section id="providers" class="section-texture">
       <div class="container">
         <div class="section-heading">
           <div class="eyebrow" data-en="SUPPORTED PROVIDERS" data-ar="المزوّدون المدعومون">SUPPORTED PROVIDERS</div>
@@ -1606,6 +1736,7 @@
       ["showcase",  "Showcase",      "استعراض البرنامج"],
       ["privacy",   "Privacy",       "الخصوصية"],
       ["modes",     "Local & Hybrid","محلي وهجين"],
+      ["compare",   "Compare",       "مقارنة"],
       ["providers", "Providers",     "المزوّدون"],
       ["tech",      "Technical",     "نظرة تقنية"],
       ["next",      "What's next",   "ماذا بعد؟"],
