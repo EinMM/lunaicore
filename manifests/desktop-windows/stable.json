@@ -1,17 +1,17 @@
 {
   "product": "desktop-windows",
   "channel": "stable",
-  "version": "0.1.1",
-  "release_date": "2026-11-12",
-  "release_page": "https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1",
+  "version": "0.2.0",
+  "release_date": "2026-11-20",
+  "release_page": "https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.2.0",
   "notes": {
-    "ar": "الشروط وسياسة الخصوصية للموافقة، وزر إرسال ملاحظة، وتحسينات صغيرة.",
-    "en": "Terms and Privacy for acceptance, a Send feedback button, and small improvements."
+    "ar": "تقرأ لونا صفحات الويب وتبحث فيه بمفتاحك أنت (بإذنك فقط)، وتعرض المصادر، مع رسائل أوضح وسياسة خصوصية محدّثة.",
+    "en": "Reads web pages and searches the web with your own key (only when you allow it), shows sources, clearer messages, and an updated Privacy Policy."
   },
   "installer": {
-    "name": "LunaSetup-0.1.1.exe",
-    "sha256": "6dc247705961fc37eda70aa36d2582e7e8d7cad245d6c8102957072ea09c2028",
-    "size": 55878364
+    "name": "LunaSetup-0.2.0.exe",
+    "sha256": "a93372b7521a7c3c3916968cdf84eaf2e6292a1ac29d6decc5e7b3d703ea82d8",
+    "size": 56350290
   },
-  "signature": "aF0WiLrJKs/vXa6Pm/PuwKb3WubZyuLalf5TOYZrUGXzNLYD5cBuy0m/DVjlcGHZvwR7v63B4/f7T0ch70+ADA=="
+  "signature": "Lec/O/VlQT0EpasMr2kcC2vXT0Tm/NMIQNg9aTS0gDP0UnwgwMTw2obW7MH8Q111pNO5Su5tXMoeOATiBCmJAA=="
 }
