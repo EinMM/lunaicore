@@ -4,9 +4,9 @@
 
 [English](README.md) · [العربية](README.ar.md)
 
-Luna is a local-first AI desktop assistant for Windows that works with the files on your PC — and never changes them without asking you first. Chat in Arabic or English, and choose between local AI that runs on your own device and cloud AI from a provider you configure.
+Luna is a Windows desktop assistant that works with the files on your PC — and never changes them without asking you first. Chat in Arabic or English, and choose between local AI that runs on your own device and cloud AI from a provider you configure.
 
-**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.1.1) · [Project website](https://lunaicore.com) · [Beta tester guide](TESTERS.md)
+**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.2.0) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
 
 ![Luna main chat window](assets/screenshots/Luna-AI-01-en.png)
 
@@ -14,6 +14,7 @@ Luna is a local-first AI desktop assistant for Windows that works with the files
 
 - **Work with your files, safely:** ask Luna to read, create, or edit files inside a workspace you choose. Every change to a file needs your confirmation.
 - **Choose your AI:** run a local model on your PC, or connect your own OpenAI or Gemini API key for cloud AI.
+- **The web, only when you allow it:** Luna reads an https page whose link you write, and searches the web with your own Brave, Tavily or Mojeek key. Choose Off, Ask first or Allowed in **Settings → Data & privacy → Web**; a private conversation never uses the web. An answer that used a search shows a Sources box, kept only while the chat is open.
 - **Chat in Arabic or English** through a modern desktop interface.
 - **Keep a personal memory:** you decide what Luna remembers, and you can review or delete it in Settings.
 - **Get help in the app:** type `/help` for the built-in guide.
@@ -25,24 +26,25 @@ Luna is a local-first AI desktop assistant for Windows that works with the files
 - **Local mode:** conversations, memories, and file content stay on your device.
 - **Cloud mode:** your conversation is sent to the cloud provider you selected. Depending on your privacy settings, selected memories or profile details may also be included.
 - **You stay in control:** document excerpts are sent only when you enable that option and give file consent. Cloud file tools run only after you allow them for that conversation.
-- **Your API keys** are stored in Windows Credential Manager, not in plain-text files.
+- **Your API keys** (cloud and web search keys) are stored in Windows Credential Manager, not in plain-text files.
+- **Web (optional):** a page address or a search phrase leaves your PC only when you allow it; the site or service you chose receives it (the Privacy Policy lists each case).
 - **Updates:** Luna checks for new versions and lets you know — it never installs anything by itself. You can turn off update checks in Settings.
 
 ![Luna settings: choose local or cloud AI and your privacy options](assets/screenshots/Luna-AI-03-en.png)
 
 ## Install Luna Beta 0.1
 
-1. Download [LunaSetup-0.1.1.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.1.1/LunaSetup-0.1.1.exe).
+1. Download [LunaSetup-0.2.0.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe).
 2. **Recommended:** verify the download. Open PowerShell in your Downloads folder and run:
 
    ```powershell
-   Get-FileHash .\LunaSetup-0.1.1.exe -Algorithm SHA256
+   Get-FileHash .\LunaSetup-0.2.0.exe -Algorithm SHA256
    ```
 
    The result should match:
 
    ```
-   6DC247705961FC37EDA70AA36D2582E7E8D7CAD245D6C8102957072EA09C2028
+   A93372B7521A7C3C3916968CDF84EAF2E6292A1AC29D6DECC5E7B3D703EA82D8
    ```
 
 3. Run the installer and accept the Terms of Use and Privacy Policy pages. Administrator rights are not required.
@@ -54,12 +56,13 @@ Luna is a local-first AI desktop assistant for Windows that works with the files
 - Windows 11 (64-bit) is recommended. Windows 10 is not officially supported in this beta — cloud AI works on it in our testing, but some features may not work as expected.
 - **For local AI:** a GPU with at least 6 GB of VRAM is recommended, plus several GB of free disk space for the model. Luna suggests a model that fits your hardware and downloads it only after you confirm.
 - **For cloud AI:** an internet connection and your own OpenAI or Gemini API key. This works on lighter hardware.
+- **For web search:** your own key from Brave, Tavily or Mojeek (optional).
 
 ## Share feedback
 
 This is an early beta, and your experience can help shape what comes next. New to testing Luna? Start with the **[Beta tester guide](TESTERS.md)** — it covers what to test, what to avoid, and how to write a useful report.
 
-- In Luna: the **Send feedback** button in the side bar (also in **Settings → About**)
+- In Luna: the **Send feedback** button in the side bar (also in **Settings → About Luna**)
 - [Report an issue or request a feature](https://github.com/EinMM/lunaicore/issues)
 - Email: [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
 

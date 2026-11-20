@@ -2,7 +2,7 @@
 
 > **Beta 0.1 — Foundation Beta** · Windows 11 recommended · Windows 10: not officially supported (cloud AI works) · [العربية](TESTERS.ar.md)
 
-Thank you for helping test Luna! Luna is a desktop AI assistant for Windows that runs **locally on your PC** by default, with optional cloud models (OpenAI / Google Gemini) using your own API keys.
+Thank you for helping test Luna! Luna is a desktop AI assistant for Windows that runs **locally on your PC** by default, with optional cloud models (OpenAI / Google Gemini) and optional web search, using your own API keys.
 
 This is an **early Beta**. Things will break — that is exactly why you are here. This guide explains how to install Luna, what to test, what to avoid, and how to report what you find.
 
@@ -13,12 +13,11 @@ This is an **early Beta**. Things will break — that is exactly why you are her
 - **It is a Beta.** Expect bugs, slow answers on weaker PCs, rough edges in the UI, and occasional wrong answers from the AI.
 - **Windows SmartScreen warning.** The Beta installer is **not code-signed yet**, so Windows may show *"Windows protected your PC"*. Click **More info → Run anyway**. Only do this for installers downloaded from the official [Releases page](https://github.com/EinMM/lunaicore/releases).
 - **Local AI needs resources.** The first model download is large, and answers depend on your CPU/GPU and RAM. A slow answer is not always a bug — but tell us about it (with your hardware).
-- **Your data stays on your PC.** Conversations, settings and memory are stored only on your machine. Nothing is sent anywhere unless *you* choose a cloud model — except the optional update check, which you can turn off in Settings.
+- **Your data stays on your PC.** Conversations, settings and memory are stored only on your machine. Nothing is sent anywhere unless *you* choose a cloud model or allow Luna to read a web page or search the web — except the optional update check, which you can turn off in Settings.
 - **Features may change** between Beta builds, and data from one Beta may not always carry over perfectly to the next.
 
 ### Not included in this Beta (please don't report these as missing)
 
-- Web browsing / internet search
 - Controlling other apps or the desktop (Desktop Agent)
 - Voice input / voice output
 - Running in the background (system tray)
@@ -36,7 +35,7 @@ This is an **early Beta**. Things will break — that is exactly why you are her
 4. Let Luna pick or download a local model suited to your PC.
 5. *(Optional)* If you have an NVIDIA GPU, you can download the **CUDA** engine from Settings for faster answers. CPU and Vulkan engines are included by default.
 
-**Where your data lives:** `%LOCALAPPDATA%\EinMM\LunaAI\data\` (logs are in the `logs\` folder inside it). You can open it from **Settings → Data → Open data folder**.
+**Where your data lives:** `%LOCALAPPDATA%\EinMM\LunaAI\data\` (logs are in the `logs\` folder inside it). You can open it from **Settings → Data & privacy → Open data folder**.
 
 ---
 
@@ -59,7 +58,7 @@ You don't have to do everything. Pick what you can, but **sections A and B matte
 - [ ] Leave Luna idle, or run a game / full-screen app — does **sleep mode** kick in, and does Luna wake up correctly afterwards?
 - [ ] Watch your PC: does GPU/CPU stay busy **after** you pressed Stop or after the answer finished? Please report this if it happens.
 
-### C. Files & permissions
+### C. Files & access
 - [ ] Add a **test folder** (not your important files!) with **Read only** permission. Ask Luna to list, read or summarize files there.
 - [ ] Switch the folder to **Full access**. Ask Luna to create, rename, copy or move a file. Luna must **ask you to confirm every action**.
 - [ ] Try to add a forbidden location (e.g. your whole user folder `C:\Users\<you>`, a drive root like `C:\`, or a system folder). Luna should **refuse**.
@@ -71,6 +70,13 @@ You don't have to do everything. Pick what you can, but **sections A and B matte
 - [ ] Send one message to the cloud ☁️ and one locally 🖥️ in the same conversation.
 - [ ] Check that the **cost / spending cap** display looks reasonable.
 - [ ] Turn on **private 🔒** for a conversation — Luna must **never** use the cloud in it.
+
+### D2. Web (only if you want to try it; search needs your own key)
+- [ ] In **Settings → Data & privacy → Web** try Off, Ask first and Allowed. Write an https link in a message: does Luna read the page, and does she ask first only when set to Ask first?
+- [ ] Turn on **private 🔒** and write a link: Luna must **never** read it.
+- [ ] Add a key for one search service (Brave, Tavily or Mojeek, from the service's own site) and ask a question that needs fresh information. Do you see the search phrase before it is sent? Does the answer show a **Sources** box?
+- [ ] Remove the key in the same card. Does the search stop?
+- [ ] **Never paste a search key into a GitHub issue.**
 
 ### E. Settings & interface
 - [ ] Change settings, then leave the page — do **Save / Discard / Cancel** work as expected?
@@ -91,6 +97,7 @@ Use Luna for your real daily tasks for a few days. Your honest impressions ("thi
 - **Don't post logs or files from your data folder** in an issue. They may contain file paths and parts of your conversations. We'll ask privately if we need them.
 - **Don't run Luna as Administrator.** It doesn't need it.
 - **Don't edit files inside the data folder by hand** unless we ask you to.
+- **Don't paste search keys, links with private tokens or private page text into GitHub Issues.**
 - **Don't set a high cloud spending cap.** Keep it low while testing — cloud usage costs real money on your own account.
 
 ---
@@ -99,7 +106,7 @@ Use Luna for your real daily tasks for a few days. Your honest impressions ("thi
 
 All feedback goes to **[GitHub Issues](https://github.com/EinMM/lunaicore/issues)**. You can write in **Arabic or English**.
 
-**Easiest way:** use the **Send feedback** button in the side bar (also in **Settings → About**) — it opens the right form with your version and engine already filled in. Or use **Settings → About → Copy system info** (versions only, no paths) and paste it into the form.
+**Easiest way:** use the **Send feedback** button in the side bar (also in **Settings → About Luna**) — it opens the right form with your version and engine already filled in. Or use **Settings → About Luna → Copy system info** (versions only, no paths) and paste it into the form.
 
 Choose one of two types:
 
