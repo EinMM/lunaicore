@@ -1,0 +1,73 @@
+---
+// One layout for both languages. CSS and JS are the live page's, verbatim
+// (src/styles/site.css, src/scripts/site.js); only the asset prefix differs per page.
+import css from "../styles/site.css?raw";
+import js from "../scripts/site.js?raw";
+import { release } from "../data/release";
+
+const { meta, lang, dir, bodyDir, assetPrefix = "" } = Astro.props;
+const styles = css.replaceAll('url("assets/', `url("${assetPrefix}assets/`);
+const jsonLd = `
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Luna AI Desktop Assistant",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Windows 11",
+    "softwareVersion": "${release.version}",
+    "inLanguage": ${meta.ldInLanguage},
+    "url": "${meta.ldUrl}",
+    "downloadUrl": "${release.downloadUrl}",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Hussain (EinMM)" },
+    "description": "${meta.ldDescription}"
+  }
+  `;
+---
+<!DOCTYPE html>
+<html lang={lang} dir={dir}>
+
+<head>
+  <!-- Google Tag Manager (official head snippet) -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-ND74XRSZ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b19">
+  <meta name="description" content={meta.description}>
+  <link rel="canonical" href={meta.canonical}>
+  <link rel="alternate" hreflang="en" href="https://lunaicore.com/">
+  <link rel="alternate" hreflang="ar" href="https://lunaicore.com/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://lunaicore.com/">
+  <title>{meta.title}</title>
+
+  <!-- Link previews (WhatsApp, X, Discord...). Absolute URLs: update them if the site moves to lunaicore.com. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luna AI Desktop Assistant">
+  <meta property="og:title" content={meta.ogTitle}>
+  <meta property="og:description" content={meta.ogDescription}>
+  <meta property="og:url" content={meta.ogUrl}>
+  <meta property="og:locale" content={meta.ogLocale}>
+  <meta property="og:image" content="https://lunaicore.com/assets/social/luna-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content={meta.ogImageAlt}>
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json" is:inline set:html={jsonLd}></script>
+
+  <link rel="icon" href={`${assetPrefix}assets/logo/favicon.svg`} type="image/svg+xml">
+  <link rel="icon" href={`${assetPrefix}assets/logo/favicon.png`} type="image/png" sizes="32x32">
+
+  <style is:inline set:html={styles}></style>
+</head>
+<body dir={bodyDir}>
+<slot />
+
+  <script is:inline set:html={js}></script>
+</body>
+</html>

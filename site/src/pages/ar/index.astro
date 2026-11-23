@@ -1,0 +1,673 @@
+---
+import Base from "../../layouts/Base.astro";
+import { release } from "../../data/release";
+import { meta } from "../../i18n/ar";
+---
+<Base meta={meta} lang="ar" dir="rtl" bodyDir="rtl" assetPrefix="../">
+
+  <a class="skip-link" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">تخطَّ إلى المحتوى</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#" aria-label="Luna">
+        <img src="../assets/logo/luna-logo-flat.png" alt="Luna">
+      </a>
+
+      <nav class="nav-links" aria-label="الرئيسية"
+           data-aria-en="Main" data-aria-ar="الرئيسية">
+        <a href="#meet" data-en="Meet Luna" data-ar="تعرّف على لونا">تعرّف على لونا</a>
+        <a href="#features" data-en="Why Luna" data-ar="لماذا لونا">لماذا لونا</a>
+        <a href="#showcase" data-en="Showcase" data-ar="استعراض البرنامج">استعراض البرنامج</a>
+        <a href="#privacy" data-en="Privacy" data-ar="الخصوصية">الخصوصية</a>
+        <a href="#providers" data-en="Providers" data-ar="المزوّدون">المزوّدون</a>
+        <a href="#faq" data-en="FAQ" data-ar="الأسئلة الشائعة">الأسئلة الشائعة</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="lang-button" id="languageToggle" href="../" hreflang="en" lang="en">English</a>
+        <a class="button" href={release.downloadUrl}
+           data-en="Download" data-ar="تحميل">تحميل</a>
+        <button class="menu-button" id="menuButton" type="button"
+                aria-expanded="false" aria-controls="drawer" aria-label="فتح القائمة"
+                data-aria-en="Open menu" data-aria-ar="فتح القائمة"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section rail (wide screens) -->
+  <nav class="rail" id="rail" aria-label="أقسام الصفحة"
+       data-aria-en="Page sections" data-aria-ar="أقسام الصفحة"></nav>
+
+  <!-- Side menu -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="القائمة" data-aria-en="Menu" data-aria-ar="القائمة">
+    <div class="drawer-head">
+      <img src="../assets/logo/luna-logo-flat.png" alt="Luna">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="إغلاق القائمة"
+              data-aria-en="Close menu" data-aria-ar="إغلاق القائمة">&times;</button>
+    </div>
+
+    <nav aria-label="أقسام الصفحة" data-aria-en="Page sections" data-aria-ar="أقسام الصفحة">
+      <ol class="drawer-list" id="drawerList"></ol>
+    </nav>
+
+    <div class="drawer-foot">
+      <div class="social-wrap">
+        <p class="drawer-label" data-en="Follow Luna" data-ar="تابع لونا">تابع لونا</p>
+        <div class="social" data-social-list></div>
+      </div>
+      <a class="button" href={release.downloadUrl}
+         data-en="Download for Windows" data-ar="تحميل لنظام Windows">تحميل لنظام Windows</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- 01 HERO -->
+    <section class="hero" id="top">
+      <img class="hero-mark" src="../assets/logo/luna-logo-neon.png" alt="" aria-hidden="true">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow"
+               data-en="LUNA AI DESKTOP ASSISTANT"
+               data-ar="مساعد لونا للذكاء الاصطناعي">مساعد لونا للذكاء الاصطناعي</div>
+
+          <h1>
+            <span data-en="Your AI. Your PC."
+                  data-ar="ذكاؤك الاصطناعي.">ذكاؤك الاصطناعي.</span>
+            <br>
+            <span class="gradient-text"
+                  data-en="Your Rules."
+                  data-ar="جهازك. قواعدك.">جهازك. قواعدك.</span>
+          </h1>
+
+          <p class="hero-description"
+             data-en="A local-first AI desktop assistant designed around privacy, control, and productivity."
+             data-ar="مساعد ذكاء اصطناعي لسطح المكتب، صُمم ليمنحك الخصوصية والتحكم والإنتاجية، مع أولوية التشغيل المحلي.">مساعد ذكاء اصطناعي لسطح المكتب، صُمم ليمنحك الخصوصية والتحكم والإنتاجية، مع أولوية التشغيل المحلي.</p>
+
+          <div class="hero-actions">
+            <a class="button" href={release.downloadUrl}>
+              <img class="button-icon" src="../assets/icons/download.svg" alt="" aria-hidden="true">
+              <span data-en="Download for Windows"
+                    data-ar="تحميل لنظام Windows">تحميل لنظام Windows</span>
+            </a>
+            <a class="button secondary" href="#meet"
+               data-en="Discover Luna"
+               data-ar="اكتشف لونا">اكتشف لونا</a>
+          <div class="social-wrap hero-social">
+            <div class="social" data-social-list role="group"
+                 aria-label="وسائل التواصل الاجتماعي"
+                 data-aria-en="Social media" data-aria-ar="وسائل التواصل الاجتماعي"></div>
+          </div>
+          </div>
+
+          <div class="hero-meta">
+            <span data-en={`${release.betaLabel} (v${release.version}) · Windows 11 recommended · English & Arabic · ${release.sizeMB} MB`}
+                  data-ar={`${release.betaLabelAr} (v${release.version}) · يُوصى بنظام Windows 11 · العربية والإنجليزية · ${release.sizeMB} ميجابايت`}>{release.betaLabelAr} (v{release.version}) · يُوصى بنظام Windows 11 · العربية والإنجليزية · {release.sizeMB} ميجابايت</span>
+            ·
+            <a href={release.releaseUrl}
+               data-en="Release notes" data-ar="ملاحظات الإصدار">ملاحظات الإصدار</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 MEET LUNA -->
+    <section id="meet" class="section-texture">
+      <div class="container split">
+        <div>
+          <div class="eyebrow" data-en="MEET LUNA" data-ar="تعرّف على لونا">تعرّف على لونا</div>
+          <h2 data-en="AI that works on your terms."
+              data-ar="ذكاء اصطناعي يعمل وفق اختياراتك.">ذكاء اصطناعي يعمل وفق اختياراتك.</h2>
+          <p data-en="Luna brings local AI, file assistance, personal memory, and optional cloud intelligence into one Windows desktop experience."
+             data-ar="تجمع لونا بين الذكاء الاصطناعي المحلي ومساعدة الملفات والذاكرة الشخصية والذكاء السحابي الاختياري، ضمن تجربة واحدة على Windows.">تجمع لونا بين الذكاء الاصطناعي المحلي ومساعدة الملفات والذاكرة الشخصية والذكاء السحابي الاختياري، ضمن تجربة واحدة على Windows.</p>
+        </div>
+        <img class="product-image" loading="lazy" decoding="async"
+             src="../assets/screenshots/luna-main-interface.webp"
+             alt="الواجهة الرئيسية للونا">
+      </div>
+    </section>
+
+    <!-- 03 WHY LUNA -->
+    <section id="features">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="WHY LUNA" data-ar="لماذا لونا">لماذا لونا</div>
+          <h2 data-en="More than a chat window."
+              data-ar="أكثر من مجرد نافذة محادثة.">أكثر من مجرد نافذة محادثة.</h2>
+          <p data-en="A desktop assistant designed to help you work with your conversations, files, and knowledge."
+             data-ar="مساعد لسطح المكتب يساعدك في محادثاتك وملفاتك ومعرفتك الشخصية.">مساعد لسطح المكتب يساعدك في محادثاتك وملفاتك ومعرفتك الشخصية.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/brain.svg" alt="" aria-hidden="true">
+            <h3 data-en="Conversations" data-ar="المحادثات">المحادثات</h3>
+            <p data-en="A flexible workspace for your AI conversations."
+               data-ar="مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي.">مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/folder.svg" alt="" aria-hidden="true">
+            <h3 data-en="File Assistant" data-ar="مساعد الملفات">مساعد الملفات</h3>
+            <p data-en="Search, organize, and work with your files with confirmation."
+               data-ar="ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك.">ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/memory.svg" alt="" aria-hidden="true">
+            <h3 data-en="Personal Memory" data-ar="الذاكرة الشخصية">الذاكرة الشخصية</h3>
+            <p data-en="Luna remembers information when you explicitly ask."
+               data-ar="تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً.">تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/documents.svg" alt="" aria-hidden="true">
+            <h3 data-en="Document Intelligence" data-ar="فهم المستندات">فهم المستندات</h3>
+            <p data-en="Search and work with supported documents."
+               data-ar="ابحث داخل المستندات المدعومة واعمل معها.">ابحث داخل المستندات المدعومة واعمل معها.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true">
+            <h3 data-en="Local AI Engine" data-ar="محرك ذكاء محلي">محرك ذكاء محلي</h3>
+            <p data-en="Run local models on your own computer."
+               data-ar="شغّل النماذج المحلية على جهازك.">شغّل النماذج المحلية على جهازك.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/cloud.svg" alt="" aria-hidden="true">
+            <h3 data-en="Hybrid Intelligence" data-ar="الذكاء الهجين">الذكاء الهجين</h3>
+            <p data-en="Choose when to use optional cloud services."
+               data-ar="اختر متى تريد استخدام الخدمات السحابية الاختيارية.">اختر متى تريد استخدام الخدمات السحابية الاختيارية.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="../assets/icons/globe.svg" alt="" aria-hidden="true">
+            <h3 data-en="Web Search & Reading" data-ar="قراءة الويب والبحث">قراءة الويب والبحث</h3>
+            <p data-en="Luna reads a page from a link you write and searches the web with your own key. You choose Off, Ask first or Allowed, and a private conversation never uses the web."
+               data-ar="تقرأ لونا صفحة من رابط تكتبه وتبحث في الويب بمفتاحك أنت. تختار «مغلق» أو «اسأل أولًا» أو «مسموح»، والمحادثة الخاصة لا تستخدم الويب أبدًا.">تقرأ لونا صفحة من رابط تكتبه وتبحث في الويب بمفتاحك أنت. تختار «مغلق» أو «اسأل أولًا» أو «مسموح»، والمحادثة الخاصة لا تستخدم الويب أبدًا.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PRODUCT SHOWCASE -->
+    <section id="showcase" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="PRODUCT SHOWCASE" data-ar="استعراض لونا">استعراض لونا</div>
+          <h2 data-en="Designed for real work."
+              data-ar="مصممة لإنجاز أعمال حقيقية.">مصممة لإنجاز أعمال حقيقية.</h2>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-arabic-chat.webp" alt="محادثة بالعربية">
+            <h3 data-en="Natural conversations" data-ar="محادثات طبيعية">محادثات طبيعية</h3>
+            <p data-en="Work in English or Arabic."
+               data-ar="تحدّث بالإنجليزية أو العربية.">تحدّث بالإنجليزية أو العربية.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-file-assistant.webp" alt="مساعد الملفات">
+            <h3 data-en="Your files, within reach" data-ar="ملفاتك في متناولك">ملفاتك في متناولك</h3>
+            <p data-en="Search and manage files with permission controls."
+               data-ar="ابحث عن الملفات وأدرها مع ضوابط الصلاحيات.">ابحث عن الملفات وأدرها مع ضوابط الصلاحيات.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-privacy-settings.webp" alt="إعدادات الخصوصية">
+            <h3 data-en="Control your privacy" data-ar="تحكم بخصوصيتك">تحكم بخصوصيتك</h3>
+            <p data-en="Manage access and control your data."
+               data-ar="تحكم في الوصول إلى ملفاتك وبياناتك.">تحكم في الوصول إلى ملفاتك وبياناتك.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="../assets/screenshots/luna-knowledge.webp" alt="المعرفة والذاكرة">
+            <h3 data-en="Knowledge that stays organized" data-ar="معرفة منظمة">معرفة منظمة</h3>
+            <p data-en="Search your personal knowledge and supported documents."
+               data-ar="ابحث في معرفتك الشخصية ومستنداتك المدعومة.">ابحث في معرفتك الشخصية ومستنداتك المدعومة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 PRIVACY -->
+    <section id="privacy">
+      <div class="container split">
+        <div>
+          <div class="eyebrow" data-en="PRIVACY & SECURITY" data-ar="الخصوصية والأمان">الخصوصية والأمان</div>
+          <h2 data-en="Your data. Your decisions."
+              data-ar="بياناتك. قراراتك.">بياناتك. قراراتك.</h2>
+          <p data-en="Luna is local-first. File operations require confirmation, folder access is controlled, and cloud use remains optional."
+             data-ar="تعتمد لونا التشغيل المحلي أولًا. تتطلب عمليات الملفات تأكيدك، وتخضع صلاحيات المجلدات للتحكم، ويبقى استخدام السحابة اختياريًا.">تعتمد لونا التشغيل المحلي أولًا. تتطلب عمليات الملفات تأكيدك، وتخضع صلاحيات المجلدات للتحكم، ويبقى استخدام السحابة اختياريًا.</p>
+        </div>
+        <img class="product-image" loading="lazy" decoding="async"
+             src="../assets/screenshots/luna-privacy-settings.webp"
+             alt="أدوات التحكم بالخصوصية في لونا">
+      </div>
+    </section>
+
+    <!-- 06 LOCAL & HYBRID -->
+    <section id="modes" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="LOCAL & HYBRID INTELLIGENCE"
+              data-ar="الذكاء المحلي والهجين">الذكاء المحلي والهجين</div>
+          <h2 data-en="Choose how Luna thinks."
+              data-ar="اختر كيف تعمل لونا.">اختر كيف تعمل لونا.</h2>
+          <p data-en="Start locally and choose cloud processing when you need it."
+             data-ar="ابدأ بالمعالجة المحلية، واختر المعالجة السحابية عندما تحتاج إليها.">ابدأ بالمعالجة المحلية، واختر المعالجة السحابية عندما تحتاج إليها.</p>
+        </div>
+
+        <div class="mode-grid">
+          <article class="mode">
+            <h3><img class="mode-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local" data-ar="محلي">محلي</span></h3>
+            <p data-en="Everything runs on your computer with Luna Engine, and works offline once a model is installed."
+               data-ar="كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.">كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="../assets/icons/cloud.svg" alt="" aria-hidden="true"><span data-en="Cloud" data-ar="سحابي">سحابي</span></h3>
+            <p data-en="Use Google Gemini or OpenAI with your own API key, stored securely on your PC."
+               data-ar="استخدم Google Gemini أو OpenAI بمفتاح API الخاص بك، ويُحفظ المفتاح بأمان على جهازك.">استخدم Google Gemini أو OpenAI بمفتاح API الخاص بك، ويُحفظ المفتاح بأمان على جهازك.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="../assets/icons/brain.svg" alt="" aria-hidden="true"><span data-en="Hybrid" data-ar="هجين">هجين</span></h3>
+            <p data-en="Local and cloud together, in one of two styles:"
+               data-ar="المحلي والسحابة معًا، بأحد أسلوبين:">المحلي والسحابة معًا، بأحد أسلوبين:</p>
+            <ul class="mode-options">
+              <li><strong data-en="Balanced" data-ar="متوازن">متوازن</strong>
+                <span data-en="Local first. The cloud steps in only when the local engine is unavailable."
+                      data-ar="المحلي أولًا، ولا تتدخل السحابة إلا إذا تعذّر المحرّك المحلي.">المحلي أولًا، ولا تتدخل السحابة إلا إذا تعذّر المحرّك المحلي.</span></li>
+              <li><strong data-en="Lighten the PC" data-ar="تخفيف الجهاز">تخفيف الجهاز</strong>
+                <span data-en="The cloud handles everyday requests, while sensitive messages stay on your PC."
+                      data-ar="تتولى السحابة الطلبات العادية، وتبقى الرسائل الحساسة على جهازك.">تتولى السحابة الطلبات العادية، وتبقى الرسائل الحساسة على جهازك.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06a COMPARISON -->
+    <section id="compare">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="HONEST COMPARISON" data-ar="مقارنة صريحة">مقارنة صريحة</div>
+          <h2 data-en="How is Luna different?" data-ar="كيف تختلف لونا؟">كيف تختلف لونا؟</h2>
+          <p data-en="Three kinds of AI assistants, differing in where the AI runs, how much control you have over your files, and how well they support Arabic."
+             data-ar="ثلاثة أنواع من المساعدات الذكية، وتختلف في المكان الذي يعمل فيه الذكاء، وفي تحكمك بملفاتك، وفي دعم العربية.">ثلاثة أنواع من المساعدات الذكية، وتختلف في المكان الذي يعمل فيه الذكاء، وفي تحكمك بملفاتك، وفي دعم العربية.</p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="compare-card">
+            <h3 data-en="Cloud AI apps" data-ar="تطبيقات الذكاء السحابية">تطبيقات الذكاء السحابية</h3>
+            <dl>
+            <dt data-en="Where does the AI run?" data-ar="أين يعمل الذكاء؟">أين يعمل الذكاء؟</dt>
+            <dd data-en="On the provider’s servers" data-ar="على خوادم المزوّد">على خوادم المزوّد</dd>
+            <dt data-en="Arabic interface and conversations" data-ar="الواجهة والمحادثة بالعربية">الواجهة والمحادثة بالعربية</dt>
+            <dd data-en="Varies by app" data-ar="تختلف بحسب التطبيق">تختلف بحسب التطبيق</dd>
+            <dt data-en="Working with files" data-ar="التعامل مع الملفات">التعامل مع الملفات</dt>
+            <dd data-en="Depends on uploading files to the provider" data-ar="يعتمد على رفع الملفات إلى المزوّد">يعتمد على رفع الملفات إلى المزوّد</dd>
+            <dt data-en="Cloud use" data-ar="استخدام السحابة">استخدام السحابة</dt>
+            <dd data-en="Essential: the service stops without it" data-ar="أساسي، والخدمة تتوقف دونه">أساسي، والخدمة تتوقف دونه</dd>
+            </dl>
+          </article>
+          <article class="compare-card">
+            <h3 data-en="General local-model tools" data-ar="أدوات النماذج المحلية العامة">أدوات النماذج المحلية العامة</h3>
+            <dl>
+            <dt data-en="Where does the AI run?" data-ar="أين يعمل الذكاء؟">أين يعمل الذكاء؟</dt>
+            <dd data-en="On your PC" data-ar="على جهازك">على جهازك</dd>
+            <dt data-en="Arabic interface and conversations" data-ar="الواجهة والمحادثة بالعربية">الواجهة والمحادثة بالعربية</dt>
+            <dd data-en="Varies by tool" data-ar="تختلف بحسب الأداة">تختلف بحسب الأداة</dd>
+            <dt data-en="Working with files" data-ar="التعامل مع الملفات">التعامل مع الملفات</dt>
+            <dd data-en="Varies by tool" data-ar="يختلف بحسب الأداة">يختلف بحسب الأداة</dd>
+            <dt data-en="Cloud use" data-ar="استخدام السحابة">استخدام السحابة</dt>
+            <dd data-en="Optional in some tools" data-ar="اختياري في بعض الأدوات">اختياري في بعض الأدوات</dd>
+            </dl>
+          </article>
+          <article class="compare-card us">
+            <h3>Luna</h3>
+            <dl>
+            <dt data-en="Where does the AI run?" data-ar="أين يعمل الذكاء؟">أين يعمل الذكاء؟</dt>
+            <dd data-en="On your PC by default; cloud only when you choose" data-ar="على جهازك افتراضيًا، والسحابة فقط عندما تختارها">على جهازك افتراضيًا، والسحابة فقط عندما تختارها</dd>
+            <dt data-en="Arabic interface and conversations" data-ar="الواجهة والمحادثة بالعربية">الواجهة والمحادثة بالعربية</dt>
+            <dd data-en="Full Arabic interface and conversations, alongside English" data-ar="واجهة ومحادثات عربية كاملة، إلى جانب الإنجليزية">واجهة ومحادثات عربية كاملة، إلى جانب الإنجليزية</dd>
+            <dt data-en="Working with files" data-ar="التعامل مع الملفات">التعامل مع الملفات</dt>
+            <dd data-en="Every file operation asks for your confirmation, and each folder has its own permission (read-only or full access)" data-ar="كل عملية على الملفات تطلب تأكيدك، وصلاحية كل مجلد مستقلة (قراءة فقط أو وصول كامل)">كل عملية على الملفات تطلب تأكيدك، وصلاحية كل مجلد مستقلة (قراءة فقط أو وصول كامل)</dd>
+            <dt data-en="Cloud use" data-ar="استخدام السحابة">استخدام السحابة</dt>
+            <dd data-en="Always optional, with your own API key stored in Windows Credential Manager" data-ar="اختياري دائمًا، بمفتاح API الخاص بك المحفوظ في مدير بيانات اعتماد Windows">اختياري دائمًا، بمفتاح API الخاص بك المحفوظ في مدير بيانات اعتماد Windows</dd>
+            </dl>
+          </article>
+        </div>
+
+        <p class="provider-note" data-en="This comparison describes general categories as of November 2026; individual products within each category may differ. Luna plans to support additional languages in the future, with no date set yet."
+           data-ar="تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع. وتخطط لونا لدعم لغات إضافية في المستقبل، دون موعد محدد بعد.">تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع. وتخطط لونا لدعم لغات إضافية في المستقبل، دون موعد محدد بعد.</p>
+      </div>
+    </section>
+
+    <!-- 06b SUPPORTED PROVIDERS -->
+    <section id="providers" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="SUPPORTED PROVIDERS" data-ar="المزوّدون المدعومون">المزوّدون المدعومون</div>
+          <h2 data-en="Bring the engine you trust."
+              data-ar="اختر المحرّك الذي تثق به.">اختر المحرّك الذي تثق به.</h2>
+          <p data-en="Luna works with the engines and services below. AI requests never pass through a Luna server: local models run on your PC, and cloud providers are reached directly with your own API key."
+             data-ar="تعمل لونا مع المحرّكات والخدمات التالية. لا تمرّ طلبات الذكاء الاصطناعي عبر أي خادم تابع للونا: النماذج المحلية تعمل على جهازك، ويُتصل بمزوّدي السحابة مباشرةً بمفتاح API الخاص بك.">تعمل لونا مع المحرّكات والخدمات التالية. لا تمرّ طلبات الذكاء الاصطناعي عبر أي خادم تابع للونا: النماذج المحلية تعمل على جهازك، ويُتصل بمزوّدي السحابة مباشرةً بمفتاح API الخاص بك.</p>
+        </div>
+
+        <div class="provider-groups">
+          <article class="provider-group">
+            <h3><img class="mode-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local models" data-ar="النماذج المحلية">النماذج المحلية</span></h3>
+            <p data-en="Models run on Luna Engine, built on llama.cpp, for better performance. Works offline once a model is installed."
+               data-ar="تعمل النماذج على محرّك Luna Engine المبني على llama.cpp لأداء أفضل، ودون إنترنت بعد تثبيت النموذج.">تعمل النماذج على محرّك Luna Engine المبني على llama.cpp لأداء أفضل، ودون إنترنت بعد تثبيت النموذج.</p>
+            <ul class="provider-list">
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">GE</span>
+                <div>
+                  <strong>Gemma</strong>
+                  <small data-en="Google’s open model family, run locally on your PC."
+                         data-ar="عائلة نماذج Google المفتوحة، وتعمل محليًا على جهازك.">عائلة نماذج Google المفتوحة، وتعمل محليًا على جهازك.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">QW</span>
+                <div>
+                  <strong>Qwen</strong>
+                  <small data-en="Alibaba’s open model family, run locally on your PC."
+                         data-ar="عائلة نماذج Alibaba المفتوحة، وتعمل محليًا على جهازك.">عائلة نماذج Alibaba المفتوحة، وتعمل محليًا على جهازك.</small>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="provider-group">
+            <h3><img class="mode-icon" src="../assets/icons/cloud.svg" alt="" aria-hidden="true"><span data-en="Cloud AI" data-ar="ذكاء سحابي">ذكاء سحابي</span></h3>
+            <p data-en="Optional. Use your own API key, stored in Windows Credential Manager."
+               data-ar="اختياري. استخدم مفتاح API الخاص بك، ويُحفظ في مدير بيانات اعتماد Windows.">اختياري. استخدم مفتاح API الخاص بك، ويُحفظ في مدير بيانات اعتماد Windows.</p>
+            <ul class="provider-list">
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">GM</span>
+                <div>
+                  <strong>Google Gemini</strong>
+                  <small data-en="Connect with your own Google AI API key."
+                         data-ar="اتصل بمفتاح Google AI API الخاص بك.">اتصل بمفتاح Google AI API الخاص بك.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark" aria-hidden="true">OA</span>
+                <div>
+                  <strong>OpenAI</strong>
+                  <small data-en="Connect with your own OpenAI API key."
+                         data-ar="اتصل بمفتاح OpenAI API الخاص بك.">اتصل بمفتاح OpenAI API الخاص بك.</small>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="provider-note"
+           data-en="More providers are added one at a time, only after reviewing their privacy and terms. Provider names and trademarks belong to their owners; Luna is an independent project and is not affiliated with or endorsed by them."
+           data-ar="يُضاف مزوّدون آخرون تدريجيًا، بعد مراجعة سياسة الخصوصية والشروط لكل منها. أسماء المزوّدين وعلاماتهم التجارية ملك لأصحابها، ولونا مشروع مستقل غير تابع لهم ولا مدعوم منهم.">يُضاف مزوّدون آخرون تدريجيًا، بعد مراجعة سياسة الخصوصية والشروط لكل منها. أسماء المزوّدين وعلاماتهم التجارية ملك لأصحابها، ولونا مشروع مستقل غير تابع لهم ولا مدعوم منهم.</p>
+      </div>
+    </section>
+
+    <!-- 07 TECHNICAL OVERVIEW -->
+    <section id="tech">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="TECHNICAL OVERVIEW" data-ar="نظرة تقنية">نظرة تقنية</div>
+          <h2 data-en="Built for your desktop."
+              data-ar="مصممة لحاسوبك.">مصممة لحاسوبك.</h2>
+        </div>
+
+        <div class="technical-list">
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/window.svg" alt="" aria-hidden="true">Windows <span data-en="Desktop platform" data-ar="منصة التشغيل">منصة التشغيل</span></div>
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true">Local AI <span data-en="Run supported local models" data-ar="تشغيل النماذج المحلية المدعومة">تشغيل النماذج المحلية المدعومة</span></div>
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/settings.svg" alt="" aria-hidden="true">CUDA / Vulkan <span data-en="Supported acceleration paths" data-ar="مسارات تسريع مدعومة">مسارات تسريع مدعومة</span></div>
+          <div class="technical-item"><img class="technical-icon" src="../assets/icons/languages.svg" alt="" aria-hidden="true">English & Arabic <span data-en="Interface and conversations" data-ar="الواجهة والمحادثات">الواجهة والمحادثات</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07a SYSTEM REQUIREMENTS -->
+    <section id="requirements" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="SYSTEM REQUIREMENTS" data-ar="متطلبات التشغيل">متطلبات التشغيل</div>
+          <h2 data-en="What your PC needs for local models." data-ar="ماذا يحتاج جهازك لتشغيل النماذج المحلية؟">ماذا يحتاج جهازك لتشغيل النماذج المحلية؟</h2>
+          <p data-en={`Luna itself is light, with a ${release.sizeMB} MB installer. The numbers below are for running AI models on your own PC. Without a suitable graphics card, you can still use Luna with cloud AI.`} data-ar={`لونا نفسها خفيفة، وملف تثبيتها ${release.sizeMB} ميجابايت. الأرقام التالية خاصة بتشغيل نماذج الذكاء الاصطناعي على جهازك. وإن لم يكن لديك كرت شاشة مناسب، يمكنك استخدام لونا مع الذكاء السحابي.`}>لونا نفسها خفيفة، وملف تثبيتها {release.sizeMB} ميجابايت. الأرقام التالية خاصة بتشغيل نماذج الذكاء الاصطناعي على جهازك. وإن لم يكن لديك كرت شاشة مناسب، يمكنك استخدام لونا مع الذكاء السحابي.</p>
+        </div>
+
+        <div class="compare-grid req-grid">
+          <article class="compare-card">
+            <h3 data-en="Minimum" data-ar="الحد الأدنى">الحد الأدنى</h3>
+            <dl>
+            <dt data-en="Operating system" data-ar="نظام التشغيل">نظام التشغيل</dt>
+            <dd data-en="Windows 11, 64-bit. Windows 10 is not officially supported in this Beta." data-ar="Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي.">Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي.</dd>
+            <dt data-en="Graphics card" data-ar="كرت الشاشة">كرت الشاشة</dt>
+            <dd data-en="NVIDIA card with 4 GB of dedicated memory (VRAM). Runs Gemma 4 E2B." data-ar="كرت NVIDIA بذاكرة مخصصة (VRAM) لا تقل عن 4 جيجابايت. يشغّل نموذج Gemma 4 E2B.">كرت NVIDIA بذاكرة مخصصة (VRAM) لا تقل عن 4 جيجابايت. يشغّل نموذج Gemma 4 E2B.</dd>
+            <dt data-en="No graphics card?" data-ar="بدون كرت شاشة؟">بدون كرت شاشة؟</dt>
+            <dd data-en="CPU-only mode works for small models, but slowly. It needs AVX2, 4 physical cores and 16 GB of RAM." data-ar="يعمل وضع المعالج فقط مع النماذج الصغيرة لكنه بطيء، ويتطلب دعم AVX2 و4 أنوية فعلية و16 جيجابايت من الذاكرة (RAM).">يعمل وضع المعالج فقط مع النماذج الصغيرة لكنه بطيء، ويتطلب دعم AVX2 و4 أنوية فعلية و16 جيجابايت من الذاكرة (RAM).</dd>
+            <dt data-en="Memory (RAM)" data-ar="ذاكرة النظام (RAM)">ذاكرة النظام (RAM)</dt>
+            <dd data-en="8 GB" data-ar="8 جيجابايت">8 جيجابايت</dd>
+            <dt data-en="Free disk space" data-ar="مساحة القرص الحرة">مساحة القرص الحرة</dt>
+            <dd data-en={`5 GB: the ${release.sizeMB} MB installer plus one small model (about 3 GB).`} data-ar={`5 جيجابايت: ملف التثبيت (${release.sizeMB} ميجابايت) مع نموذج صغير واحد (نحو 3 جيجابايت).`}>5 جيجابايت: ملف التثبيت ({release.sizeMB} ميجابايت) مع نموذج صغير واحد (نحو 3 جيجابايت).</dd>
+            <dt data-en="Internet" data-ar="الإنترنت">الإنترنت</dt>
+            <dd data-en="Only to download models and updates. Local chats work offline afterwards." data-ar="لتنزيل النماذج والتحديثات فقط. تعمل المحادثات المحلية دونه بعد ذلك.">لتنزيل النماذج والتحديثات فقط. تعمل المحادثات المحلية دونه بعد ذلك.</dd>
+            </dl>
+          </article>
+          <article class="compare-card us">
+            <h3 data-en="Recommended" data-ar="الموصى به">الموصى به</h3>
+            <dl>
+            <dt data-en="Operating system" data-ar="نظام التشغيل">نظام التشغيل</dt>
+            <dd data-en="Windows 11, 64-bit." data-ar="Windows 11 (64-بت).">Windows 11 (64-بت).</dd>
+            <dt data-en="Graphics card" data-ar="كرت الشاشة">كرت الشاشة</dt>
+            <dd data-en="NVIDIA card with 12 GB of VRAM or more. The 12B model starts at 10 GB." data-ar="كرت NVIDIA بذاكرة 12 جيجابايت أو أكثر. ويبدأ نموذج 12B من 10 جيجابايت.">كرت NVIDIA بذاكرة 12 جيجابايت أو أكثر. ويبدأ نموذج 12B من 10 جيجابايت.</dd>
+            <dt data-en="Processor" data-ar="المعالج">المعالج</dt>
+            <dd data-en="AVX2 support and 4 or more physical cores." data-ar="يدعم AVX2 بأربعة أنوية فعلية أو أكثر.">يدعم AVX2 بأربعة أنوية فعلية أو أكثر.</dd>
+            <dt data-en="Memory (RAM)" data-ar="ذاكرة النظام (RAM)">ذاكرة النظام (RAM)</dt>
+            <dd data-en="16 GB or more" data-ar="16 جيجابايت أو أكثر">16 جيجابايت أو أكثر</dd>
+            <dt data-en="Free disk space" data-ar="مساحة القرص الحرة">مساحة القرص الحرة</dt>
+            <dd data-en="20 GB, enough for several models (about 3 to 7 GB each)." data-ar="20 جيجابايت، تكفي لعدة نماذج (نحو 3 إلى 7 جيجابايت لكل نموذج).">20 جيجابايت، تكفي لعدة نماذج (نحو 3 إلى 7 جيجابايت لكل نموذج).</dd>
+            <dt data-en="What you get" data-ar="ماذا تحصل عليه">ماذا تحصل عليه</dt>
+            <dd data-en="Luna’s top suggestion, Gemma 4 12B: about 71 tokens per second on our test PC." data-ar="اقتراح لونا الأول، نموذج Gemma 4 12B: حوالي 71 رمزًا في الثانية على جهاز اختبارنا.">اقتراح لونا الأول، نموذج Gemma 4 12B: حوالي 71 رمزًا في الثانية على جهاز اختبارنا.</dd>
+            </dl>
+          </article>
+        </div>
+
+        <article class="provider-group req-models">
+          <h3><img class="mode-icon" src="../assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Which model fits which graphics card" data-ar="أي نموذج يناسب أي كرت شاشة">أي نموذج يناسب أي كرت شاشة</span></h3>
+          <p data-en="Luna suggests the best model that fits your card, keeping a safety margin of about 1.5 GB. Memory and speed figures were measured on our test PC unless marked Untested." data-ar="تقترح لونا أفضل نموذج يناسب كرتك مع هامش أمان نحو 1.5 جيجابايت. قِيسَت أرقام الذاكرة والسرعة على جهاز اختبارنا ما لم تكن موسومة بـ«لم تُختبر».">تقترح لونا أفضل نموذج يناسب كرتك مع هامش أمان نحو 1.5 جيجابايت. قِيسَت أرقام الذاكرة والسرعة على جهاز اختبارنا ما لم تكن موسومة بـ«لم تُختبر».</p>
+          <ul class="provider-list">
+              <li class="provider">
+                <span class="provider-mark wide" aria-hidden="true">4 GB</span>
+                <div>
+                  <strong>Gemma 4 E2B</strong>
+                  <small data-en="The lightest and fastest. Uses about 1.9 GB of card memory, about 234 tokens per second." data-ar="الأخف والأسرع. يستهلك نحو 1.9 جيجابايت من ذاكرة الكرت، وحوالي 234 رمزًا في الثانية.">الأخف والأسرع. يستهلك نحو 1.9 جيجابايت من ذاكرة الكرت، وحوالي 234 رمزًا في الثانية.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark wide" aria-hidden="true">6–8 GB</span>
+                <div>
+                  <strong>Gemma 4 E4B</strong>
+                  <small data-en="A good balance. Uses about 3.5 GB of card memory, about 131 tokens per second." data-ar="توازن جيد. يستهلك نحو 3.5 جيجابايت من ذاكرة الكرت، وحوالي 131 رمزًا في الثانية.">توازن جيد. يستهلك نحو 3.5 جيجابايت من ذاكرة الكرت، وحوالي 131 رمزًا في الثانية.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark wide" aria-hidden="true">10–12 GB</span>
+                <div>
+                  <strong>Gemma 4 12B</strong>
+                  <small data-en="Luna’s top suggestion for this range. Uses about 7.5 GB of card memory, about 71 tokens per second. An optional speed-mode file adds about 0.5 GB." data-ar="اقتراح لونا الأول لهذه الفئة. يستهلك نحو 7.5 جيجابايت من ذاكرة الكرت، وحوالي 71 رمزًا في الثانية. ويضيف ملف وضع السرعة الاختياري نحو 0.5 جيجابايت.">اقتراح لونا الأول لهذه الفئة. يستهلك نحو 7.5 جيجابايت من ذاكرة الكرت، وحوالي 71 رمزًا في الثانية. ويضيف ملف وضع السرعة الاختياري نحو 0.5 جيجابايت.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark wide" aria-hidden="true">16 GB</span>
+                <div>
+                  <strong>Gemma 4 26B A4B</strong>
+                  <small data-en="Untested. A larger model for bigger cards." data-ar="لم تُختبر. نموذج أكبر للكروت الأكبر.">لم تُختبر. نموذج أكبر للكروت الأكبر.</small>
+                </div>
+              </li>
+              <li class="provider">
+                <span class="provider-mark wide" aria-hidden="true">24 GB+</span>
+                <div>
+                  <strong>Gemma 4 31B · Qwen3.5 27B</strong>
+                  <small data-en="Untested. Qwen3.5 35B A3B needs 32 GB." data-ar="لم تُختبر. ويحتاج نموذج Qwen3.5 35B A3B إلى 32 جيجابايت.">لم تُختبر. ويحتاج نموذج Qwen3.5 35B A3B إلى 32 جيجابايت.</small>
+                </div>
+              </li>
+          </ul>
+        </article>
+
+        <p class="provider-note" data-en="NVIDIA cards (CUDA) are the path we tested. AMD and Intel cards are supported through Vulkan but were not tested on our hardware, and Luna’s live memory check works on NVIDIA cards only. Integrated graphics count as CPU-only. These figures are guidance: Luna checks your PC itself and suggests a model in Settings, under Your device." data-ar="كروت NVIDIA (عبر CUDA) هي المسار الذي اختبرناه. أما كروت AMD وIntel فمدعومة عبر Vulkan لكنها لم تُختبر على أجهزتنا، وفحص الذاكرة الحي في لونا يعمل مع كروت NVIDIA فقط. وتُعدّ الرسوميات المدمجة وضع معالج فقط. هذه الأرقام للإرشاد، فلونا تفحص جهازك بنفسها وتقترح النموذج المناسب في الإعدادات ضمن «جهازك».">كروت NVIDIA (عبر CUDA) هي المسار الذي اختبرناه. أما كروت AMD وIntel فمدعومة عبر Vulkan لكنها لم تُختبر على أجهزتنا، وفحص الذاكرة الحي في لونا يعمل مع كروت NVIDIA فقط. وتُعدّ الرسوميات المدمجة وضع معالج فقط. هذه الأرقام للإرشاد، فلونا تفحص جهازك بنفسها وتقترح النموذج المناسب في الإعدادات ضمن «جهازك».</p>
+      </div>
+    </section>
+
+    <!-- 08 WHAT'S NEXT -->
+    <section id="next">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="WHAT'S NEXT" data-ar="ماذا بعد؟">ماذا بعد؟</div>
+          <h2 data-en="The journey continues."
+              data-ar="الرحلة مستمرة.">الرحلة مستمرة.</h2>
+          <p data-en="Future possibilities for the Luna ecosystem. These capabilities are not available in the current version."
+             data-ar="إمكانات مستقبلية ضمن منظومة لونا. هذه الميزات غير متاحة في الإصدار الحالي.">إمكانات مستقبلية ضمن منظومة لونا. هذه الميزات غير متاحة في الإصدار الحالي.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><h3>Luna Vision</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
+          <article class="feature-card"><h3>Luna Voice</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
+          <article class="feature-card"><h3>Desktop Agent</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
+          <article class="feature-card"><h3>Skills & Plugins</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
+          <article class="feature-card"><h3>Luna Connect</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 FAQ -->
+    <section id="faq" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-en="FAQ" data-ar="أسئلة وأجوبة">أسئلة وأجوبة</div>
+          <h2 data-en="Frequently asked questions"
+              data-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3 data-en="Does Luna need internet?"
+                data-ar="هل تحتاج لونا إلى الإنترنت؟">هل تحتاج لونا إلى الإنترنت؟</h3>
+            <p data-en="Local model conversations can work without internet after the model is installed."
+               data-ar="يمكن للمحادثات باستخدام نموذج محلي أن تعمل دون إنترنت بعد تثبيت النموذج.">يمكن للمحادثات باستخدام نموذج محلي أن تعمل دون إنترنت بعد تثبيت النموذج.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="Is cloud use required?"
+                data-ar="هل استخدام السحابة إلزامي؟">هل استخدام السحابة إلزامي؟</h3>
+            <p data-en="No. Cloud processing is optional and under your control."
+               data-ar="لا. المعالجة السحابية اختيارية وتخضع لتحكمك.">لا. المعالجة السحابية اختيارية وتخضع لتحكمك.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="Does Luna work on Windows 10?"
+                data-ar="هل تعمل لونا على Windows 10؟">هل تعمل لونا على Windows 10؟</h3>
+            <p data-en="Windows 11 (64-bit) is recommended. Windows 10 is not officially supported in this Beta: cloud AI works on it in our testing, but some features may not work as expected."
+               data-ar="يُوصى بنظام Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي: الذكاء السحابي يعمل عليه في اختباراتنا، لكن قد لا تعمل بعض الميزات كما هو متوقع.">يُوصى بنظام Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي: الذكاء السحابي يعمل عليه في اختباراتنا، لكن قد لا تعمل بعض الميزات كما هو متوقع.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="Why does Windows show a SmartScreen warning?"
+                data-ar="لماذا يظهر تحذير SmartScreen؟">لماذا يظهر تحذير SmartScreen؟</h3>
+            <p data-en="The Beta installer is not code-signed yet, so Windows may show “Windows protected your PC”. Click More info, then Run anyway — only for installers downloaded from this page or the official Releases page."
+               data-ar="ملف التثبيت غير موقّع رقميًا بعد، لذلك قد تظهر رسالة «⁨Windows protected your PC⁩». اضغط ⁨More info⁩ ثم ⁨Run anyway⁩، ولا تفعل ذلك إلا مع الملفات المنزّلة من هذه الصفحة أو من صفحة الإصدارات الرسمية.">ملف التثبيت غير موقّع رقميًا بعد، لذلك قد تظهر رسالة «⁨Windows protected your PC⁩». اضغط ⁨More info⁩ ثم ⁨Run anyway⁩، ولا تفعل ذلك إلا مع الملفات المنزّلة من هذه الصفحة أو من صفحة الإصدارات الرسمية.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="How can I verify the installer?"
+                data-ar="كيف أتحقق من ملف التثبيت؟">كيف أتحقق من ملف التثبيت؟</h3>
+            <p data-en="Run this command in PowerShell, in the folder of the downloaded file:"
+               data-ar="نفّذ هذا الأمر في PowerShell داخل مجلد الملف المنزَّل:">نفّذ هذا الأمر في PowerShell داخل مجلد الملف المنزَّل:</p>
+            <code class="hash cmd">Get-FileHash .\{release.installerName} -Algorithm SHA256</code>
+            <p class="hash-label" data-en="The result must match this SHA-256 exactly:"
+               data-ar="يجب أن تطابق النتيجة هذه البصمة (SHA-256) تمامًا:">يجب أن تطابق النتيجة هذه البصمة (SHA-256) تمامًا:</p>
+            <code class="hash">{release.sha256}</code>
+          </article>
+          <article class="feature-card">
+            <h3 data-en="How do I report a problem?"
+                data-ar="كيف أبلّغ عن مشكلة؟">كيف أبلّغ عن مشكلة؟</h3>
+            <p data-en="Use “Report a problem” at the bottom of this page, and read the tester guide first. Security issues must be reported privately, never in a public report."
+               data-ar="استخدم رابط «الإبلاغ عن مشكلة» أسفل هذه الصفحة، واقرأ دليل المجرّبين أولًا. أمّا المشكلات الأمنية فيجب الإبلاغ عنها بشكل خاص، وليس في بلاغ عام.">استخدم رابط «الإبلاغ عن مشكلة» أسفل هذه الصفحة، واقرأ دليل المجرّبين أولًا. أمّا المشكلات الأمنية فيجب الإبلاغ عنها بشكل خاص، وليس في بلاغ عام.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 GET LUNA -->
+    <section id="get" class="cta">
+      <div class="container">
+        <div class="eyebrow" data-en={`${release.betaLabel}`} data-ar={`${release.betaLabelAr}`}>{release.betaLabelAr}</div>
+        <h2 data-en="Your AI. Your PC. Your Rules."
+            data-ar="ذكاؤك الاصطناعي. جهازك. قواعدك.">ذكاؤك الاصطناعي. جهازك. قواعدك.</h2>
+        <p data-en={`Luna ${release.betaLabel} is here with web reading and search. Download it, try it, and share your feedback.`}
+           data-ar={`${release.betaLabelAr} من لونا متاح الآن مع قراءة الويب والبحث. حمّلها وجرّبها وشاركنا ملاحظاتك.`}>{release.betaLabelAr} من لونا متاح الآن مع قراءة الويب والبحث. حمّلها وجرّبها وشاركنا ملاحظاتك.</p>
+        <a class="button" href={release.downloadUrl}>
+          <img class="button-icon" src="../assets/icons/download.svg" alt="" aria-hidden="true">
+          <span data-en="Download Luna for Windows"
+                data-ar="تحميل لونا لنظام Windows">تحميل لونا لنظام Windows</span>
+        </a>
+        <div class="cta-links">
+          <a href={release.releaseUrl}
+             data-en="Release notes" data-ar="ملاحظات الإصدار">ملاحظات الإصدار</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+             data-href-en="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+             data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+             data-en="Tester guide" data-ar="دليل المجرّبين">دليل المجرّبين</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore/issues/new?template=bug_report.yml"
+             data-en="Report a problem" data-ar="الإبلاغ عن مشكلة">الإبلاغ عن مشكلة</a>
+          ·
+          <a href="https://github.com/EinMM/lunaicore"
+             data-en="View on GitHub" data-ar="عرض المشروع على GitHub">عرض المشروع على GitHub</a>
+        </div>
+        <div class="social-wrap cta-social">
+          <p class="drawer-label" data-en="Follow Luna" data-ar="تابع لونا">تابع لونا</p>
+          <div class="social" data-social-list></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11 FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand"><img class="footer-logo" src="../assets/logo/luna-logo-mono.png" alt="" aria-hidden="true">© <span id="year"></span> Luna AI Desktop Assistant</span>
+      <span data-en="Built by Hussain (EinMM)"
+            data-ar="تطوير حسين (EinMM)">تطوير حسين (EinMM)</span>
+      <a href="https://github.com/EinMM/lunaicore">GitHub ↗</a>
+    </div>
+
+    <div class="container footer-follow social-wrap">
+      <p class="drawer-label" data-en="Follow Luna" data-ar="تابع لونا">تابع لونا</p>
+      <div class="social" data-social-list></div>
+    </div>
+
+    <nav class="container footer-links" aria-label="المساعدة والملاحظات"
+         data-aria-en="Help and feedback" data-aria-ar="المساعدة والملاحظات">
+      <a href="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+         data-href-en="https://github.com/EinMM/lunaicore/blob/main/TESTERS.md"
+         data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TESTERS.ar.md"
+         data-en="Tester guide" data-ar="دليل المجرّبين">دليل المجرّبين</a>
+      <a href="https://github.com/EinMM/lunaicore/issues/new?template=bug_report.yml"
+         data-en="Report a problem" data-ar="الإبلاغ عن مشكلة">الإبلاغ عن مشكلة</a>
+      <a href="https://github.com/EinMM/lunaicore/issues/new?template=feature_request.yml"
+         data-en="Suggest a feature" data-ar="اقتراح ميزة">اقتراح ميزة</a>
+      <a href="https://github.com/EinMM/lunaicore/issues"
+         data-en="All reports" data-ar="جميع البلاغات">جميع البلاغات</a>
+      <a href="https://github.com/EinMM/lunaicore/blob/main/SECURITY.md"
+         data-en="Security policy" data-ar="سياسة الأمان">سياسة الأمان</a>
+      <a href="https://github.com/EinMM/lunaicore/blob/main/PRIVACY.md#arabic"
+         data-href-en="https://github.com/EinMM/lunaicore/blob/main/PRIVACY.md#english"
+         data-href-ar="https://github.com/EinMM/lunaicore/blob/main/PRIVACY.md#arabic"
+         data-en="Privacy policy" data-ar="سياسة الخصوصية">سياسة الخصوصية</a>
+      <a href="https://github.com/EinMM/lunaicore/blob/main/TERMS.md#arabic"
+         data-href-en="https://github.com/EinMM/lunaicore/blob/main/TERMS.md#english"
+         data-href-ar="https://github.com/EinMM/lunaicore/blob/main/TERMS.md#arabic"
+         data-en="Terms of use" data-ar="شروط الاستخدام">شروط الاستخدام</a>
+    </nav>
+  </footer>
+</Base>
