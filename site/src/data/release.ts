@@ -60,3 +60,9 @@ function load() {
 }
 
 export const release = load();
+
+export function formatDate(iso: string, lang: "en" | "ar") {
+  // Latin digits in both languages, like the rest of the site.
+  const locale = lang === "ar" ? "ar-u-nu-latn" : "en-GB";
+  return new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${iso}T00:00:00Z`));
+}

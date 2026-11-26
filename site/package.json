@@ -4,12 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prebuild": "node scripts/copy-assets.mjs",
-    "predev": "node scripts/copy-assets.mjs",
+    "prebuild": "node scripts/copy-assets.mjs && node scripts/copy-docs.mjs",
+    "predev": "node scripts/copy-assets.mjs && node scripts/copy-docs.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "changelog:add": "node scripts/changelog-add.mjs"
+    "changelog:add": "node scripts/changelog-add.mjs",
+    "sync:downloads": "node scripts/sync-downloads.mjs",
+    "check:downloads": "node scripts/sync-downloads.mjs --check"
   },
   "dependencies": {
     "astro": "7.4.13"

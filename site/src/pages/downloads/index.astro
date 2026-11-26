@@ -1,0 +1,15 @@
+---
+import Page from "../../layouts/Page.astro";
+import DownloadsEn from "../../components/DownloadsEn.astro";
+import { getEntry, render } from "astro:content";
+import { meta } from "../../i18n/en";
+
+const entry = await getEntry("docs", "testers-install-en");
+if (!entry) throw new Error("downloads: docs entry testers-install-en is missing (run scripts/copy-docs.mjs)");
+const { Content } = await render(entry);
+---
+<Page lang="en" title="Download Luna for Windows · Luna AI Desktop Assistant" description={meta.description} path="/downloads/" altPath="/ar/downloads/">
+  <DownloadsEn>
+    <Content slot="install" />
+  </DownloadsEn>
+</Page>
