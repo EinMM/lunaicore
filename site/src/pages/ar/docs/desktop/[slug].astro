@@ -1,0 +1,13 @@
+---
+// /ar/docs/desktop/<page>/ : one page of the Luna Desktop manual (src/content/manual/ar/*.md). No pages yet when the folder is empty.
+import DocsPage from "../../../../components/DocsPage.astro";
+import { manualPages, slugOf } from "../../../../data/docs";
+
+export async function getStaticPaths() {
+  const pages = await manualPages("ar");
+  return pages.map((entry) => ({ params: { slug: slugOf(entry) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+---
+<DocsPage entry={entry} lang="ar" />

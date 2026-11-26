@@ -1,0 +1,115 @@
+---
+// One docs page: breadcrumb, sidebar (a <details> menu on phones, no script), the Markdown body with the
+// release facts filled in, the "verified for" line (the page's own version) and previous / next links.
+import Page from "../layouts/Page.astro";
+import { release } from "../data/release";
+import { docsUi, DOCS_BASE, DESKTOP_BASE, manualPages, sidebar, slugOf, pathOf } from "../data/docs";
+
+const { entry, lang } = Astro.props;
+const t = docsUi[lang as "en" | "ar"];
+const l = lang as "en" | "ar";
+const other = l === "en" ? "ar" : "en";
+const slug = slugOf(entry);
+
+const pages = await manualPages(l);
+const otherPages = await manualPages(other);
+if (!otherPages.some((page) => slugOf(page) === slug)) {
+  throw new Error(`docs: "${entry.id}" has no ${other} twin (src/content/manual/${other}/${slug}.md)`);
+}
+const nav = sidebar(pages, l);
+const index = pages.findIndex((page) => slugOf(page) === slug);
+const prev = pages[index - 1];
+const next = pages[index + 1];
+
+// Facts that must not be typed into Markdown come from the release manifest.
+const facts: Record<string, string> = {
+  "{{installerName}}": release.installerName,
+  "{{sha256}}": release.sha256,
+  "{{version}}": release.version,
+  "{{sizeMB}}": String(release.sizeMB),
+};
+let html = entry.rendered?.html ?? "";
+for (const [token, value] of Object.entries(facts)) html = html.replaceAll(token, value);
+if (/\{\{\w+\}\}/.test(html)) throw new Error(`docs: "${entry.id}" has an unknown {{token}}`);
+
+const path = pathOf(l, slug);
+const altPath = pathOf(other, slug);
+---
+<Page lang={l} title={entry.data.title + t.titleSuffix} description={entry.data.description} path={path} altPath={altPath}>
+  <div class="container docs">
+    <nav class="docs-crumbs" aria-label={t.breadcrumbAria}>
+      <ol>
+        <li><a href={DOCS_BASE[l]}>{t.docs}</a></li>
+        <li><a href={DESKTOP_BASE[l]}>{t.product}</a></li>
+        <li aria-current="page">{entry.data.title}</li>
+      </ol>
+    </nav>
+
+    <div class="docs-layout">
+      <aside class="docs-side">
+        <details class="docs-menu">
+          <summary>{t.menu}</summary>
+          {nav.map((group) => (
+            <div class="docs-group">
+              <p class="docs-group-title">{group.label}</p>
+              <ul>
+                {group.items.map((item) => (
+                  <li><a href={item.path} aria-current={item.path === path ? "page" : undefined}>{item.title}</a></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </details>
+        <nav class="docs-sidebar" aria-label={t.sidebarAria}>
+          {nav.map((group) => (
+            <div class="docs-group">
+              <p class="docs-group-title">{group.label}</p>
+              <ul>
+                {group.items.map((item) => (
+                  <li><a href={item.path} aria-current={item.path === path ? "page" : undefined}>{item.title}</a></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </aside>
+
+      <article class="docs-article">
+        <h1>{entry.data.title}</h1>
+        <p class="page-meta">{t.verified(entry.data.verifiedFor)}</p>
+        <div class="prose" set:html={html} />
+        <nav class="docs-pager" aria-label={t.pagerAria}>
+          {prev ? <a class="docs-prev" href={pathOf(l, slugOf(prev))}><span>{t.previous}</span>{prev.data.title}</a> : <span></span>}
+          {next ? <a class="docs-next" href={pathOf(l, slugOf(next))}><span>{t.next}</span>{next.data.title}</a> : <span></span>}
+        </nav>
+      </article>
+    </div>
+  </div>
+</Page>
+
+<style>
+  .docs-crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 0; list-style: none; margin: 0 0 28px; padding: 0; font-size: 14px; color: var(--muted); }
+  .docs-crumbs li + li::before { content: "/"; margin-inline: 10px; opacity: 0.6; }
+  .docs-crumbs a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .docs-crumbs a:hover { color: white; }
+  .docs-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 48px; align-items: start; }
+  .docs-sidebar { position: sticky; top: 88px; }
+  .docs-menu { display: none; }
+  .docs-group { margin: 0 0 22px; }
+  .docs-group-title { margin: 0 0 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); }
+  .docs-group ul { list-style: none; margin: 0; padding: 0; }
+  .docs-group a { display: block; padding: 5px 0; color: var(--muted); font-size: 15px; }
+  .docs-group a:hover, .docs-group a[aria-current="page"] { color: white; }
+  .docs-article h1 { margin-bottom: 10px; }
+  .docs-pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .docs-pager a { display: flex; flex-direction: column; gap: 4px; max-width: 48%; color: white; font-weight: 600; }
+  .docs-pager a span { font-size: 13px; font-weight: 400; color: var(--muted); }
+  .docs-next { text-align: end; margin-inline-start: auto; }
+  @media (max-width: 850px) {
+    .docs-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .docs-sidebar { display: none; }
+    .docs-menu { display: block; border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; background: rgba(255, 255, 255, 0.035); }
+    .docs-menu summary { cursor: pointer; font-weight: 600; }
+    .docs-menu .docs-group { margin-top: 16px; }
+  }
+</style>
