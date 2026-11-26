@@ -8,6 +8,8 @@ export const privacy = {
     eyebrow: "PRIVACY & SECURITY",
     heading: "Your data. Your decisions.",
     lead: "Luna is local-first. File operations require confirmation, folder access is controlled, and cloud use remains optional.",
+    // PRIVACY.md:10 up to "and later" (the "Effective" date is left out so it cannot go stale here)
+    applies: "Applies to: Luna AI Desktop Assistant for Windows, Beta 0.1 and later",
     shortTitle: "The short version",
     short: [
       "Luna has no account, no ads, no telemetry and no analytics. The developer does not receive your conversations, files, memories or usage data.",
@@ -39,6 +41,8 @@ export const privacy = {
     eyebrow: "الخصوصية والأمان",
     heading: "بياناتك. قراراتك.",
     lead: "تعتمد لونا التشغيل المحلي أولًا. تتطلب عمليات الملفات تأكيدك، وتخضع صلاحيات المجلدات للتحكم، ويبقى استخدام السحابة اختياريًا.",
+    // PRIVACY.md:119 up to "وما بعده"
+    applies: "ينطبق على: Luna AI Desktop Assistant لنظام Windows، الإصدار التجريبي 0.1 وما بعده",
     shortTitle: "باختصار",
     short: [
       "لا تحتوي لونا على حساب أو إعلانات أو تتبّع أو إحصاءات استخدام. ولا يستلم المطوّر محادثاتك أو ملفاتك أو ذكرياتك أو بيانات استخدامك.",
