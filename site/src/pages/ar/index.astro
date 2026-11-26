@@ -4,7 +4,8 @@ import Page from "../../layouts/Page.astro";
 import HomeBody from "../../components/HomeBody.astro";
 import { entity } from "../../data/entity";
 import { home } from "../../data/home";
+const jsonLd = JSON.stringify({ "@context": "https://schema.org", "@type": "WebSite", name: entity.tradeName, url: "https://lunaicore.com/ar/", inLanguage: ["ar", "en"] }, null, 2);
 ---
-<Page lang="ar" title={home.ar.title} description={home.ar.description} path="/ar/" siteName={entity.tradeName}>
+<Page lang="ar" title={home.ar.title} description={home.ar.description} path="/ar/" siteName={entity.tradeName} jsonLd={jsonLd}>
   <HomeBody lang="ar" />
 </Page>
