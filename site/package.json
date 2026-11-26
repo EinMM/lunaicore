@@ -10,8 +10,6 @@
     "build": "astro build",
     "preview": "astro preview",
     "changelog:add": "node scripts/changelog-add.mjs",
-    "sync:downloads": "node scripts/sync-downloads.mjs",
-    "check:downloads": "node scripts/sync-downloads.mjs --check",
     "docs:check": "node scripts/check-docs.mjs"
   },
   "dependencies": {
