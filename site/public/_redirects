@@ -1,0 +1,4 @@
+# The old GitHub Pages served the legal Markdown files from the root; they now live as pages.
+/PRIVACY.md /legal/privacy/ 301
+/TERMS.md /legal/terms/ 301
+/SECURITY.md /legal/security/ 301
