@@ -27,86 +27,19 @@ import { release, formatDate } from "../data/release";
       <p>Luna itself is light, with a {release.sizeMB} MB installer. The numbers below are for running AI models on your own PC. Without a suitable graphics card, you can still use Luna with cloud AI.</p>
     </div>
 
-    <div class="compare-grid req-grid">
-      <article class="compare-card">
-        <h3>Minimum</h3>
-        <dl>
+    <article class="compare-card req-summary">
+      <dl>
         <dt>Operating system</dt>
-        <dd>Windows 11, 64-bit. Windows 10 is not officially supported in this Beta.</dd>
+        <dd>Windows 11 is recommended. The installer allows Windows 10, but it is not officially supported.</dd>
         <dt>Graphics card</dt>
-        <dd>NVIDIA card with 4 GB of dedicated memory (VRAM). Runs Gemma 4 E2B.</dd>
+        <dd>To run a model on your graphics card, Luna needs a dedicated card with enough memory: 5 GB for Qwen3.5 4B, 6 GB for Gemma 4 E2B and 10 GB for Gemma 4 12B.</dd>
         <dt>No graphics card?</dt>
-        <dd>CPU-only mode works for small models, but slowly. It needs AVX2, 4 physical cores and 16 GB of RAM.</dd>
-        <dt>Memory (RAM)</dt>
-        <dd>8 GB</dd>
-        <dt>Free disk space</dt>
-        <dd>5 GB: the {release.sizeMB} MB installer plus one small model (about 3 GB).</dd>
-        <dt>Internet</dt>
-        <dd>Only to download models and updates. Local chats work offline afterwards.</dd>
-        </dl>
-      </article>
-      <article class="compare-card us">
-        <h3>Recommended</h3>
-        <dl>
-        <dt>Operating system</dt>
-        <dd>Windows 11, 64-bit.</dd>
-        <dt>Graphics card</dt>
-        <dd>NVIDIA card with 12 GB of VRAM or more. The 12B model starts at 10 GB.</dd>
-        <dt>Processor</dt>
-        <dd>AVX2 support and 4 or more physical cores.</dd>
-        <dt>Memory (RAM)</dt>
-        <dd>16 GB or more</dd>
-        <dt>Free disk space</dt>
-        <dd>20 GB, enough for several models (about 3 to 7 GB each).</dd>
-        <dt>What you get</dt>
-        <dd>Luna’s top suggestion, Gemma 4 12B: about 71 tokens per second on our test PC.</dd>
-        </dl>
-      </article>
-    </div>
-
-    <article class="provider-group req-models">
-      <h3><img class="mode-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true"><span>Which model fits which graphics card</span></h3>
-      <p>Luna suggests the best model that fits your card, keeping a safety margin of about 1.5 GB. Memory and speed figures were measured on our test PC unless marked Untested.</p>
-      <ul class="provider-list">
-          <li class="provider">
-            <span class="provider-mark wide" aria-hidden="true">4 GB</span>
-            <div>
-              <strong>Gemma 4 E2B</strong>
-              <small>The lightest and fastest. Uses about 1.9 GB of card memory, about 234 tokens per second.</small>
-            </div>
-          </li>
-          <li class="provider">
-            <span class="provider-mark wide" aria-hidden="true">6–8 GB</span>
-            <div>
-              <strong>Gemma 4 E4B</strong>
-              <small>A good balance. Uses about 3.5 GB of card memory, about 131 tokens per second.</small>
-            </div>
-          </li>
-          <li class="provider">
-            <span class="provider-mark wide" aria-hidden="true">10–12 GB</span>
-            <div>
-              <strong>Gemma 4 12B</strong>
-              <small>Luna’s top suggestion for this range. Uses about 7.5 GB of card memory, about 71 tokens per second. An optional speed-mode file adds about 0.5 GB.</small>
-            </div>
-          </li>
-          <li class="provider">
-            <span class="provider-mark wide" aria-hidden="true">16 GB</span>
-            <div>
-              <strong>Gemma 4 26B A4B</strong>
-              <small>Untested. A larger model for bigger cards.</small>
-            </div>
-          </li>
-          <li class="provider">
-            <span class="provider-mark wide" aria-hidden="true">24 GB+</span>
-            <div>
-              <strong>Gemma 4 31B · Qwen3.5 27B</strong>
-              <small>Untested. Qwen3.5 35B A3B needs 32 GB.</small>
-            </div>
-          </li>
-      </ul>
+        <dd>CPU-only mode works for small models, but slowly. It needs a processor with AVX2, at least 4 physical cores, and about 8 GB of RAM or more.</dd>
+      </dl>
     </article>
-
-    <p class="provider-note">NVIDIA cards (CUDA) are the path we tested. AMD and Intel cards are supported through Vulkan but were not tested on our hardware, and Luna’s live memory check works on NVIDIA cards only. Integrated graphics count as CPU-only. These figures are guidance: Luna checks your PC itself and suggests a model in Settings, under Your device.</p>
+    <div class="page-actions">
+      <a class="button secondary" href="/docs/desktop/requirements/"><span>All models and numbers: System requirements</span></a>
+    </div>
   </div>
 </section>
 
@@ -115,7 +48,7 @@ import { release, formatDate } from "../data/release";
     <div class="feature-grid">
 <article class="feature-card">
       <h3>Does Luna work on Windows 10?</h3>
-      <p>Windows 11 (64-bit) is recommended. Windows 10 is not officially supported in this Beta: cloud AI works on it in our testing, but some features may not work as expected.</p>
+      <p>Windows 11 is recommended. The installer allows Windows 10, but it is not officially supported.</p>
     </article>
 <article class="feature-card">
       <h3>Why does Windows show a SmartScreen warning?</h3>
