@@ -1,0 +1,27 @@
+---
+// "How it works": three steps. Text in data/home.ts.
+import { homeMore } from "../data/home";
+
+const { lang } = Astro.props;
+const t = homeMore[lang as "en" | "ar"].how;
+---
+<section class="section-texture home-block" id="how">
+  <div class="container">
+    <h2>{t.title}</h2>
+    <ol class="feature-grid home-list">
+      {t.steps.map((step, i) => (
+        <li class="feature-card">
+          <div class="eyebrow">{i + 1}</div>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .home-block { padding-block: 56px; }
+  .home-list { list-style: none; margin: 24px 0 0; padding: 0; }
+  @media (max-width: 850px) { .home-block { padding-block: 40px; } }
+</style>

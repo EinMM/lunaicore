@@ -1,15 +1,17 @@
 ---
-// The Luna AI Core home body, one language. Text from data/home.ts; badges from data/status.ts.
-import Badge from "./Badge.astro";
-import { home, badgeNames } from "../data/home";
-import { status } from "../data/status";
+// The Luna AI Core home body, one language. Text from data/home.ts; the sections below the cards are components.
+import HomeSteps from "./HomeSteps.astro";
+import HomePrinciples from "./HomePrinciples.astro";
+import HomeVision from "./HomeVision.astro";
+import HomeFaq from "./HomeFaq.astro";
+import HomeBand from "./HomeBand.astro";
+import { home } from "../data/home";
 import { routes } from "../data/routes";
 
 const { lang } = Astro.props;
 const t = home[lang as "en" | "ar"];
 const l = lang as "en" | "ar";
 const icons = ["computer", "folder", "shield"];
-const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
 ---
 <section>
   <div class="container narrow page-block">
@@ -50,13 +52,11 @@ const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
   </div>
 </section>
 
-<section>
-  <div class="container badge-strip">
-    {badgeKeys.map((key) => (
-      <span class="badge-item">{badgeNames[key]} <Badge feature={key} lang={l} /></span>
-    ))}
-  </div>
-</section>
+<HomeSteps lang={l} />
+<HomePrinciples lang={l} />
+<HomeVision lang={l} />
+<HomeFaq lang={l} />
+<HomeBand lang={l} />
 
 <style>
   /* .page-main section { padding: 0 } (prose.css) leaves these blocks without vertical space: give the home blocks their own. Scoped to the home only. */
@@ -67,17 +67,5 @@ const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
     .home-block {
       padding-block: 40px;
     }
-  }
-  .badge-strip {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem 2rem;
-    padding-block: 1rem 2rem;
-  }
-  .badge-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
   }
 </style>

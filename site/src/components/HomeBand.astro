@@ -1,0 +1,48 @@
+---
+// Download band with the release line (from the manifest) and the two status badges.
+import Badge from "./Badge.astro";
+import { homeMore, badgeNames } from "../data/home";
+import { product } from "../data/product";
+import { status } from "../data/status";
+import { routes } from "../data/routes";
+import { release } from "../data/release";
+
+const { lang } = Astro.props;
+const l = lang as "en" | "ar";
+const t = homeMore[l].band;
+const beta = l === "ar" ? release.betaLabelAr : release.betaLabel;
+const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
+---
+<section class="section-texture home-block" id="download">
+  <div class="container narrow">
+    <h2>{t.title}</h2>
+    <p>{t.text(beta)}</p>
+    <div class="page-actions">
+      <a class="button" href={routes.downloads[l]}><span>{t.button}</span></a>
+      <a class="button secondary" href={routes.changelog[l]}><span>{t.releaseNotes}</span></a>
+    </div>
+    <p class="page-meta">{product[l].heroLine(beta, release.version, release.sizeMB)}</p>
+  </div>
+  <div class="container badge-strip">
+    {badgeKeys.map((key) => (
+      <span class="badge-item">{badgeNames[key]} <Badge feature={key} lang={l} /></span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .home-block { padding-block: 56px; }
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    padding-block: 2rem 0;
+  }
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  @media (max-width: 850px) { .home-block { padding-block: 40px; } }
+</style>

@@ -1,0 +1,25 @@
+---
+// Vision, mission and goal (approved wording). Text in data/home.ts.
+import { homeMore } from "../data/home";
+
+const { lang } = Astro.props;
+const items = homeMore[lang as "en" | "ar"].vmg;
+---
+<section class="section-texture home-block" id="vision">
+  <div class="container">
+    <div class="feature-grid">
+      {items.map((item) => (
+        <article class="feature-card">
+          <h2>{item.title}</h2>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-block { padding-block: 56px; }
+  .feature-card h2 { font-size: 24px; line-height: 1.3; margin: 0 0 12px; letter-spacing: 0; }
+  @media (max-width: 850px) { .home-block { padding-block: 40px; } }
+</style>
