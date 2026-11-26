@@ -6,9 +6,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export const BETA_LABEL = "Beta 0.2";
-export const BETA_LABEL_AR = "الإصدار التجريبي 0.2";
-
 export const REPO_URL = "https://github.com/EinMM/lunaicore";
 const manifestPath = process.env.LUNA_MANIFEST
   ? path.resolve(process.env.LUNA_MANIFEST)
@@ -40,6 +37,12 @@ function load() {
   if (typeof installer?.sha256 !== "string" || !/^[0-9a-f]{64}$/.test(installer.sha256)) fail('"installer.sha256" must be 64 lowercase hex characters');
   if (!Number.isInteger(installer?.size) || installer.size <= 0) fail('"installer.size" must be a positive integer (bytes)');
 
+  // "Beta {major}.{minor}" comes from the manifest version, so the label can never go stale.
+  // The version format was checked above; this keeps the build failing if it ever stops matching.
+  const [, major, minor] = data.version.match(/^(\d+)\.(\d+)\.\d+$/) ?? fail(`cannot derive the Beta label from version "${data.version}"`);
+  const betaLabel = `Beta ${major}.${minor}`;
+  const betaLabelAr = `الإصدار التجريبي ${major}.${minor}`;
+
   const tag = `desktop-win-v${data.version}`;
   const releaseUrl = `${REPO_URL}/releases/tag/${tag}`;
   if (data.release_page !== releaseUrl) fail(`"release_page" must be ${releaseUrl}`);
@@ -54,8 +57,8 @@ function load() {
     sizeMB: Math.round(installer.size / 1048576),
     downloadUrl: `${REPO_URL}/releases/download/${tag}/${installer.name}`,
     releaseUrl,
-    betaLabel: BETA_LABEL,
-    betaLabelAr: BETA_LABEL_AR,
+    betaLabel,
+    betaLabelAr,
   };
 }
 
