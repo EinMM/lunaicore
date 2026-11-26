@@ -22,7 +22,7 @@ const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
   </div>
 </section>
 
-<section class="section-texture" id="product">
+<section class="section-texture home-block" id="product">
   <div class="container split">
     <div>
       <div class="eyebrow">{t.card.eyebrow}</div>
@@ -36,7 +36,7 @@ const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
   </div>
 </section>
 
-<section>
+<section class="home-block">
   <div class="container">
     <div class="feature-grid">
       {t.teasers.map((item, i) => (
@@ -59,6 +59,15 @@ const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
 </section>
 
 <style>
+  /* .page-main section { padding: 0 } (prose.css) leaves these blocks without vertical space: give the home blocks their own. Scoped to the home only. */
+  .home-block {
+    padding-block: 56px;
+  }
+  @media (max-width: 850px) {
+    .home-block {
+      padding-block: 40px;
+    }
+  }
   .badge-strip {
     display: flex;
     flex-wrap: wrap;
