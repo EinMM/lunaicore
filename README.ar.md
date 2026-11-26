@@ -8,7 +8,7 @@
 
 لونا مساعد ذكي لسطح المكتب على Windows، يعمل مع ملفاتك على جهازك، ولا يغيّر أي ملف قبل أن يستأذنك. تحدّث معها بالعربية أو الإنجليزية، واختر بين ذكاء محلي يعمل على جهازك أو ذكاء سحابي من مزوّد تختاره أنت.
 
-**[تنزيل Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe)** · [ملاحظات الإصدار](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.2.0) · [موقع المشروع](https://einmm.github.io/lunaicore/) · [دليل المجرّبين](TESTERS.ar.md)
+**[تنزيل Luna Beta 0.2](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe)** · [ملاحظات الإصدار](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.2.0) · [موقع المشروع](https://einmm.github.io/lunaicore/) · [دليل المجرّبين](TESTERS.ar.md)
 
 ![نافذة المحادثة الرئيسية في لونا](assets/screenshots/Luna-AI-01-ar.png)
 
@@ -34,7 +34,7 @@
 
 ![إعدادات لونا: اختيار الذكاء المحلي أو السحابي وخيارات الخصوصية](assets/screenshots/Luna-AI-03-ar.png)
 
-## تثبيت Luna Beta 0.1
+## تثبيت Luna Beta 0.2
 
 1. نزّل الملف [LunaSetup-0.2.0.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe).
 2. **يُنصح به:** تحقّق من سلامة الملف. افتح PowerShell في مجلد التنزيلات وشغّل:
@@ -85,6 +85,6 @@ A93372B7521A7C3C3916968CDF84EAF2E6292A1AC29D6DECC5E7B3D703EA82D8
 
 ### حالة المشروع
 
-Luna Beta 0.1 متاح لـ Windows 11. قد تتغير الميزات وطريقة التوفر مع استمرار التطوير.
+Luna Beta 0.2 متاح لـ Windows 11. قد تتغير الميزات وطريقة التوفر مع استمرار التطوير.
 
 </div>
