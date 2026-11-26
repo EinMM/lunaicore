@@ -1,0 +1,64 @@
+---
+// /docs/desktop/ : every Luna Desktop page, by group, with each page's own description. Text in data/docs.ts.
+import Page from "../layouts/Page.astro";
+import { docsHome, docsUi, groups, DOCS_BASE, DESKTOP_BASE, manualPages, slugOf, pathOf } from "../data/docs";
+import { routes } from "../data/routes";
+import { SITE } from "../i18n/page";
+
+const { lang } = Astro.props;
+const l = lang as "en" | "ar";
+const t = docsHome[l];
+const u = docsUi[l];
+const other = l === "en" ? "ar" : "en";
+const pages = await manualPages(l);
+const sections = groups
+  .map((group) => ({ label: group[l], items: pages.filter((page) => page.data.group === group.key) }))
+  .filter((group) => group.items.length > 0);
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: u.docs, item: SITE + DOCS_BASE[l] },
+    { "@type": "ListItem", position: 2, name: u.product, item: SITE + DESKTOP_BASE[l] },
+  ],
+}, null, 2);
+---
+<Page lang={l} title={t.indexTitle} description={t.indexDescription} path={DESKTOP_BASE[l]} altPath={DESKTOP_BASE[other]} jsonLd={jsonLd}>
+  <div class="container narrow">
+    <nav class="docs-crumbs" aria-label={u.breadcrumbAria}>
+      <ol>
+        <li><a href={DOCS_BASE[l]}>{u.docs}</a></li>
+        <li aria-current="page">{u.product}</li>
+      </ol>
+    </nav>
+    <div class="page-block">
+      <h1>{t.indexHeading}</h1>
+      <p>{t.lead}</p>
+    </div>
+    {sections.map((group) => (
+      <section class="docs-section">
+        <h2>{group.label}</h2>
+        <ul class="docs-list">
+          {group.items.map((page) => (
+            <li>
+              <a href={pathOf(l, slugOf(page))}>{page.data.title}</a>
+              <p>{page.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <p><a class="page-link" href={routes.changelog[l]}>{t.releaseNotes}</a></p>
+  </div>
+</Page>
+
+<style>
+  .docs-crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 0; list-style: none; margin: 0 0 28px; padding: 0; font-size: 14px; color: var(--muted); }
+  .docs-crumbs li + li::before { content: "/"; margin-inline: 10px; opacity: 0.6; }
+  .docs-crumbs a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .docs-section { margin: 0 0 36px; }
+  .docs-section h2 { margin: 0 0 14px; font-size: 22px; letter-spacing: 0; }
+  .docs-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .docs-list a { color: white; font-weight: 600; }
+  .docs-list p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+</style>

@@ -41,6 +41,35 @@ export const docsUi = {
   },
 } as const;
 
+export const docsHome = {
+  en: {
+    hubTitle: "Luna Docs",
+    hubDescription: "Guides for installing, setting up and using Luna on Windows.",
+    hubHeading: "Docs",
+    lead: "Guides for installing, setting up and using Luna on Windows.",
+    productName: "Luna Desktop",
+    productText: "Luna brings local AI, file assistance, personal memory, and optional cloud intelligence into one Windows desktop experience.",
+    popular: "Start here",
+    indexTitle: "Luna Desktop · Luna Docs",
+    indexDescription: "Install Luna, check your PC, and learn how to use Luna on Windows.",
+    indexHeading: "Luna Desktop",
+    releaseNotes: "Release notes",
+  },
+  ar: {
+    hubTitle: "وثائق لونا",
+    hubDescription: "أدلة لتثبيت لونا وإعدادها واستخدامها على Windows.",
+    hubHeading: "الوثائق",
+    lead: "أدلة لتثبيت لونا وإعدادها واستخدامها على Windows.",
+    productName: "لونا مساعدة سطح المكتب الذكية",
+    productText: "تجمع لونا بين الذكاء الاصطناعي المحلي ومساعدة الملفات والذاكرة الشخصية والذكاء السحابي الاختياري، ضمن تجربة واحدة على Windows.",
+    popular: "ابدأ من هنا",
+    indexTitle: "لونا مساعدة سطح المكتب الذكية · وثائق لونا",
+    indexDescription: "ثبّت لونا، وتحقق من جهازك، وتعلّم كيف تستخدمها على Windows.",
+    indexHeading: "لونا مساعدة سطح المكتب الذكية",
+    releaseNotes: "ملاحظات الإصدار",
+  },
+} as const;
+
 export type ManualEntry = Awaited<ReturnType<typeof getCollection<"manual">>>[number];
 
 /** The pages of one language, in sidebar order. The entry id is "en/install" or "ar/install". */

@@ -3,6 +3,7 @@
 // release facts filled in, the "verified for" line (the page's own version) and previous / next links.
 import Page from "../layouts/Page.astro";
 import { release } from "../data/release";
+import { SITE } from "../i18n/page";
 import { docsUi, DOCS_BASE, DESKTOP_BASE, manualPages, sidebar, slugOf, pathOf } from "../data/docs";
 
 const { entry, lang } = Astro.props;
@@ -33,9 +34,19 @@ for (const [token, value] of Object.entries(facts)) html = html.replaceAll(token
 if (/\{\{\w+\}\}/.test(html)) throw new Error(`docs: "${entry.id}" has an unknown {{token}}`);
 
 const path = pathOf(l, slug);
+// BreadcrumbList: the same three steps as the visible breadcrumb.
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: t.docs, item: SITE + DOCS_BASE[l] },
+    { "@type": "ListItem", position: 2, name: t.product, item: SITE + DESKTOP_BASE[l] },
+    { "@type": "ListItem", position: 3, name: entry.data.title, item: SITE + path },
+  ],
+}, null, 2);
 const altPath = pathOf(other, slug);
 ---
-<Page lang={l} title={entry.data.title + t.titleSuffix} description={entry.data.description} path={path} altPath={altPath}>
+<Page lang={l} title={entry.data.title + t.titleSuffix} description={entry.data.description} path={path} altPath={altPath} jsonLd={jsonLd}>
   <div class="container docs">
     <nav class="docs-crumbs" aria-label={t.breadcrumbAria}>
       <ol>

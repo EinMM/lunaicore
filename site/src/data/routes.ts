@@ -5,6 +5,8 @@ export const routes = {
   start: { en: "/start/", ar: "/ar/start/" },
   productsDesktop: { en: "/products/desktop/", ar: "/ar/products/desktop/" },
   privacySecurity: { en: "/privacy-security/", ar: "/ar/privacy-security/" },
+  docs: { en: "/docs/", ar: "/ar/docs/" },
+  docsDesktop: { en: "/docs/desktop/", ar: "/ar/docs/desktop/" },
   downloads: { en: "/downloads/", ar: "/ar/downloads/" },
   changelog: { en: "/changelog/", ar: "/ar/changelog/" },
   legalPrivacy: { en: "/legal/privacy/", ar: "/ar/legal/privacy/" },

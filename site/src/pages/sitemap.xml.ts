@@ -8,6 +8,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { APIRoute } from "astro";
+import { manualPages, slugOf } from "../data/docs";
 import { release } from "../data/release";
 import { SITE } from "../i18n/page";
 
@@ -44,8 +45,11 @@ const entry = (loc: string, lastmod: string | undefined, en: string, ar: string)
     "  </url>",
   ].join("\n");
 
-export const GET: APIRoute = () => {
-  const urls = routes.flatMap(([en, ar, lastmod]) => [entry(en, lastmod, en, ar), entry(ar, lastmod, en, ar)]);
+export const GET: APIRoute = async () => {
+  // The docs hub, the Luna Desktop index and every manual page (EN twin and AR twin, same lastmod: the release date).
+  const docs: Array<[string, string, string | undefined]> = [["/docs/", "/ar/docs/", release.releaseDate], ["/docs/desktop/", "/ar/docs/desktop/", release.releaseDate]];
+  for (const page of await manualPages("en")) docs.push([`/docs/desktop/${slugOf(page)}/`, `/ar/docs/desktop/${slugOf(page)}/`, release.releaseDate]);
+  const urls = [...routes, ...docs].flatMap(([en, ar, lastmod]) => [entry(en, lastmod, en, ar), entry(ar, lastmod, en, ar)]);
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
