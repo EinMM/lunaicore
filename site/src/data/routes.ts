@@ -12,6 +12,8 @@ export const routes = {
   legalPrivacy: { en: "/legal/privacy/", ar: "/ar/legal/privacy/" },
   legalTerms: { en: "/legal/terms/", ar: "/ar/legal/terms/" },
   legalSecurity: { en: "/legal/security/", ar: "/ar/legal/security/" },
+  legalWebsitePrivacy: { en: "/legal/website-privacy/", ar: "/ar/legal/website-privacy/" },
+  support: { en: "/support/", ar: "/ar/support/" },
 } as const;
 
 export type RouteKey = keyof typeof routes;
