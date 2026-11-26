@@ -9,7 +9,7 @@ import path from "node:path";
 export const BETA_LABEL = "Beta 0.2";
 export const BETA_LABEL_AR = "الإصدار التجريبي 0.2";
 
-const REPO_URL = "https://github.com/EinMM/lunaicore";
+export const REPO_URL = "https://github.com/EinMM/lunaicore";
 const manifestPath = process.env.LUNA_MANIFEST
   ? path.resolve(process.env.LUNA_MANIFEST)
   : path.resolve(process.cwd(), "../manifests/desktop-windows/stable.json");

@@ -1,0 +1,17 @@
+---
+// The changelog list, one language. Shared by /changelog/ and /ar/changelog/.
+import { changelog, formatDate, releaseUrlFor } from "../data/changelog";
+
+const { lang } = Astro.props;
+const linkText = lang === "ar" ? "ملاحظات الإصدار" : "Release notes";
+---
+<ol class="release-list">
+  {changelog.map((entry) => (
+    <li class="feature-card release-entry">
+      <h2>v{entry.version}</h2>
+      <time datetime={entry.date}>{formatDate(entry.date, lang)}</time>
+      <p>{entry.notes[lang as "en" | "ar"]}</p>
+      <div class="cta-links"><a href={releaseUrlFor(entry.version)}>{linkText}</a></div>
+    </li>
+  ))}
+</ol>

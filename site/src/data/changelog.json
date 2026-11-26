@@ -1,0 +1,26 @@
+[
+  {
+    "version": "0.2.0",
+    "date": "2026-11-20",
+    "notes": {
+      "en": "Reads web pages and searches the web with your own key (only when you allow it), shows sources, clearer messages, and an updated Privacy Policy.",
+      "ar": "تقرأ لونا صفحات الويب وتبحث فيه بمفتاحك أنت (بإذنك فقط)، وتعرض المصادر، مع رسائل أوضح وسياسة خصوصية محدّثة."
+    }
+  },
+  {
+    "version": "0.1.1",
+    "date": "2026-11-12",
+    "notes": {
+      "en": "Terms and Privacy for acceptance, a Send feedback button, and small improvements.",
+      "ar": "الشروط وسياسة الخصوصية للموافقة، وزر إرسال ملاحظة، وتحسينات صغيرة."
+    }
+  },
+  {
+    "version": "0.1.0",
+    "date": "2026-11-06",
+    "notes": {
+      "en": "First public Beta of Luna for Windows.",
+      "ar": "أول إصدار تجريبي عام من لونا لنظام ويندوز."
+    }
+  }
+]
