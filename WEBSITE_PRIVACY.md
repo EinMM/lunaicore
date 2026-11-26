@@ -23,7 +23,7 @@ This statement covers the website lunaicore.com only. The Luna desktop app has i
 ### 3. Our hosting provider and Web Analytics
 
 - The website is delivered through Cloudflare, our hosting provider. Cloudflare may process technical data about each request, such as connection data (for example your IP address), traffic statistics and error reports, to deliver and protect the website.
-- The website uses Cloudflare Web Analytics to measure visits and performance. Cloudflare may load a small script from its own servers into our pages for this. According to Cloudflare's documentation, the script does not store data in your browser or read cookies, localStorage or sessionStorage ([RUM beacon documentation](https://developers.cloudflare.com/speed/observatory/rum-beacon/)).
+- The website uses Cloudflare Web Analytics to measure visits and performance. Cloudflare may load a small script from its own servers into our pages for this. According to Cloudflare's documentation, the script does not store data in your browser or read cookies, localStorage or sessionStorage ([RUM beacon documentation](https://developers.cloudflare.com/speed/observatory/rum-beacon/)). According to Cloudflare, the script reports performance data such as page load times, together with the address of the page you opened and of the page you came from.
 - Your browser may also send network error reports to Cloudflare, because our pages ask it to in their response headers.
 - See [Cloudflare's privacy policy](https://www.cloudflare.com/privacypolicy/).
 
@@ -64,7 +64,7 @@ When this statement changes, we update the date above.
 ### 3. مزوّد الاستضافة وتحليلات الويب
 
 - يُقدَّم الموقع عبر Cloudflare، مزوّد الاستضافة لدينا. وقد تعالج Cloudflare بيانات تقنية عن كل طلب، مثل بيانات الاتصال (كعنوان IP) وإحصاءات الزيارات وتقارير الأخطاء، لتقديم الموقع وحمايته.
-- يستخدم الموقع Cloudflare Web Analytics لقياس الزيارات والأداء. وقد تحمّل Cloudflare لذلك نصًا برمجيًا صغيرًا من خوادمها في صفحاتنا. وبحسب وثائق Cloudflare، لا يخزّن هذا النص بيانات في متصفحك ولا يقرأ ملفات تعريف الارتباط (كوكيز) ولا localStorage ولا sessionStorage ([وثائق RUM beacon](https://developers.cloudflare.com/speed/observatory/rum-beacon/)).
+- يستخدم الموقع Cloudflare Web Analytics لقياس الزيارات والأداء. وقد تحمّل Cloudflare لذلك نصًا برمجيًا صغيرًا من خوادمها في صفحاتنا. وبحسب وثائق Cloudflare، لا يخزّن هذا النص بيانات في متصفحك ولا يقرأ ملفات تعريف الارتباط (كوكيز) ولا localStorage ولا sessionStorage ([وثائق RUM beacon](https://developers.cloudflare.com/speed/observatory/rum-beacon/)). وبحسب Cloudflare، يرسل هذا النص بيانات أداء مثل أوقات تحميل الصفحة، إلى جانب عنوان الصفحة التي فتحتها وعنوان الصفحة التي جئت منها.
 - وقد يرسل متصفحك أيضًا تقارير أخطاء الشبكة إلى Cloudflare، لأن صفحاتنا تطلب ذلك منه في ترويسات الاستجابة.
 - انظر [سياسة الخصوصية لدى Cloudflare](https://www.cloudflare.com/privacypolicy/).
 
