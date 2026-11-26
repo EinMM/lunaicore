@@ -5,5 +5,7 @@
 export const entity = {
   legalName: { en: "Hussain (EinMM)", ar: "حسين (EinMM)" },
   tradeName: "Luna AI Core",
+  // The product. The Arabic name is the one approved for the site (2026-11-26); the app is aligned later.
+  productName: { en: "Luna AI Desktop Assistant", ar: "لونا مساعدة سطح المكتب الذكية" },
   contact: { email: "contact@lunaicore.com" },
 } as const;
