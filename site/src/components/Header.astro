@@ -1,0 +1,26 @@
+---
+// Subpage header (skip link + navbar + language link). One language per page.
+import { ui } from "../i18n/page";
+
+const { lang, path, altPath } = Astro.props;
+const t = ui[lang as "en" | "ar"];
+const other = ui[t.switchLang as "en" | "ar"];
+---
+  <a class="skip-link" href="#main">{t.skip}</a>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href={t.home} aria-label={t.brandAria}>
+        <img src="/assets/logo/luna-logo-flat.png" alt="Luna">
+      </a>
+
+      <nav class="page-nav" aria-label={t.navAria}>
+        {t.nav.map((item) => (
+          <a href={item.href} aria-current={item.href === path ? "page" : undefined}>{item.text}</a>
+        ))}
+      </nav>
+
+      <div class="nav-actions">
+        <a class="lang-button" href={altPath} hreflang={other.lang} lang={other.lang}>{t.switchText}</a>
+      </div>
+    </div>
+  </header>

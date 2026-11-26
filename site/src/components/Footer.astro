@@ -1,0 +1,19 @@
+---
+// Subpage footer. The landing keeps its own footer (data-en/data-ar text, social links, #year filled by site.js).
+import { ui } from "../i18n/page";
+
+const { lang } = Astro.props;
+const t = ui[lang as "en" | "ar"];
+const year = new Date().getFullYear();
+---
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand"><img class="footer-logo" src="/assets/logo/luna-logo-mono.png" alt="" aria-hidden="true">© {year} Luna AI Desktop Assistant</span>
+      <span>{t.builtBy}</span>
+      <a href="https://github.com/EinMM/lunaicore">GitHub ↗</a>
+    </div>
+
+    <nav class="container footer-links" aria-label={t.footerAria}>
+      {t.footerLinks.map((item) => <a href={item.href}>{item.text}</a>)}
+    </nav>
+  </footer>

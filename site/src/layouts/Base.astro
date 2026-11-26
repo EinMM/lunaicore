@@ -4,6 +4,7 @@
 import css from "../styles/site.css?raw";
 import js from "../scripts/site.js?raw";
 import { release } from "../data/release";
+import Head from "../components/Head.astro";
 
 const { meta, lang, dir, bodyDir, assetPrefix = "" } = Astro.props;
 const styles = css.replaceAll('url("assets/', `url("${assetPrefix}assets/`);
@@ -27,37 +28,16 @@ const jsonLd = `
 <!DOCTYPE html>
 <html lang={lang} dir={dir}>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b19">
-  <meta name="description" content={meta.description}>
-  <link rel="canonical" href={meta.canonical}>
-  <link rel="alternate" hreflang="en" href="https://lunaicore.com/">
-  <link rel="alternate" hreflang="ar" href="https://lunaicore.com/ar/">
-  <link rel="alternate" hreflang="x-default" href="https://lunaicore.com/">
-  <title>{meta.title}</title>
-
-  <!-- Link previews (WhatsApp, X, Discord...). Absolute URLs: update them if the site moves to lunaicore.com. -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Luna AI Desktop Assistant">
-  <meta property="og:title" content={meta.ogTitle}>
-  <meta property="og:description" content={meta.ogDescription}>
-  <meta property="og:url" content={meta.ogUrl}>
-  <meta property="og:locale" content={meta.ogLocale}>
-  <meta property="og:image" content="https://lunaicore.com/assets/social/luna-og.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content={meta.ogImageAlt}>
-  <meta name="twitter:card" content="summary_large_image">
-
-  <script type="application/ld+json" is:inline set:html={jsonLd}></script>
-
-  <link rel="icon" href={`${assetPrefix}assets/logo/favicon.svg`} type="image/svg+xml">
-  <link rel="icon" href={`${assetPrefix}assets/logo/favicon.png`} type="image/png" sizes="32x32">
-
-  <style is:inline set:html={styles}></style>
-</head>
+<Head
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  alternates={{ en: "https://lunaicore.com/", ar: "https://lunaicore.com/ar/", xDefault: "https://lunaicore.com/" }}
+  og={{ title: meta.ogTitle, description: meta.ogDescription, url: meta.ogUrl, locale: meta.ogLocale, imageAlt: meta.ogImageAlt }}
+  jsonLd={jsonLd}
+  iconPrefix={assetPrefix}
+  styles={styles}
+/>
 <body dir={bodyDir}>
 <slot />
 

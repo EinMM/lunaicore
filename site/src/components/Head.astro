@@ -1,0 +1,47 @@
+---
+// The one <head> for every page (landing layout and subpage layout). Layouts pass what differs:
+// noindex pages get a robots tag and no canonical / hreflang; the landing adds JSON-LD and og:image:alt.
+import { SITE } from "../i18n/page";
+
+const {
+  title,
+  description,
+  canonical,
+  alternates,
+  noindex = false,
+  og,
+  jsonLd,
+  iconPrefix = "/",
+  styles,
+} = Astro.props;
+---
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b19">
+  <meta name="description" content={description}>
+  {noindex ? <meta name="robots" content="noindex"> : <link rel="canonical" href={canonical}>}
+  {!noindex && <link rel="alternate" hreflang="en" href={alternates.en}>}
+  {!noindex && <link rel="alternate" hreflang="ar" href={alternates.ar}>}
+  {!noindex && <link rel="alternate" hreflang="x-default" href={alternates.xDefault}>}
+  <title>{title}</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luna AI Desktop Assistant">
+  <meta property="og:title" content={og.title}>
+  <meta property="og:description" content={og.description}>
+  <meta property="og:url" content={og.url}>
+  <meta property="og:locale" content={og.locale}>
+  <meta property="og:image" content={`${SITE}/assets/social/luna-og.jpg`}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  {og.imageAlt && <meta property="og:image:alt" content={og.imageAlt}>}
+  <meta name="twitter:card" content="summary_large_image">
+
+  {jsonLd && <script type="application/ld+json" is:inline set:html={jsonLd}></script>}
+
+  <link rel="icon" href={`${iconPrefix}assets/logo/favicon.svg`} type="image/svg+xml">
+  <link rel="icon" href={`${iconPrefix}assets/logo/favicon.png`} type="image/png" sizes="32x32">
+
+  <style is:inline set:html={styles}></style>
+</head>
