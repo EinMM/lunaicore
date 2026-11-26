@@ -3,28 +3,11 @@
 // (src/styles/site.css, src/scripts/site.js); only the asset prefix differs per page.
 import css from "../styles/site.css?raw";
 import js from "../scripts/site.js?raw";
-import { release } from "../data/release";
 import Head from "../components/Head.astro";
 import { entity } from "../data/entity";
 
 const { meta, lang, dir, bodyDir, assetPrefix = "", noindex = false } = Astro.props;
 const styles = css.replaceAll('url("assets/', `url("${assetPrefix}assets/`);
-const jsonLd = `
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Luna AI Desktop Assistant",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Windows 11",
-    "softwareVersion": "${release.version}",
-    "inLanguage": ${meta.ldInLanguage},
-    "url": "${meta.ldUrl}",
-    "downloadUrl": "${release.downloadUrl}",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "author": { "@type": "Person", "name": "${entity.legalName.en}" },
-    "description": "${meta.ldDescription}"
-  }
-  `;
 ---
 <!DOCTYPE html>
 <html lang={lang} dir={dir}>
@@ -36,7 +19,6 @@ const jsonLd = `
   alternates={{ en: "https://lunaicore.com/", ar: "https://lunaicore.com/ar/", xDefault: "https://lunaicore.com/" }}
   og={{ title: meta.ogTitle, description: meta.ogDescription, url: meta.ogUrl, locale: meta.ogLocale, imageAlt: meta.ogImageAlt }}
   noindex={noindex}
-  jsonLd={jsonLd}
   iconPrefix={assetPrefix}
   styles={styles}
 />

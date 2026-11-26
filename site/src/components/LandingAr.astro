@@ -343,8 +343,8 @@ const { noindex = false, altHref, meta = defaultMeta } = Astro.props;
           </article>
         </div>
 
-        <p class="provider-note" data-en="This comparison describes general categories as of November 2026; individual products within each category may differ. Luna plans to support additional languages in the future, with no date set yet."
-           data-ar="تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع. وتخطط لونا لدعم لغات إضافية في المستقبل، دون موعد محدد بعد.">تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع. وتخطط لونا لدعم لغات إضافية في المستقبل، دون موعد محدد بعد.</p>
+        <p class="provider-note" data-en="This comparison describes general categories as of November 2026; individual products within each category may differ."
+           data-ar="تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع.">تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع.</p>
       </div>
     </section>
 
@@ -525,28 +525,8 @@ const { noindex = false, altHref, meta = defaultMeta } = Astro.props;
       </div>
     </section>
 
-    <!-- 08 WHAT'S NEXT -->
-    <section id="next">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow" data-en="WHAT'S NEXT" data-ar="ماذا بعد؟">ماذا بعد؟</div>
-          <h2 data-en="The journey continues."
-              data-ar="الرحلة مستمرة.">الرحلة مستمرة.</h2>
-          <p data-en="Future possibilities for the Luna ecosystem. These capabilities are not available in the current version."
-             data-ar="إمكانات مستقبلية ضمن منظومة لونا. هذه الميزات غير متاحة في الإصدار الحالي.">إمكانات مستقبلية ضمن منظومة لونا. هذه الميزات غير متاحة في الإصدار الحالي.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card"><h3>Luna Vision</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
-          <article class="feature-card"><h3>Luna Voice</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
-          <article class="feature-card"><h3>Desktop Agent</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
-          <article class="feature-card"><h3>Skills & Plugins</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
-          <article class="feature-card"><h3>Luna Connect</h3><p data-en="Coming soon" data-ar="قريبًا">قريبًا</p></article>
-        </div>
-      </div>
-    </section>
-
     <!-- 09 FAQ -->
-    <section id="faq" class="section-texture">
+    <section id="faq">
       <div class="container">
         <div class="section-heading">
           <div class="eyebrow" data-en="FAQ" data-ar="أسئلة وأجوبة">أسئلة وأجوبة</div>
@@ -605,8 +585,8 @@ const { noindex = false, altHref, meta = defaultMeta } = Astro.props;
         <div class="eyebrow" data-en={`${release.betaLabel}`} data-ar={`${release.betaLabelAr}`}>{release.betaLabelAr}</div>
         <h2 data-en="Your AI. Your PC. Your Rules."
             data-ar="ذكاؤك الاصطناعي. جهازك. قواعدك.">ذكاؤك الاصطناعي. جهازك. قواعدك.</h2>
-        <p data-en={`Luna ${release.betaLabel} is here with web reading and search. Download it, try it, and share your feedback.`}
-           data-ar={`${release.betaLabelAr} من لونا متاح الآن مع قراءة الويب والبحث. حمّلها وجرّبها وشاركنا ملاحظاتك.`}>{release.betaLabelAr} من لونا متاح الآن مع قراءة الويب والبحث. حمّلها وجرّبها وشاركنا ملاحظاتك.</p>
+        <p data-en={`Luna ${release.betaLabel} is here. Download it, try it, and share your feedback.`}
+           data-ar={`${release.betaLabelAr} من لونا متاح الآن. حمّلها وجرّبها وشاركنا ملاحظاتك.`}>{release.betaLabelAr} من لونا متاح الآن. حمّلها وجرّبها وشاركنا ملاحظاتك.</p>
         <a class="button" href={release.downloadUrl}>
           <img class="button-icon" src="/assets/icons/download.svg" alt="" aria-hidden="true">
           <span data-en="Download Luna for Windows"

@@ -93,7 +93,6 @@
       ["providers", "Providers",     "المزوّدون"],
       ["tech",      "Technical",     "نظرة تقنية"],
       ["requirements", "Requirements", "المتطلبات"],
-      ["next",      "What's next",   "ماذا بعد؟"],
       ["faq",       "FAQ",           "الأسئلة الشائعة"],
       ["get",       "Download",      "تحميل"]
     ];
