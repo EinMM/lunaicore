@@ -2,7 +2,7 @@
 // page gets its own <url> with the same three alternates (en, ar, x-default = en), like the old
 // hand-written sitemap. No dependency.
 //
-// lastmod: the release date (stable.json) for the landing, downloads and changelog pages; the
+// lastmod: the release date (stable.json) for the home, product, downloads and changelog pages; the
 // "luna-doc-version" date at the top of PRIVACY.md / TERMS.md for the legal pages. SECURITY.md
 // carries no such date, so its two entries have no <lastmod> (the tag is optional).
 import fs from "node:fs";
@@ -24,6 +24,7 @@ function docDate(file: string, required: boolean): string | undefined {
 // [English path, Arabic path, lastmod]
 const routes: Array<[string, string, string | undefined]> = [
   ["/", "/ar/", release.releaseDate],
+  ["/products/desktop/", "/ar/products/desktop/", release.releaseDate],
   ["/downloads/", "/ar/downloads/", release.releaseDate],
   ["/changelog/", "/ar/changelog/", release.releaseDate],
   ["/legal/privacy/", "/ar/legal/privacy/", docDate("PRIVACY.md", true)],

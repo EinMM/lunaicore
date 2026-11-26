@@ -12,7 +12,7 @@ import { altPathFor } from "../data/routes";
 
 // altPath: derived from data/routes.ts; only a page outside the route list (the 404) passes its own.
 // noindex: for the 404 page only (no canonical or hreflang; robots noindex instead).
-const { lang, title, description, path, noindex = false, jsonLd } = Astro.props;
+const { lang, title, description, path, noindex = false, jsonLd, siteName } = Astro.props;
 const altPath = Astro.props.altPath ?? altPathFor(path);
 const t = ui[lang as "en" | "ar"];
 const enPath = lang === "en" ? path : altPath;
@@ -29,6 +29,7 @@ const styles = css.replaceAll('url("assets/', 'url("/assets/') + "\n" + prose;
   alternates={{ en: `${SITE}${enPath}`, ar: `${SITE}${arPath}`, xDefault: `${SITE}${enPath}` }}
   noindex={noindex}
   jsonLd={jsonLd}
+  siteName={siteName}
   og={{ title, description, url: `${SITE}${path}`, locale: t.ogLocale }}
   iconPrefix="/"
   styles={styles}

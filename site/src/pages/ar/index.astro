@@ -2,8 +2,9 @@
 // /ar/ : the Luna AI Core home, Arabic. Text in data/home.ts.
 import Page from "../../layouts/Page.astro";
 import HomeBody from "../../components/HomeBody.astro";
+import { entity } from "../../data/entity";
 import { home } from "../../data/home";
 ---
-<Page lang="ar" title={home.ar.title} description={home.ar.description} path="/ar/">
+<Page lang="ar" title={home.ar.title} description={home.ar.description} path="/ar/" siteName={entity.tradeName}>
   <HomeBody lang="ar" />
 </Page>

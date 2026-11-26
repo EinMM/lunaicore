@@ -13,6 +13,7 @@ const {
   jsonLd,
   iconPrefix = "/",
   styles,
+  siteName = "Luna AI Desktop Assistant",
 } = Astro.props;
 ---
 <head>
@@ -27,7 +28,7 @@ const {
   <title>{title}</title>
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Luna AI Desktop Assistant">
+  <meta property="og:site_name" content={siteName}>
   <meta property="og:title" content={og.title}>
   <meta property="og:description" content={og.description}>
   <meta property="og:url" content={og.url}>

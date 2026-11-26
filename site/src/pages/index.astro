@@ -2,8 +2,9 @@
 // / : the Luna AI Core home. Text in data/home.ts. The Luna Desktop landing lives at /start/.
 import Page from "../layouts/Page.astro";
 import HomeBody from "../components/HomeBody.astro";
+import { entity } from "../data/entity";
 import { home } from "../data/home";
 ---
-<Page lang="en" title={home.en.title} description={home.en.description} path="/">
+<Page lang="en" title={home.en.title} description={home.en.description} path="/" siteName={entity.tradeName}>
   <HomeBody lang="en" />
 </Page>

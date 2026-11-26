@@ -6,16 +6,12 @@ const REPO = "https://github.com/EinMM/lunaicore";
 
 export const nav = {
   en: [
-    { href: "/start/#features", text: "Why Luna" },
-    { href: "/start/#privacy", text: "Privacy" },
-    { href: "/start/#faq", text: "FAQ" },
+    { href: routes.productsDesktop.en, text: "Luna" },
     { href: routes.downloads.en, text: "Download" },
     { href: routes.changelog.en, text: "Release notes" },
   ],
   ar: [
-    { href: "/ar/start/#features", text: "لماذا لونا" },
-    { href: "/ar/start/#privacy", text: "الخصوصية" },
-    { href: "/ar/start/#faq", text: "الأسئلة الشائعة" },
+    { href: routes.productsDesktop.ar, text: "لونا" },
     { href: routes.downloads.ar, text: "تحميل" },
     { href: routes.changelog.ar, text: "ملاحظات الإصدار" },
   ],
