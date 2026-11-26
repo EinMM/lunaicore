@@ -1,17 +1,9 @@
 ---
-// /ar/ : the Luna AI Core umbrella, Arabic. PLACEHOLDER (texts approved by Hussain, 2026-11-26).
-// The product name on the buttons is the one the Arabic landing already uses for the hero eyebrow.
+// /ar/ : the Luna AI Core home, Arabic. Text in data/home.ts.
 import Page from "../../layouts/Page.astro";
+import HomeBody from "../../components/HomeBody.astro";
+import { home } from "../../data/home";
 ---
-<Page lang="ar" title="Luna AI Core | ذكاء اصطناعي يعمل على جهازك" description="Luna AI Core: ذكاء اصطناعي يعمل على جهازك أولًا. لونا لسطح المكتب على Windows متاح الآن." path="/ar/">
-  <section>
-    <div class="container narrow page-block">
-      <h1>Luna AI Core</h1>
-      <p>ذكاء اصطناعي يعمل على جهازك أولًا.</p>
-      <div class="page-actions">
-        <a class="button" href="/ar/start/"><span>مساعد لونا للذكاء الاصطناعي</span></a>
-        <a class="button secondary" href="/ar/downloads/"><span>تحميل</span></a>
-      </div>
-    </div>
-  </section>
+<Page lang="ar" title={home.ar.title} description={home.ar.description} path="/ar/">
+  <HomeBody lang="ar" />
 </Page>

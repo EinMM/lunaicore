@@ -1,0 +1,74 @@
+---
+// The Luna AI Core home body, one language. Text from data/home.ts; badges from data/status.ts.
+import Badge from "./Badge.astro";
+import { home, badgeNames } from "../data/home";
+import { status } from "../data/status";
+import { routes } from "../data/routes";
+
+const { lang } = Astro.props;
+const t = home[lang as "en" | "ar"];
+const l = lang as "en" | "ar";
+const icons = ["computer", "folder", "shield"];
+const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
+---
+<section>
+  <div class="container narrow page-block">
+    <h1>{t.heading}</h1>
+    <p>{t.line}</p>
+    <div class="page-actions">
+      <a class="button" href={routes.productsDesktop[l]}><span>{t.buttonProduct}</span></a>
+      <a class="button secondary" href={routes.downloads[l]}><span>{t.buttonDownload}</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section-texture" id="product">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">{t.card.eyebrow}</div>
+      <h2>{t.card.title}</h2>
+      <p>{t.card.text}</p>
+      <div class="page-actions">
+        <a class="button" href={routes.productsDesktop[l]}><span>{t.card.link}</span></a>
+      </div>
+    </div>
+    <img class="product-image" loading="lazy" decoding="async" src="/assets/screenshots/luna-main-interface.webp" alt={t.card.imageAlt}>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="feature-grid">
+      {t.teasers.map((item, i) => (
+        <article class="feature-card">
+          <img class="feature-icon" src={`/assets/icons/${icons[i]}.svg`} alt="" aria-hidden="true">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container badge-strip">
+    {badgeKeys.map((key) => (
+      <span class="badge-item">{badgeNames[key]} <Badge feature={key} lang={l} /></span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    padding-block: 1rem 2rem;
+  }
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>

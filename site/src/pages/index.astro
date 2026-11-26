@@ -1,17 +1,9 @@
 ---
-// / : the Luna AI Core umbrella. PLACEHOLDER (texts approved by Hussain, 2026-11-26); the real home
-// comes in S3. The Luna Desktop landing lives at /start/.
+// / : the Luna AI Core home. Text in data/home.ts. The Luna Desktop landing lives at /start/.
 import Page from "../layouts/Page.astro";
+import HomeBody from "../components/HomeBody.astro";
+import { home } from "../data/home";
 ---
-<Page lang="en" title="Luna AI Core" description="Luna AI Core: local-first AI that runs on your own PC. Luna Desktop for Windows is available now." path="/">
-  <section>
-    <div class="container narrow page-block">
-      <h1>Luna AI Core</h1>
-      <p>Local-first AI that runs on your own PC.</p>
-      <div class="page-actions">
-        <a class="button" href="/start/"><span>Luna Desktop</span></a>
-        <a class="button secondary" href="/downloads/"><span>Download</span></a>
-      </div>
-    </div>
-  </section>
+<Page lang="en" title={home.en.title} description={home.en.description} path="/">
+  <HomeBody lang="en" />
 </Page>
