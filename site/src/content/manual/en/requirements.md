@@ -13,22 +13,22 @@ Windows 11 is recommended. The installer allows Windows 10, but it is not offici
 
 ## Graphics card
 
-Luna runs a model on your graphics card when the model file plus a safety margin of 2 GB fits in 90% of the card's own memory. Integrated graphics count as CPU-only.
+Luna runs a model on your graphics card when the model file plus 1.5 GB of context memory fits in 90% of the card's own memory. The card memory needed is rounded up to a whole GB, as in the welcome screen. Integrated graphics count as CPU-only.
 
-| Model | File size (GB) | Smallest card memory (GB) | Tested on our hardware |
+| Model | File size (GB) | Card memory needed (GB) | Tested on our hardware |
 |---|---|---|---|
-| Qwen3.5 4B | 2.7 | 5.1 | Yes |
-| Gemma 4 E2B | 3.2 | 5.6 | Yes |
-| Gemma 4 E4B | 5.0 | 7.4 | Yes |
-| Qwen3.5 9B | 5.7 | 8.2 | Yes |
-| Gemma 4 12B | 7.0 | 9.5 (10 with the speed-mode file) | Yes |
-| Gemma 4 26B A4B (16 GB version) | 12.7 | 15.4 | Untested |
-| Qwen3.5 27B | 16.7 | 19.6 | Untested |
-| Gemma 4 26B A4B | 17.0 | 19.9 | Untested |
-| Gemma 4 31B | 18.3 | 21.2 | Untested |
-| Qwen3.5 35B A3B | 22.0 | 25.0 | Untested |
+| Qwen3.5 4B | 2.7 | 5 | Yes |
+| Gemma 4 E2B | 3.2 | 6 | Yes |
+| Gemma 4 E4B | 5.0 | 8 | Yes |
+| Qwen3.5 9B | 5.7 | 8 | Yes |
+| Gemma 4 12B | 6.7 | 10 | Yes |
+| Gemma 4 26B A4B (16 GB version) | 12.7 | 16 | Untested |
+| Qwen3.5 27B | 16.7 | 21 | Untested |
+| Gemma 4 26B A4B | 17.0 | 21 | Untested |
+| Gemma 4 31B | 18.3 | 22 | Untested |
+| Qwen3.5 35B A3B | 22.0 | 27 | Untested |
 
-NVIDIA cards (CUDA) are the path we tested. AMD and Intel cards are supported through Vulkan but were not tested on our hardware, and Luna’s live memory check works on NVIDIA cards only. These figures are guidance: Luna checks your PC itself and suggests the best model that fits your card in Settings, under Your device.
+NVIDIA cards (CUDA) are the path we tested. AMD and Intel cards are supported through Vulkan but were not tested on our hardware. These figures are guidance: Luna checks your PC itself and suggests the best model that fits your card in Settings, under Your device.
 
 ## No graphics card
 

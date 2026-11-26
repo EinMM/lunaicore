@@ -35,7 +35,7 @@ Under a search answer, the Sources box lists up to 10 sources: the title, the si
 
 ## Search in Arabic
 
-Mojeek's own search page shows a message saying it does not currently search pages in some languages, and that message appeared when searching in Arabic. So Luna does not send Mojeek a phrase in Arabic and explains why. If Mojeek is your service and you write in Arabic, choose another service that has a key, or turn on the option to try your other services.
+Mojeek is known not to serve pages in Arabic, so Luna does not send Mojeek a phrase in Arabic and explains why. If Mojeek is your service and you write in Arabic, choose another service that has a key, or turn on the option to try your other services.
 
 ## Reading a web page
 
