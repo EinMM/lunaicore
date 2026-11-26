@@ -33,6 +33,7 @@ const routes: Array<[string, string, string | undefined]> = [
   ["/legal/terms/", "/ar/legal/terms/", docDate("TERMS.md", true)],
   ["/legal/security/", "/ar/legal/security/", docDate("SECURITY.md", false)],
   ["/legal/website-privacy/", "/ar/legal/website-privacy/", docDate("WEBSITE_PRIVACY.md", true)],
+  ["/support/", "/ar/support/", release.releaseDate],
 ];
 
 const entry = (loc: string, lastmod: string | undefined, en: string, ar: string) =>

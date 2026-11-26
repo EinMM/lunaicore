@@ -1,0 +1,55 @@
+---
+// /support/ and /ar/support/ : where to get help and how to report a problem. Text in data/support.ts.
+// Page titles of the guide links come from the manual, so they follow the docs. No JSON-LD (a two-step
+// breadcrumb would have no visible counterpart). No response times, no promises.
+import Page from "../layouts/Page.astro";
+import { support } from "../data/support";
+import { routes } from "../data/routes";
+import { manualPages, slugOf, pathOf } from "../data/docs";
+
+const { lang } = Astro.props;
+const l = lang as "en" | "ar";
+const t = support[l];
+const pages = await manualPages(l);
+const guide = t.guide.slugs.map((slug) => pages.find((page) => slugOf(page) === slug)).filter(Boolean);
+const trouble = pages.find((page) => slugOf(page) === "troubleshooting");
+---
+<Page lang={l} title={t.title} description={t.description} path={routes.support[l]}>
+  <section>
+    <div class="container narrow prose">
+      <h1>{t.h1}</h1>
+      <p>{t.lead}</p>
+
+      <h2>{t.guide.h2}</h2>
+      <p>{t.guide.text}</p>
+      <ul>
+        {guide.map((page) => <li><a href={pathOf(l, slugOf(page!))}>{page!.data.title}</a></li>)}
+      </ul>
+
+      <h2>{t.report.h2}</h2>
+      <p>{t.report.text}</p>
+      <p>{t.report.github}</p>
+      <ul>
+        {t.report.links.map((link) => <li><a href={link.href}>{link.text}</a></li>)}
+      </ul>
+
+      <h2>{t.include.h2}</h2>
+      <p>{t.include.before} <a href={pathOf(l, "troubleshooting")}>{trouble!.data.title}</a>{t.include.after}</p>
+
+      <h2>{t.address.h2}</h2>
+      <table>
+        <thead><tr>{t.address.head.map((cell) => <th>{cell}</th>)}</tr></thead>
+        <tbody>
+          {t.address.rows.map(([address, use]) => (
+            <tr><td><a href={`mailto:${address}`} dir="ltr">{address}</a></td><td>{use}</td></tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2>{t.security.h2}</h2>
+      <p>{t.security.before} <a href={`mailto:${t.address.rows[2][0]}`} dir="ltr">{t.address.rows[2][0]}</a>{t.security.middle} <a href={routes.legalSecurity[l]}>{t.security.link}</a> {t.security.after}</p>
+
+      <p>{t.also.text} <a href={routes.legalWebsitePrivacy[l]}>{t.also.link}</a>.</p>
+    </div>
+  </section>
+</Page>
