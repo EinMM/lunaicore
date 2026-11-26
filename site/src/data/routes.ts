@@ -2,6 +2,7 @@
 // The language switch and hreflang use this, so a page only passes its own path.
 export const routes = {
   home: { en: "/", ar: "/ar/" },
+  start: { en: "/start/", ar: "/ar/start/" },
   downloads: { en: "/downloads/", ar: "/ar/downloads/" },
   changelog: { en: "/changelog/", ar: "/ar/changelog/" },
   legalPrivacy: { en: "/legal/privacy/", ar: "/ar/legal/privacy/" },

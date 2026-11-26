@@ -1,0 +1,9 @@
+---
+// /start/: the Luna Desktop landing page (the former home page), content unchanged. Not indexed for now.
+import LandingEn from "../../components/LandingEn.astro";
+import { meta } from "../../i18n/en";
+
+const SITE = "https://lunaicore.com";
+const startMeta = { ...meta, canonical: `${SITE}/start/`, ogUrl: `${SITE}/start/`, ldUrl: `${SITE}/start/` };
+---
+<LandingEn noindex altHref="/ar/start/" meta={startMeta} />

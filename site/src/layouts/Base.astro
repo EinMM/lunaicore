@@ -7,7 +7,7 @@ import { release } from "../data/release";
 import Head from "../components/Head.astro";
 import { entity } from "../data/entity";
 
-const { meta, lang, dir, bodyDir, assetPrefix = "" } = Astro.props;
+const { meta, lang, dir, bodyDir, assetPrefix = "", noindex = false } = Astro.props;
 const styles = css.replaceAll('url("assets/', `url("${assetPrefix}assets/`);
 const jsonLd = `
   {
@@ -35,6 +35,7 @@ const jsonLd = `
   canonical={meta.canonical}
   alternates={{ en: "https://lunaicore.com/", ar: "https://lunaicore.com/ar/", xDefault: "https://lunaicore.com/" }}
   og={{ title: meta.ogTitle, description: meta.ogDescription, url: meta.ogUrl, locale: meta.ogLocale, imageAlt: meta.ogImageAlt }}
+  noindex={noindex}
   jsonLd={jsonLd}
   iconPrefix={assetPrefix}
   styles={styles}

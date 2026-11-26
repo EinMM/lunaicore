@@ -20,6 +20,7 @@ function docDate(file: string, required: boolean): string | undefined {
   return found?.[1];
 }
 
+// /start/ and /ar/start/ are deliberately NOT listed (noindex landing).
 // [English path, Arabic path, lastmod]
 const routes: Array<[string, string, string | undefined]> = [
   ["/", "/ar/", release.releaseDate],

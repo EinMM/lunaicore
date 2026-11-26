@@ -1,0 +1,9 @@
+---
+// /ar/start/: the Arabic Luna Desktop landing page (the former /ar/ home page), content unchanged. Not indexed for now.
+import LandingAr from "../../../components/LandingAr.astro";
+import { meta } from "../../../i18n/ar";
+
+const SITE = "https://lunaicore.com";
+const startMeta = { ...meta, canonical: `${SITE}/ar/start/`, ogUrl: `${SITE}/ar/start/`, ldUrl: `${SITE}/ar/start/` };
+---
+<LandingAr noindex altHref="/start/" meta={startMeta} />

@@ -1,21 +1,21 @@
 // Header nav and footer links of the subpage layout, EN + AR. Targets and wording are unchanged from
-// the old i18n/page.ts. GitHub blob links stay as they are for now.
+// the old i18n/page.ts, except the three landing anchors, which now point into /start/ (where the\n// landing lives). GitHub blob links stay as they are for now.
 import { routes } from "./routes";
 
 const REPO = "https://github.com/EinMM/lunaicore";
 
 export const nav = {
   en: [
-    { href: "/#features", text: "Why Luna" },
-    { href: "/#privacy", text: "Privacy" },
-    { href: "/#faq", text: "FAQ" },
+    { href: "/start/#features", text: "Why Luna" },
+    { href: "/start/#privacy", text: "Privacy" },
+    { href: "/start/#faq", text: "FAQ" },
     { href: routes.downloads.en, text: "Download" },
     { href: routes.changelog.en, text: "Release notes" },
   ],
   ar: [
-    { href: "/ar/#features", text: "لماذا لونا" },
-    { href: "/ar/#privacy", text: "الخصوصية" },
-    { href: "/ar/#faq", text: "الأسئلة الشائعة" },
+    { href: "/ar/start/#features", text: "لماذا لونا" },
+    { href: "/ar/start/#privacy", text: "الخصوصية" },
+    { href: "/ar/start/#faq", text: "الأسئلة الشائعة" },
     { href: routes.downloads.ar, text: "تحميل" },
     { href: routes.changelog.ar, text: "ملاحظات الإصدار" },
   ],
