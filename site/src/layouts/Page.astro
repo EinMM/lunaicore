@@ -8,9 +8,12 @@ import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ui, SITE } from "../i18n/page";
+import { altPathFor } from "../data/routes";
 
+// altPath: derived from data/routes.ts; only a page outside the route list (the 404) passes its own.
 // noindex: for the 404 page only (no canonical or hreflang; robots noindex instead).
-const { lang, title, description, path, altPath, noindex = false } = Astro.props;
+const { lang, title, description, path, noindex = false } = Astro.props;
+const altPath = Astro.props.altPath ?? altPathFor(path);
 const t = ui[lang as "en" | "ar"];
 const enPath = lang === "en" ? path : altPath;
 const arPath = lang === "ar" ? path : altPath;

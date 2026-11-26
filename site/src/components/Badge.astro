@@ -1,0 +1,25 @@
+---
+// A small status badge for one feature, from data/status.ts. Not used by any page yet.
+import { status, badgeLabels, type StatusKey } from "../data/status";
+
+interface Props {
+  feature: StatusKey;
+  lang: "en" | "ar";
+}
+const { feature, lang } = Astro.props;
+const kind = status[feature];
+---
+<span class={`badge badge-${kind}`}>{badgeLabels[kind][lang]}</span>
+
+<style>
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+    vertical-align: middle;
+  }
+</style>

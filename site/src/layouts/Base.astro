@@ -5,6 +5,7 @@ import css from "../styles/site.css?raw";
 import js from "../scripts/site.js?raw";
 import { release } from "../data/release";
 import Head from "../components/Head.astro";
+import { entity } from "../data/entity";
 
 const { meta, lang, dir, bodyDir, assetPrefix = "" } = Astro.props;
 const styles = css.replaceAll('url("assets/', `url("${assetPrefix}assets/`);
@@ -20,7 +21,7 @@ const jsonLd = `
     "url": "${meta.ldUrl}",
     "downloadUrl": "${release.downloadUrl}",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "author": { "@type": "Person", "name": "Hussain (EinMM)" },
+    "author": { "@type": "Person", "name": "${entity.legalName.en}" },
     "description": "${meta.ldDescription}"
   }
   `;

@@ -8,7 +8,7 @@ const entry = await getEntry("docs", "testers-install-en");
 if (!entry) throw new Error("downloads: docs entry testers-install-en is missing (run scripts/copy-docs.mjs)");
 const { Content } = await render(entry);
 ---
-<Page lang="en" title="Download Luna for Windows · Luna AI Desktop Assistant" description={meta.description} path="/downloads/" altPath="/ar/downloads/">
+<Page lang="en" title="Download Luna for Windows · Luna AI Desktop Assistant" description={meta.description} path="/downloads/">
   <DownloadsEn>
     <Content slot="install" />
   </DownloadsEn>

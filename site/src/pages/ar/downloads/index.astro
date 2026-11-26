@@ -8,7 +8,7 @@ const entry = await getEntry("docs", "testers-install-ar");
 if (!entry) throw new Error("downloads: docs entry testers-install-ar is missing (run scripts/copy-docs.mjs)");
 const { Content } = await render(entry);
 ---
-<Page lang="ar" title="تحميل لونا لنظام Windows · لونا" description={meta.description} path="/ar/downloads/" altPath="/downloads/">
+<Page lang="ar" title="تحميل لونا لنظام Windows · لونا" description={meta.description} path="/ar/downloads/">
   <DownloadsAr>
     <Content slot="install" />
   </DownloadsAr>
