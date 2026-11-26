@@ -6,4 +6,6 @@ export default defineConfig({
   output: "static",
   compressHTML: false,
   build: { format: "directory" },
+  // Legal text must be rendered exactly as written: no curly quotes, dashes or ellipses.
+  markdown: { smartypants: false },
 });

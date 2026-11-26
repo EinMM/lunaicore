@@ -1,0 +1,25 @@
+---
+// /legal/privacy/, /legal/terms/, /legal/security/ (English). The text is PRIVACY.md / TERMS.md / SECURITY.md,
+// split by scripts/copy-docs.mjs; the repo files stay the single source of truth.
+import Page from "../../../layouts/Page.astro";
+import { getEntry, render } from "astro:content";
+import { meta } from "../../../i18n/en";
+
+export function getStaticPaths() {
+  return ["privacy", "terms", "security"].map((doc) => ({ params: { doc } }));
+}
+
+const { doc } = Astro.params;
+const entry = await getEntry("docs", `legal-${doc}-en`);
+if (!entry) throw new Error(`legal: docs entry legal-${doc}-en is missing (run scripts/copy-docs.mjs)`);
+const { Content } = await render(entry);
+const title = entry.data.title as string;
+---
+<Page lang="en" title={`${title} · Luna AI Desktop Assistant`} description={meta.description} path={`/legal/${doc}/`} altPath={`/ar/legal/${doc}/`}>
+  <section>
+    <div class="container narrow prose">
+      <h1>{title}</h1>
+      <Content />
+    </div>
+  </section>
+</Page>
