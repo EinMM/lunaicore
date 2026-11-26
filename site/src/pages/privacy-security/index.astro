@@ -1,0 +1,10 @@
+---
+// /privacy-security/ : privacy and security overview. Text in data/privacy.ts, body in components/PrivacyBody.astro.
+import Page from "../../layouts/Page.astro";
+import PrivacyBody from "../../components/PrivacyBody.astro";
+import { privacy } from "../../data/privacy";
+import { entity } from "../../data/entity";
+---
+<Page lang="en" title={privacy.en.title} description={privacy.en.description} path="/privacy-security/" siteName={entity.tradeName}>
+  <PrivacyBody lang="en" />
+</Page>

@@ -1,0 +1,78 @@
+---
+// The /privacy-security/ body, one language. Text in data/privacy.ts (all existing wording).
+import { privacy } from "../data/privacy";
+import { routes } from "../data/routes";
+
+const { lang } = Astro.props;
+const l = lang as "en" | "ar";
+const t = privacy[l];
+---
+<section>
+  <div class="container narrow page-block">
+    <div class="eyebrow">{t.eyebrow}</div>
+    <h1>{t.heading}</h1>
+    <p>{t.lead}</p>
+  </div>
+</section>
+
+<section class="section-texture">
+  <div class="container narrow">
+    <h2>{t.shortTitle}</h2>
+    <ul>
+      {t.short.map((item) => <li>{item}</li>)}
+    </ul>
+    <div class="page-actions">
+      <a class="button secondary" href={routes.legalPrivacy[l]}><span>{t.policy}</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container narrow">
+    <h2>{t.filesTitle}</h2>
+    <p>{t.files}</p>
+  </div>
+</section>
+
+<section class="section-texture">
+  <div class="container">
+    <h2>{t.modesTitle}</h2>
+    <div class="feature-grid">
+      {t.modes.map((item) => (
+        <article class="feature-card">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+    <p>{t.privateLine}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container narrow">
+    <h2>{t.webTitle}</h2>
+    <p>{t.web}</p>
+  </div>
+</section>
+
+<section class="section-texture">
+  <div class="container narrow">
+    <h2>{t.securityTitle}</h2>
+    <p>{t.security}</p>
+    <div class="page-actions">
+      <a class="button secondary" href={routes.legalSecurity[l]}><span>{t.securityPolicy}</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container narrow">
+    <p><a href={routes.downloads[l]}>{t.verify}</a></p>
+    <div class="page-actions">
+      <a class="button secondary" href={routes.legalPrivacy[l]}><span>{t.policy}</span></a>
+      <a class="button secondary" href={routes.legalTerms[l]}><span>{t.terms}</span></a>
+      <a class="button secondary" href={routes.legalSecurity[l]}><span>{t.securityPolicy}</span></a>
+    </div>
+  </div>
+</section>
