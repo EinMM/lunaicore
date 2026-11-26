@@ -1,0 +1,34 @@
+---
+// /products/desktop/ : the Luna Desktop product page. Text in data/product.ts and components/ProductEn.astro.
+import Page from "../../../layouts/Page.astro";
+import ProductEn from "../../../components/ProductEn.astro";
+import { product } from "../../../data/product";
+import { release } from "../../../data/release";
+import { entity } from "../../../data/entity";
+import { SITE } from "../../../i18n/page";
+
+const p = product.en;
+const path = "/products/desktop/";
+const jsonLd = JSON.stringify(
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: p.name,
+    alternateName: ["Luna Desktop", entity.productName.ar],
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Windows 11",
+    softwareVersion: release.version,
+    inLanguage: p.inLanguage,
+    url: SITE + path,
+    downloadUrl: release.downloadUrl,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    author: { "@type": "Person", name: entity.legalName.en },
+    description: p.description,
+  },
+  null,
+  2,
+);
+---
+<Page lang="en" title={p.title} description={p.description} path={path} jsonLd={jsonLd}>
+  <ProductEn />
+</Page>

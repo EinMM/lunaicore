@@ -1,0 +1,250 @@
+---
+// Product page body (ar): the landing sections meet, features, showcase, modes, compare and tech, one
+// language, copied from LandingAr.astro without the data-en/data-ar attributes (no toggle script here).
+// Edits against the landing: the compare note no longer mentions future languages; the features lede uses the feminine form (مساعدة) to match the approved product name.
+import Badge from "./Badge.astro";
+import { badgeNames } from "../data/home";
+import { product } from "../data/product";
+import { status } from "../data/status";
+import { routes } from "../data/routes";
+import { release } from "../data/release";
+
+const p = product.ar;
+const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
+---
+<section>
+  <div class="container narrow page-block">
+    <h1>{p.name}</h1>
+    <div class="page-actions">
+      <a class="button" href={routes.downloads.ar}><span>{p.download}</span></a>
+      <a class="button secondary" href={routes.changelog.ar}><span>{p.releaseNotes}</span></a>
+    </div>
+    <p class="page-meta">{p.heroLine(release.betaLabelAr, release.version, release.sizeMB)}</p>
+  </div>
+</section>
+
+<section id="meet" class="section-texture">
+      <div class="container split">
+        <div>
+          <div class="eyebrow">تعرّف على لونا</div>
+          <h2>ذكاء اصطناعي يعمل وفق اختياراتك.</h2>
+          <p>تجمع لونا بين الذكاء الاصطناعي المحلي ومساعدة الملفات والذاكرة الشخصية والذكاء السحابي الاختياري، ضمن تجربة واحدة على Windows.</p>
+        </div>
+        <img class="product-image" loading="lazy" decoding="async"
+             src="/assets/screenshots/luna-main-interface.webp"
+             alt="الواجهة الرئيسية للونا">
+      </div>
+    </section>
+
+<section id="features">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">لماذا لونا</div>
+          <h2>أكثر من مجرد نافذة محادثة.</h2>
+          <p>مساعدة لسطح المكتب تساعدك في محادثاتك وملفاتك ومعرفتك الشخصية.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/brain.svg" alt="" aria-hidden="true">
+            <h3>المحادثات</h3>
+            <p>مساحة مرنة لتنظيم محادثاتك مع الذكاء الاصطناعي.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/folder.svg" alt="" aria-hidden="true">
+            <h3>مساعد الملفات</h3>
+            <p>ابحث عن ملفاتك ونظّمها وتعامل معها بعد تأكيدك.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/memory.svg" alt="" aria-hidden="true">
+            <h3>الذاكرة الشخصية</h3>
+            <p>تتذكر لونا المعلومات عندما تطلب منها ذلك صراحةً.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/documents.svg" alt="" aria-hidden="true">
+            <h3>فهم المستندات</h3>
+            <p>ابحث داخل المستندات المدعومة واعمل معها.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true">
+            <h3>محرك ذكاء محلي</h3>
+            <p>شغّل النماذج المحلية على جهازك.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/cloud.svg" alt="" aria-hidden="true">
+            <h3>الذكاء الهجين</h3>
+            <p>اختر متى تريد استخدام الخدمات السحابية الاختيارية.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/globe.svg" alt="" aria-hidden="true">
+            <h3>قراءة الويب والبحث</h3>
+            <p>تقرأ لونا صفحة من رابط تكتبه وتبحث في الويب بمفتاحك أنت. تختار «مغلق» أو «اسأل أولًا» أو «مسموح»، والمحادثة الخاصة لا تستخدم الويب أبدًا.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<section>
+  <div class="container badge-strip">
+    {badgeKeys.map((key) => (
+      <span class="badge-item">{badgeNames[key]} <Badge feature={key} lang="ar" /></span>
+    ))}
+  </div>
+</section>
+
+<section id="showcase" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">استعراض لونا</div>
+          <h2>مصممة لإنجاز أعمال حقيقية.</h2>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-arabic-chat.webp" alt="محادثة بالعربية">
+            <h3>محادثات طبيعية</h3>
+            <p>تحدّث بالإنجليزية أو العربية.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-file-assistant.webp" alt="مساعد الملفات">
+            <h3>ملفاتك في متناولك</h3>
+            <p>ابحث عن الملفات وأدرها مع ضوابط الصلاحيات.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-privacy-settings.webp" alt="إعدادات الخصوصية">
+            <h3>تحكم بخصوصيتك</h3>
+            <p>تحكم في الوصول إلى ملفاتك وبياناتك.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-knowledge.webp" alt="المعرفة والذاكرة">
+            <h3>معرفة منظمة</h3>
+            <p>ابحث في معرفتك الشخصية ومستنداتك المدعومة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<section id="modes" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">الذكاء المحلي والهجين</div>
+          <h2>اختر كيف تعمل لونا.</h2>
+          <p>ابدأ بالمعالجة المحلية، واختر المعالجة السحابية عندما تحتاج إليها.</p>
+        </div>
+
+        <div class="mode-grid">
+          <article class="mode">
+            <h3><img class="mode-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true"><span>محلي</span></h3>
+            <p>كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="/assets/icons/cloud.svg" alt="" aria-hidden="true"><span>سحابي</span></h3>
+            <p>استخدم Google Gemini أو OpenAI بمفتاح API الخاص بك، ويُحفظ المفتاح بأمان على جهازك.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="/assets/icons/brain.svg" alt="" aria-hidden="true"><span>هجين</span></h3>
+            <p>المحلي والسحابة معًا، بأحد أسلوبين:</p>
+            <ul class="mode-options">
+              <li><strong>متوازن</strong>
+                <span>المحلي أولًا، ولا تتدخل السحابة إلا إذا تعذّر المحرّك المحلي.</span></li>
+              <li><strong>تخفيف الجهاز</strong>
+                <span>تتولى السحابة الطلبات العادية، وتبقى الرسائل الحساسة على جهازك.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<section id="compare">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">مقارنة صريحة</div>
+          <h2>كيف تختلف لونا؟</h2>
+          <p>ثلاثة أنواع من المساعدات الذكية، وتختلف في المكان الذي يعمل فيه الذكاء، وفي تحكمك بملفاتك، وفي دعم العربية.</p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="compare-card">
+            <h3>تطبيقات الذكاء السحابية</h3>
+            <dl>
+            <dt>أين يعمل الذكاء؟</dt>
+            <dd>على خوادم المزوّد</dd>
+            <dt>الواجهة والمحادثة بالعربية</dt>
+            <dd>تختلف بحسب التطبيق</dd>
+            <dt>التعامل مع الملفات</dt>
+            <dd>يعتمد على رفع الملفات إلى المزوّد</dd>
+            <dt>استخدام السحابة</dt>
+            <dd>أساسي، والخدمة تتوقف دونه</dd>
+            </dl>
+          </article>
+          <article class="compare-card">
+            <h3>أدوات النماذج المحلية العامة</h3>
+            <dl>
+            <dt>أين يعمل الذكاء؟</dt>
+            <dd>على جهازك</dd>
+            <dt>الواجهة والمحادثة بالعربية</dt>
+            <dd>تختلف بحسب الأداة</dd>
+            <dt>التعامل مع الملفات</dt>
+            <dd>يختلف بحسب الأداة</dd>
+            <dt>استخدام السحابة</dt>
+            <dd>اختياري في بعض الأدوات</dd>
+            </dl>
+          </article>
+          <article class="compare-card us">
+            <h3>Luna</h3>
+            <dl>
+            <dt>أين يعمل الذكاء؟</dt>
+            <dd>على جهازك افتراضيًا، والسحابة فقط عندما تختارها</dd>
+            <dt>الواجهة والمحادثة بالعربية</dt>
+            <dd>واجهة ومحادثات عربية كاملة، إلى جانب الإنجليزية</dd>
+            <dt>التعامل مع الملفات</dt>
+            <dd>كل عملية على الملفات تطلب تأكيدك، وصلاحية كل مجلد مستقلة (قراءة فقط أو وصول كامل)</dd>
+            <dt>استخدام السحابة</dt>
+            <dd>اختياري دائمًا، بمفتاح API الخاص بك المحفوظ في مدير بيانات اعتماد Windows</dd>
+            </dl>
+          </article>
+        </div>
+
+        <p class="provider-note">تصف هذه المقارنة الأنواع العامة وفق حالتها في نوفمبر 2026، وقد تختلف المنتجات الفردية داخل كل نوع.</p>
+      </div>
+    </section>
+
+<section id="tech">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">نظرة تقنية</div>
+          <h2>مصممة لحاسوبك.</h2>
+        </div>
+
+        <div class="technical-list">
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/window.svg" alt="" aria-hidden="true">Windows <span>منصة التشغيل</span></div>
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true">Local AI <span>تشغيل النماذج المحلية المدعومة</span></div>
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/settings.svg" alt="" aria-hidden="true">CUDA / Vulkan <span>مسارات تسريع مدعومة</span></div>
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/languages.svg" alt="" aria-hidden="true">English & Arabic <span>الواجهة والمحادثات</span></div>
+        </div>
+      </div>
+    </section>
+
+<style>
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    padding-block: 1rem 2rem;
+  }
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>

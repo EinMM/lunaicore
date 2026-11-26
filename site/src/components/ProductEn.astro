@@ -1,0 +1,266 @@
+---
+// Product page body (en): the landing sections meet, features, showcase, modes, compare and tech, one
+// language, copied from LandingEn.astro without the data-en/data-ar attributes (no toggle script here).
+// Edits against the landing: the compare note no longer mentions future languages.
+import Badge from "./Badge.astro";
+import { badgeNames } from "../data/home";
+import { product } from "../data/product";
+import { status } from "../data/status";
+import { routes } from "../data/routes";
+import { release } from "../data/release";
+
+const p = product.en;
+const badgeKeys = Object.keys(status) as Array<keyof typeof status>;
+---
+<section>
+  <div class="container narrow page-block">
+    <h1>{p.name}</h1>
+    <div class="page-actions">
+      <a class="button" href={routes.downloads.en}><span>{p.download}</span></a>
+      <a class="button secondary" href={routes.changelog.en}><span>{p.releaseNotes}</span></a>
+    </div>
+    <p class="page-meta">{p.heroLine(release.betaLabel, release.version, release.sizeMB)}</p>
+  </div>
+</section>
+
+<section id="meet" class="section-texture">
+      <div class="container split">
+        <div>
+          <div class="eyebrow">MEET LUNA</div>
+          <h2>
+            AI that works on your terms.
+          </h2>
+          <p>
+            Luna brings local AI, file assistance, personal memory, and optional cloud intelligence into one Windows desktop experience.
+          </p>
+        </div>
+        <img class="product-image" loading="lazy" decoding="async"
+             src="/assets/screenshots/luna-main-interface.webp"
+             alt="Luna main interface">
+      </div>
+    </section>
+
+<section id="features">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">WHY LUNA</div>
+          <h2>
+            More than a chat window.
+          </h2>
+          <p>
+            A desktop assistant designed to help you work with your conversations, files, and knowledge.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/brain.svg" alt="" aria-hidden="true">
+            <h3>Conversations</h3>
+            <p>A flexible workspace for your AI conversations.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/folder.svg" alt="" aria-hidden="true">
+            <h3>File Assistant</h3>
+            <p>Search, organize, and work with your files with confirmation.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/memory.svg" alt="" aria-hidden="true">
+            <h3>Personal Memory</h3>
+            <p>Luna remembers information when you explicitly ask.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/documents.svg" alt="" aria-hidden="true">
+            <h3>Document Intelligence</h3>
+            <p>Search and work with supported documents.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true">
+            <h3>Local AI Engine</h3>
+            <p>Run local models on your own computer.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/cloud.svg" alt="" aria-hidden="true">
+            <h3>Hybrid Intelligence</h3>
+            <p>Choose when to use optional cloud services.</p>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-icon" src="/assets/icons/globe.svg" alt="" aria-hidden="true">
+            <h3>Web Search & Reading</h3>
+            <p>Luna reads a page from a link you write and searches the web with your own key. You choose Off, Ask first or Allowed, and a private conversation never uses the web.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<section>
+  <div class="container badge-strip">
+    {badgeKeys.map((key) => (
+      <span class="badge-item">{badgeNames[key]} <Badge feature={key} lang="en" /></span>
+    ))}
+  </div>
+</section>
+
+<section id="showcase" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">PRODUCT SHOWCASE</div>
+          <h2>
+            Designed for real work.
+          </h2>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-arabic-chat.webp" alt="Arabic conversation">
+            <h3>Natural conversations</h3>
+            <p>Work in English or Arabic.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-file-assistant.webp" alt="File assistant">
+            <h3>Your files, within reach</h3>
+            <p>Search and manage files with permission controls.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-privacy-settings.webp" alt="Privacy settings">
+            <h3>Control your privacy</h3>
+            <p>Manage access and control your data.</p>
+          </article>
+
+          <article class="showcase-item">
+            <img loading="lazy" decoding="async" src="/assets/screenshots/luna-knowledge.webp" alt="Knowledge and memory">
+            <h3>Knowledge that stays organized</h3>
+            <p>Search your personal knowledge and supported documents.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<section id="modes" class="section-texture">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">LOCAL & HYBRID INTELLIGENCE</div>
+          <h2>
+            Choose how Luna thinks.
+          </h2>
+          <p>
+            Start locally and choose cloud processing when you need it.
+          </p>
+        </div>
+
+        <div class="mode-grid">
+          <article class="mode">
+            <h3><img class="mode-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true"><span>Local</span></h3>
+            <p>Everything runs on your computer with Luna Engine, and works offline once a model is installed.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="/assets/icons/cloud.svg" alt="" aria-hidden="true"><span>Cloud</span></h3>
+            <p>Use Google Gemini or OpenAI with your own API key, stored securely on your PC.</p>
+          </article>
+          <article class="mode">
+            <h3><img class="mode-icon" src="/assets/icons/brain.svg" alt="" aria-hidden="true"><span>Hybrid</span></h3>
+            <p>Local and cloud together, in one of two styles:</p>
+            <ul class="mode-options">
+              <li><strong>Balanced</strong>
+                <span>Local first. The cloud steps in only when the local engine is unavailable.</span></li>
+              <li><strong>Lighten the PC</strong>
+                <span>The cloud handles everyday requests, while sensitive messages stay on your PC.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<section id="compare">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">HONEST COMPARISON</div>
+          <h2>How is Luna different?</h2>
+          <p>Three kinds of AI assistants, differing in where the AI runs, how much control you have over your files, and how well they support Arabic.</p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="compare-card">
+            <h3>Cloud AI apps</h3>
+            <dl>
+            <dt>Where does the AI run?</dt>
+            <dd>On the provider’s servers</dd>
+            <dt>Arabic interface and conversations</dt>
+            <dd>Varies by app</dd>
+            <dt>Working with files</dt>
+            <dd>Depends on uploading files to the provider</dd>
+            <dt>Cloud use</dt>
+            <dd>Essential: the service stops without it</dd>
+            </dl>
+          </article>
+          <article class="compare-card">
+            <h3>General local-model tools</h3>
+            <dl>
+            <dt>Where does the AI run?</dt>
+            <dd>On your PC</dd>
+            <dt>Arabic interface and conversations</dt>
+            <dd>Varies by tool</dd>
+            <dt>Working with files</dt>
+            <dd>Varies by tool</dd>
+            <dt>Cloud use</dt>
+            <dd>Optional in some tools</dd>
+            </dl>
+          </article>
+          <article class="compare-card us">
+            <h3>Luna</h3>
+            <dl>
+            <dt>Where does the AI run?</dt>
+            <dd>On your PC by default; cloud only when you choose</dd>
+            <dt>Arabic interface and conversations</dt>
+            <dd>Full Arabic interface and conversations, alongside English</dd>
+            <dt>Working with files</dt>
+            <dd>Every file operation asks for your confirmation, and each folder has its own permission (read-only or full access)</dd>
+            <dt>Cloud use</dt>
+            <dd>Always optional, with your own API key stored in Windows Credential Manager</dd>
+            </dl>
+          </article>
+        </div>
+
+        <p class="provider-note">This comparison describes general categories as of November 2026; individual products within each category may differ.</p>
+      </div>
+    </section>
+
+<section id="tech">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">TECHNICAL OVERVIEW</div>
+          <h2>
+            Built for your desktop.
+          </h2>
+        </div>
+
+        <div class="technical-list">
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/window.svg" alt="" aria-hidden="true">Windows <span>Desktop platform</span></div>
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true">Local AI <span>Run supported local models</span></div>
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/settings.svg" alt="" aria-hidden="true">CUDA / Vulkan <span>Supported acceleration paths</span></div>
+          <div class="technical-item"><img class="technical-icon" src="/assets/icons/languages.svg" alt="" aria-hidden="true">English & Arabic <span>Interface and conversations</span></div>
+        </div>
+      </div>
+    </section>
+
+<style>
+  .badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    padding-block: 1rem 2rem;
+  }
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>
