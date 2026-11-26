@@ -6,7 +6,8 @@ import css from "../styles/site.css?raw";
 import prose from "../styles/prose.css?raw";
 import { ui, SITE } from "../i18n/page";
 
-const { lang, title, description, path, altPath } = Astro.props;
+// noindex: for the 404 page only (no canonical or hreflang; robots noindex instead).
+const { lang, title, description, path, altPath, noindex = false } = Astro.props;
 const t = ui[lang as "en" | "ar"];
 const other = ui[t.switchLang as "en" | "ar"];
 const enPath = lang === "en" ? path : altPath;
@@ -22,10 +23,10 @@ const year = new Date().getFullYear();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080b19">
   <meta name="description" content={description}>
-  <link rel="canonical" href={`${SITE}${path}`}>
-  <link rel="alternate" hreflang="en" href={`${SITE}${enPath}`}>
-  <link rel="alternate" hreflang="ar" href={`${SITE}${arPath}`}>
-  <link rel="alternate" hreflang="x-default" href={`${SITE}${enPath}`}>
+  {noindex ? <meta name="robots" content="noindex"> : <link rel="canonical" href={`${SITE}${path}`}>}
+  {!noindex && <link rel="alternate" hreflang="en" href={`${SITE}${enPath}`}>}
+  {!noindex && <link rel="alternate" hreflang="ar" href={`${SITE}${arPath}`}>}
+  {!noindex && <link rel="alternate" hreflang="x-default" href={`${SITE}${enPath}`}>}
   <title>{title}</title>
 
   <meta property="og:type" content="website">

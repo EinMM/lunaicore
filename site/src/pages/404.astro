@@ -1,0 +1,22 @@
+---
+// /404.html: one page for both languages (the Worker serves it for every unknown URL, so it
+// cannot know the visitor's language). The only new strings are the four below.
+import Page from "../layouts/Page.astro";
+import { meta } from "../i18n/en";
+---
+<Page lang="en" title="Page not found · Luna AI Desktop Assistant" description={meta.description} path="/404.html" altPath="/ar/" noindex>
+  <section>
+    <div class="container narrow page-block">
+      <h1>Page not found</h1>
+      <div class="page-actions">
+        <a class="button" href="/"><span>Back to home</span></a>
+      </div>
+    </div>
+    <div class="container narrow page-block" lang="ar" dir="rtl">
+      <h1>الصفحة غير موجودة</h1>
+      <div class="page-actions">
+        <a class="button" href="/ar/"><span>العودة إلى الرئيسية</span></a>
+      </div>
+    </div>
+  </section>
+</Page>
