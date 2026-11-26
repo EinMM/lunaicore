@@ -52,7 +52,7 @@ Please **don't include** your API keys, passwords, personal files or conversatio
 
 | Version | Supported |
 |---|---|
-| Latest Beta (0.1.x) | ✅ |
+| Latest Beta (0.2.x) | ✅ |
 | Older builds | ❌ — please update first and check whether the problem still happens |
 
 ---
@@ -109,7 +109,7 @@ Please **don't include** your API keys, passwords, personal files or conversatio
 
 | الإصدار | مدعوم |
 |---|---|
-| أحدث نسخة تجريبية (0.1.x) | ✅ |
+| أحدث نسخة تجريبية (0.2.x) | ✅ |
 | النسخ الأقدم | ❌ — حدّث أولًا وتحقق هل ما زالت المشكلة موجودة |
 
 </div>
