@@ -16,8 +16,10 @@
 
 .page-main { padding: 64px 0 96px; }
 .page-main section { padding: 0; }
-.page-main .container.narrow { max-width: 860px; }
-.page-main h1 {
+/* One column for nav, content and footer: every .container keeps site.css width/auto margins.
+   "narrow" only limits the line length of what is inside, from the column's start edge (LTR and RTL). */
+.page-main .container.narrow > * { max-width: 860px; }
+.page-main .container, .page-main .container > * { min-width: 0; }.page-main h1 {
   font-size: clamp(30px, 5vw, 44px);
   letter-spacing: -1px;
   line-height: 1.2;
@@ -63,7 +65,8 @@ body[dir="rtl"] .page-main h1 { letter-spacing: 0; }
 .release-entry time { color: var(--muted); font-size: 13px; }
 .release-entry p { margin: 10px 0 0; color: var(--muted); }
 .release-entry .cta-links { margin-top: 12px; justify-content: flex-start; }
-.page-block { margin: 0 0 56px; }
+/* Block spacing only: the shorthand "margin: 0 0 56px" used to override .container's "margin: auto". */
+.page-block { margin-block-end: 56px; }
 .page-block .section-heading { text-align: start; margin-inline: 0; }
 .page-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin: 20px 0 8px; }
 .page-meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
