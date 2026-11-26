@@ -25,6 +25,7 @@ function docDate(file: string, required: boolean): string | undefined {
 const routes: Array<[string, string, string | undefined]> = [
   ["/", "/ar/", release.releaseDate],
   ["/products/desktop/", "/ar/products/desktop/", release.releaseDate],
+  ["/privacy-security/", "/ar/privacy-security/", release.releaseDate],
   ["/downloads/", "/ar/downloads/", release.releaseDate],
   ["/changelog/", "/ar/changelog/", release.releaseDate],
   ["/legal/privacy/", "/ar/legal/privacy/", docDate("PRIVACY.md", true)],

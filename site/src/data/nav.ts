@@ -7,11 +7,13 @@ const REPO = "https://github.com/EinMM/lunaicore";
 export const nav = {
   en: [
     { href: routes.productsDesktop.en, text: "Luna" },
+    { href: routes.privacySecurity.en, text: "Privacy" },
     { href: routes.downloads.en, text: "Download" },
     { href: routes.changelog.en, text: "Release notes" },
   ],
   ar: [
     { href: routes.productsDesktop.ar, text: "لونا" },
+    { href: routes.privacySecurity.ar, text: "الخصوصية" },
     { href: routes.downloads.ar, text: "تحميل" },
     { href: routes.changelog.ar, text: "ملاحظات الإصدار" },
   ],
@@ -19,6 +21,7 @@ export const nav = {
 
 export const footerLinks = {
   en: [
+    { href: routes.privacySecurity.en, text: "Privacy & Security" },
     { href: `${REPO}/blob/main/TESTERS.md`, text: "Tester guide" },
     { href: `${REPO}/issues/new?template=bug_report.yml`, text: "Report a problem" },
     { href: `${REPO}/issues/new?template=feature_request.yml`, text: "Suggest a feature" },
@@ -28,6 +31,7 @@ export const footerLinks = {
     { href: routes.legalTerms.en, text: "Terms of use" },
   ],
   ar: [
+    { href: routes.privacySecurity.ar, text: "الخصوصية والأمان" },
     { href: `${REPO}/blob/main/TESTERS.ar.md`, text: "دليل المجرّبين" },
     { href: `${REPO}/issues/new?template=bug_report.yml`, text: "الإبلاغ عن مشكلة" },
     { href: `${REPO}/issues/new?template=feature_request.yml`, text: "اقتراح ميزة" },
