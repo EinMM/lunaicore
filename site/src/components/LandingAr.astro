@@ -266,8 +266,8 @@ const { noindex = false, altHref, meta = defaultMeta } = Astro.props;
         <div class="mode-grid">
           <article class="mode">
             <h3><img class="mode-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local" data-ar="محلي">محلي</span></h3>
-            <p data-en="Everything runs on your computer with Luna Engine, and works offline once a model is installed."
-               data-ar="كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.">كل شيء يعمل على جهازك عبر محرّك لونا، ويعمل دون إنترنت بعد تثبيت النموذج.</p>
+            <p data-en="Everything runs on your computer with Luna Engine, and can work without internet after the model is installed."
+               data-ar="كل شيء يعمل على جهازك عبر محرّك لونا، ويمكنه العمل دون إنترنت بعد تثبيت النموذج.">كل شيء يعمل على جهازك عبر محرّك لونا، ويمكنه العمل دون إنترنت بعد تثبيت النموذج.</p>
           </article>
           <article class="mode">
             <h3><img class="mode-icon" src="/assets/icons/cloud.svg" alt="" aria-hidden="true"><span data-en="Cloud" data-ar="سحابي">سحابي</span></h3>
@@ -362,8 +362,8 @@ const { noindex = false, altHref, meta = defaultMeta } = Astro.props;
         <div class="provider-groups">
           <article class="provider-group">
             <h3><img class="mode-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Local models" data-ar="النماذج المحلية">النماذج المحلية</span></h3>
-            <p data-en="Models run on Luna Engine, built on llama.cpp, for better performance. Works offline once a model is installed."
-               data-ar="تعمل النماذج على محرّك Luna Engine المبني على llama.cpp لأداء أفضل، ودون إنترنت بعد تثبيت النموذج.">تعمل النماذج على محرّك Luna Engine المبني على llama.cpp لأداء أفضل، ودون إنترنت بعد تثبيت النموذج.</p>
+            <p data-en="Models run on Luna Engine, built on llama.cpp. They can work without internet after a model is installed."
+               data-ar="تعمل النماذج على محرّك لونا المبني على llama.cpp، ويمكنها العمل دون إنترنت بعد تثبيت النموذج.">تعمل النماذج على محرّك لونا المبني على llama.cpp، ويمكنها العمل دون إنترنت بعد تثبيت النموذج.</p>
             <ul class="provider-list">
               <li class="provider">
                 <span class="provider-mark" aria-hidden="true">GE</span>
@@ -442,86 +442,19 @@ const { noindex = false, altHref, meta = defaultMeta } = Astro.props;
           <p data-en={`Luna itself is light, with a ${release.sizeMB} MB installer. The numbers below are for running AI models on your own PC. Without a suitable graphics card, you can still use Luna with cloud AI.`} data-ar={`لونا نفسها خفيفة، وملف تثبيتها ${release.sizeMB} ميجابايت. الأرقام التالية خاصة بتشغيل نماذج الذكاء الاصطناعي على جهازك. وإن لم يكن لديك كرت شاشة مناسب، يمكنك استخدام لونا مع الذكاء السحابي.`}>لونا نفسها خفيفة، وملف تثبيتها {release.sizeMB} ميجابايت. الأرقام التالية خاصة بتشغيل نماذج الذكاء الاصطناعي على جهازك. وإن لم يكن لديك كرت شاشة مناسب، يمكنك استخدام لونا مع الذكاء السحابي.</p>
         </div>
 
-        <div class="compare-grid req-grid">
-          <article class="compare-card">
-            <h3 data-en="Minimum" data-ar="الحد الأدنى">الحد الأدنى</h3>
-            <dl>
+        <article class="compare-card req-summary">
+          <dl>
             <dt data-en="Operating system" data-ar="نظام التشغيل">نظام التشغيل</dt>
-            <dd data-en="Windows 11, 64-bit. Windows 10 is not officially supported in this Beta." data-ar="Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي.">Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي.</dd>
+            <dd data-en="Windows 11 is recommended. The installer allows Windows 10, but it is not officially supported." data-ar="يُوصى بنظام Windows 11. يسمح ملف التثبيت بالتثبيت على Windows 10، لكنه غير مدعوم رسميًا.">يُوصى بنظام Windows 11. يسمح ملف التثبيت بالتثبيت على Windows 10، لكنه غير مدعوم رسميًا.</dd>
             <dt data-en="Graphics card" data-ar="كرت الشاشة">كرت الشاشة</dt>
-            <dd data-en="NVIDIA card with 4 GB of dedicated memory (VRAM). Runs Gemma 4 E2B." data-ar="كرت NVIDIA بذاكرة مخصصة (VRAM) لا تقل عن 4 جيجابايت. يشغّل نموذج Gemma 4 E2B.">كرت NVIDIA بذاكرة مخصصة (VRAM) لا تقل عن 4 جيجابايت. يشغّل نموذج Gemma 4 E2B.</dd>
+            <dd data-en="To run a model on your graphics card, Luna needs a dedicated card with enough memory: 5 GB for Qwen3.5 4B, 6 GB for Gemma 4 E2B and 10 GB for Gemma 4 12B." data-ar="لتشغيل نموذج على كرت الشاشة تحتاج لونا إلى كرت مخصص بذاكرة كافية: 5 جيجابايت لنموذج Qwen3.5 4B، و6 جيجابايت لنموذج Gemma 4 E2B، و10 جيجابايت لنموذج Gemma 4 12B.">لتشغيل نموذج على كرت الشاشة تحتاج لونا إلى كرت مخصص بذاكرة كافية: 5 جيجابايت لنموذج Qwen3.5 4B، و6 جيجابايت لنموذج Gemma 4 E2B، و10 جيجابايت لنموذج Gemma 4 12B.</dd>
             <dt data-en="No graphics card?" data-ar="بدون كرت شاشة؟">بدون كرت شاشة؟</dt>
-            <dd data-en="CPU-only mode works for small models, but slowly. It needs AVX2, 4 physical cores and 16 GB of RAM." data-ar="يعمل وضع المعالج فقط مع النماذج الصغيرة لكنه بطيء، ويتطلب دعم AVX2 و4 أنوية فعلية و16 جيجابايت من الذاكرة (RAM).">يعمل وضع المعالج فقط مع النماذج الصغيرة لكنه بطيء، ويتطلب دعم AVX2 و4 أنوية فعلية و16 جيجابايت من الذاكرة (RAM).</dd>
-            <dt data-en="Memory (RAM)" data-ar="ذاكرة النظام (RAM)">ذاكرة النظام (RAM)</dt>
-            <dd data-en="8 GB" data-ar="8 جيجابايت">8 جيجابايت</dd>
-            <dt data-en="Free disk space" data-ar="مساحة القرص الحرة">مساحة القرص الحرة</dt>
-            <dd data-en={`5 GB: the ${release.sizeMB} MB installer plus one small model (about 3 GB).`} data-ar={`5 جيجابايت: ملف التثبيت (${release.sizeMB} ميجابايت) مع نموذج صغير واحد (نحو 3 جيجابايت).`}>5 جيجابايت: ملف التثبيت ({release.sizeMB} ميجابايت) مع نموذج صغير واحد (نحو 3 جيجابايت).</dd>
-            <dt data-en="Internet" data-ar="الإنترنت">الإنترنت</dt>
-            <dd data-en="Only to download models and updates. Local chats work offline afterwards." data-ar="لتنزيل النماذج والتحديثات فقط. تعمل المحادثات المحلية دونه بعد ذلك.">لتنزيل النماذج والتحديثات فقط. تعمل المحادثات المحلية دونه بعد ذلك.</dd>
-            </dl>
-          </article>
-          <article class="compare-card us">
-            <h3 data-en="Recommended" data-ar="الموصى به">الموصى به</h3>
-            <dl>
-            <dt data-en="Operating system" data-ar="نظام التشغيل">نظام التشغيل</dt>
-            <dd data-en="Windows 11, 64-bit." data-ar="Windows 11 (64-بت).">Windows 11 (64-بت).</dd>
-            <dt data-en="Graphics card" data-ar="كرت الشاشة">كرت الشاشة</dt>
-            <dd data-en="NVIDIA card with 12 GB of VRAM or more. The 12B model starts at 10 GB." data-ar="كرت NVIDIA بذاكرة 12 جيجابايت أو أكثر. ويبدأ نموذج 12B من 10 جيجابايت.">كرت NVIDIA بذاكرة 12 جيجابايت أو أكثر. ويبدأ نموذج 12B من 10 جيجابايت.</dd>
-            <dt data-en="Processor" data-ar="المعالج">المعالج</dt>
-            <dd data-en="AVX2 support and 4 or more physical cores." data-ar="يدعم AVX2 بأربعة أنوية فعلية أو أكثر.">يدعم AVX2 بأربعة أنوية فعلية أو أكثر.</dd>
-            <dt data-en="Memory (RAM)" data-ar="ذاكرة النظام (RAM)">ذاكرة النظام (RAM)</dt>
-            <dd data-en="16 GB or more" data-ar="16 جيجابايت أو أكثر">16 جيجابايت أو أكثر</dd>
-            <dt data-en="Free disk space" data-ar="مساحة القرص الحرة">مساحة القرص الحرة</dt>
-            <dd data-en="20 GB, enough for several models (about 3 to 7 GB each)." data-ar="20 جيجابايت، تكفي لعدة نماذج (نحو 3 إلى 7 جيجابايت لكل نموذج).">20 جيجابايت، تكفي لعدة نماذج (نحو 3 إلى 7 جيجابايت لكل نموذج).</dd>
-            <dt data-en="What you get" data-ar="ماذا تحصل عليه">ماذا تحصل عليه</dt>
-            <dd data-en="Luna’s top suggestion, Gemma 4 12B: about 71 tokens per second on our test PC." data-ar="اقتراح لونا الأول، نموذج Gemma 4 12B: حوالي 71 رمزًا في الثانية على جهاز اختبارنا.">اقتراح لونا الأول، نموذج Gemma 4 12B: حوالي 71 رمزًا في الثانية على جهاز اختبارنا.</dd>
-            </dl>
-          </article>
-        </div>
-
-        <article class="provider-group req-models">
-          <h3><img class="mode-icon" src="/assets/icons/computer.svg" alt="" aria-hidden="true"><span data-en="Which model fits which graphics card" data-ar="أي نموذج يناسب أي كرت شاشة">أي نموذج يناسب أي كرت شاشة</span></h3>
-          <p data-en="Luna suggests the best model that fits your card, keeping a safety margin of about 1.5 GB. Memory and speed figures were measured on our test PC unless marked Untested." data-ar="تقترح لونا أفضل نموذج يناسب كرتك مع هامش أمان نحو 1.5 جيجابايت. قِيسَت أرقام الذاكرة والسرعة على جهاز اختبارنا ما لم تكن موسومة بـ«لم تُختبر».">تقترح لونا أفضل نموذج يناسب كرتك مع هامش أمان نحو 1.5 جيجابايت. قِيسَت أرقام الذاكرة والسرعة على جهاز اختبارنا ما لم تكن موسومة بـ«لم تُختبر».</p>
-          <ul class="provider-list">
-              <li class="provider">
-                <span class="provider-mark wide" aria-hidden="true">4 GB</span>
-                <div>
-                  <strong>Gemma 4 E2B</strong>
-                  <small data-en="The lightest and fastest. Uses about 1.9 GB of card memory, about 234 tokens per second." data-ar="الأخف والأسرع. يستهلك نحو 1.9 جيجابايت من ذاكرة الكرت، وحوالي 234 رمزًا في الثانية.">الأخف والأسرع. يستهلك نحو 1.9 جيجابايت من ذاكرة الكرت، وحوالي 234 رمزًا في الثانية.</small>
-                </div>
-              </li>
-              <li class="provider">
-                <span class="provider-mark wide" aria-hidden="true">6–8 GB</span>
-                <div>
-                  <strong>Gemma 4 E4B</strong>
-                  <small data-en="A good balance. Uses about 3.5 GB of card memory, about 131 tokens per second." data-ar="توازن جيد. يستهلك نحو 3.5 جيجابايت من ذاكرة الكرت، وحوالي 131 رمزًا في الثانية.">توازن جيد. يستهلك نحو 3.5 جيجابايت من ذاكرة الكرت، وحوالي 131 رمزًا في الثانية.</small>
-                </div>
-              </li>
-              <li class="provider">
-                <span class="provider-mark wide" aria-hidden="true">10–12 GB</span>
-                <div>
-                  <strong>Gemma 4 12B</strong>
-                  <small data-en="Luna’s top suggestion for this range. Uses about 7.5 GB of card memory, about 71 tokens per second. An optional speed-mode file adds about 0.5 GB." data-ar="اقتراح لونا الأول لهذه الفئة. يستهلك نحو 7.5 جيجابايت من ذاكرة الكرت، وحوالي 71 رمزًا في الثانية. ويضيف ملف وضع السرعة الاختياري نحو 0.5 جيجابايت.">اقتراح لونا الأول لهذه الفئة. يستهلك نحو 7.5 جيجابايت من ذاكرة الكرت، وحوالي 71 رمزًا في الثانية. ويضيف ملف وضع السرعة الاختياري نحو 0.5 جيجابايت.</small>
-                </div>
-              </li>
-              <li class="provider">
-                <span class="provider-mark wide" aria-hidden="true">16 GB</span>
-                <div>
-                  <strong>Gemma 4 26B A4B</strong>
-                  <small data-en="Untested. A larger model for bigger cards." data-ar="لم تُختبر. نموذج أكبر للكروت الأكبر.">لم تُختبر. نموذج أكبر للكروت الأكبر.</small>
-                </div>
-              </li>
-              <li class="provider">
-                <span class="provider-mark wide" aria-hidden="true">24 GB+</span>
-                <div>
-                  <strong>Gemma 4 31B · Qwen3.5 27B</strong>
-                  <small data-en="Untested. Qwen3.5 35B A3B needs 32 GB." data-ar="لم تُختبر. ويحتاج نموذج Qwen3.5 35B A3B إلى 32 جيجابايت.">لم تُختبر. ويحتاج نموذج Qwen3.5 35B A3B إلى 32 جيجابايت.</small>
-                </div>
-              </li>
-          </ul>
+            <dd data-en="CPU-only mode works for small models, but slowly. It needs a processor with AVX2, at least 4 physical cores, and about 8 GB of RAM or more." data-ar="يعمل وضع المعالج فقط مع النماذج الصغيرة لكنه بطيء. ويتطلب معالجًا يدعم AVX2 و4 أنوية فعلية على الأقل، ونحو 8 جيجابايت من الذاكرة (RAM) أو أكثر.">يعمل وضع المعالج فقط مع النماذج الصغيرة لكنه بطيء. ويتطلب معالجًا يدعم AVX2 و4 أنوية فعلية على الأقل، ونحو 8 جيجابايت من الذاكرة (RAM) أو أكثر.</dd>
+          </dl>
         </article>
-
-        <p class="provider-note" data-en="NVIDIA cards (CUDA) are the path we tested. AMD and Intel cards are supported through Vulkan but were not tested on our hardware, and Luna’s live memory check works on NVIDIA cards only. Integrated graphics count as CPU-only. These figures are guidance: Luna checks your PC itself and suggests a model in Settings, under Your device." data-ar="كروت NVIDIA (عبر CUDA) هي المسار الذي اختبرناه. أما كروت AMD وIntel فمدعومة عبر Vulkan لكنها لم تُختبر على أجهزتنا، وفحص الذاكرة الحي في لونا يعمل مع كروت NVIDIA فقط. وتُعدّ الرسوميات المدمجة وضع معالج فقط. هذه الأرقام للإرشاد، فلونا تفحص جهازك بنفسها وتقترح النموذج المناسب في الإعدادات ضمن «جهازك».">كروت NVIDIA (عبر CUDA) هي المسار الذي اختبرناه. أما كروت AMD وIntel فمدعومة عبر Vulkan لكنها لم تُختبر على أجهزتنا، وفحص الذاكرة الحي في لونا يعمل مع كروت NVIDIA فقط. وتُعدّ الرسوميات المدمجة وضع معالج فقط. هذه الأرقام للإرشاد، فلونا تفحص جهازك بنفسها وتقترح النموذج المناسب في الإعدادات ضمن «جهازك».</p>
+        <div class="page-actions">
+          <a class="button secondary" href="/ar/docs/desktop/requirements/" data-href-en="/docs/desktop/requirements/" data-href-ar="/ar/docs/desktop/requirements/"><span data-en="All models and numbers: System requirements" data-ar="كل النماذج والأرقام: متطلبات التشغيل">كل النماذج والأرقام: متطلبات التشغيل</span></a>
+        </div>
       </div>
     </section>
 
@@ -550,8 +483,8 @@ const { noindex = false, altHref, meta = defaultMeta } = Astro.props;
           <article class="feature-card">
             <h3 data-en="Does Luna work on Windows 10?"
                 data-ar="هل تعمل لونا على Windows 10؟">هل تعمل لونا على Windows 10؟</h3>
-            <p data-en="Windows 11 (64-bit) is recommended. Windows 10 is not officially supported in this Beta: cloud AI works on it in our testing, but some features may not work as expected."
-               data-ar="يُوصى بنظام Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي: الذكاء السحابي يعمل عليه في اختباراتنا، لكن قد لا تعمل بعض الميزات كما هو متوقع.">يُوصى بنظام Windows 11 (64-بت). نظام Windows 10 غير مدعوم رسميًا في هذا الإصدار التجريبي: الذكاء السحابي يعمل عليه في اختباراتنا، لكن قد لا تعمل بعض الميزات كما هو متوقع.</p>
+            <p data-en="Windows 11 is recommended. The installer allows Windows 10, but it is not officially supported."
+               data-ar="يُوصى بنظام Windows 11. يسمح ملف التثبيت بالتثبيت على Windows 10، لكنه غير مدعوم رسميًا.">يُوصى بنظام Windows 11. يسمح ملف التثبيت بالتثبيت على Windows 10، لكنه غير مدعوم رسميًا.</p>
           </article>
           <article class="feature-card">
             <h3 data-en="Why does Windows show a SmartScreen warning?"
