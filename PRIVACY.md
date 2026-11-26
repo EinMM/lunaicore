@@ -106,7 +106,7 @@ If this policy changes, the new version will be published here with a new date. 
 
 ### 9. Contact
 
-Hussain (EinMM) · [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
+Hussain (EinMM) · [contact@lunaicore.com](mailto:contact@lunaicore.com)
 
 ---
 
@@ -215,6 +215,6 @@ Hussain (EinMM) · [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
 
 ### 9. التواصل
 
-حسين (EinMM) · [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
+حسين (EinMM) · [contact@lunaicore.com](mailto:contact@lunaicore.com)
 
 </div>

@@ -74,7 +74,7 @@ A93372B7521A7C3C3916968CDF84EAF2E6292A1AC29D6DECC5E7B3D703EA82D8
 
 - من داخل لونا: زر **«إرسال ملاحظة»** في الشريط الجانبي (وفي **الإعدادات ← حول Luna** أيضًا)
 - [أبلغ عن مشكلة أو اطلب ميزة](https://github.com/EinMM/lunaicore/issues)
-- البريد: [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
+- البريد: [contact@lunaicore.com](mailto:contact@lunaicore.com)
 
 ## عن هذا المستودع
 

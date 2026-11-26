@@ -72,7 +72,7 @@ The developer may update these terms. The new version will be published here wit
 
 ### 15. Contact
 
-Hussain (EinMM) · [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
+Hussain (EinMM) · [contact@lunaicore.com](mailto:contact@lunaicore.com)
 
 See also: [Privacy Policy](PRIVACY.md) · [Security Policy](SECURITY.md)
 
@@ -149,7 +149,7 @@ See also: [Privacy Policy](PRIVACY.md) · [Security Policy](SECURITY.md)
 
 ### 15. التواصل
 
-حسين (EinMM) · [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
+حسين (EinMM) · [contact@lunaicore.com](mailto:contact@lunaicore.com)
 
 انظر أيضًا: [سياسة الخصوصية](PRIVACY.md) · [سياسة الأمان](SECURITY.md)
 

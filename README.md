@@ -64,7 +64,7 @@ This is an early beta, and your experience can help shape what comes next. New t
 
 - In Luna: the **Send feedback** button in the side bar (also in **Settings → About Luna**)
 - [Report an issue or request a feature](https://github.com/EinMM/lunaicore/issues)
-- Email: [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
+- Email: [contact@lunaicore.com](mailto:contact@lunaicore.com)
 
 ## About this repository
 

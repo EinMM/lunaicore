@@ -13,7 +13,7 @@ Luna runs on your PC, reads your files only where you allow it, and can use clou
 Public issues can be read by anyone. Use one of these instead:
 
 1. **Private report on GitHub (preferred):** [Report a vulnerability](https://github.com/EinMM/lunaicore/security/advisories/new)
-2. **Email:** [lunaicore@outlook.com](mailto:lunaicore@outlook.com) — if you don't have a GitHub account.
+2. **Email:** [security@lunaicore.com](mailto:security@lunaicore.com) — if you don't have a GitHub account.
 
 ### What counts as a security or privacy problem?
 
@@ -70,7 +70,7 @@ Please **don't include** your API keys, passwords, personal files or conversatio
 البلاغات العامة يقرؤها الجميع. استخدم إحدى الطريقتين:
 
 1. **بلاغ خاص عبر GitHub (الأفضل):** [الإبلاغ عن ثغرة](https://github.com/EinMM/lunaicore/security/advisories/new)
-2. **البريد الإلكتروني:** [lunaicore@outlook.com](mailto:lunaicore@outlook.com) — إذا لم يكن لديك حساب GitHub.
+2. **البريد الإلكتروني:** [security@lunaicore.com](mailto:security@lunaicore.com) — إذا لم يكن لديك حساب GitHub.
 
 ### ما الذي يُعدّ مشكلة أمنية أو مشكلة خصوصية؟
 

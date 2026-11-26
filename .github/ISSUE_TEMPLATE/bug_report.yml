@@ -9,7 +9,7 @@ body:
         **Please do not include personal data, file paths, file contents, API keys or conversation text.**
         **من فضلك لا تضع بيانات شخصية أو مسارات ملفات أو محتوى ملفات أو مفاتيح API أو نص محادثات.**
         Tip: Settings → About → "Copy system info" gives versions only (no paths). · نصيحة: الإعدادات ← حول ← "نسخ معلومات النظام" تعطي الإصدارات فقط (بدون مسارات).
-        Security or privacy problem? Do not post it here — email lunaicore@outlook.com · مشكلة أمنية أو تتعلق بالخصوصية؟ لا تنشرها هنا — راسلنا على lunaicore@outlook.com
+        Security or privacy problem? Do not post it here — email security@lunaicore.com · مشكلة أمنية أو تتعلق بالخصوصية؟ لا تنشرها هنا — راسلنا على security@lunaicore.com
   - type: input
     id: luna_version
     attributes:

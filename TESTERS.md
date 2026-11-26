@@ -154,4 +154,4 @@ Please include:
 ---
 
 Thank you for testing Luna 💜 — every report makes her better.
-**Hussain (EinMM)** · [lunaicore@outlook.com](mailto:lunaicore@outlook.com)
+**Hussain (EinMM)** · [support@lunaicore.com](mailto:support@lunaicore.com)
