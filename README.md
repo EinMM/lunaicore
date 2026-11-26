@@ -6,7 +6,7 @@
 
 Luna is a Windows desktop assistant that works with the files on your PC — and never changes them without asking you first. Chat in Arabic or English, and choose between local AI that runs on your own device and cloud AI from a provider you configure.
 
-**[Download Luna Beta 0.1](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.2.0) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
+**[Download Luna Beta 0.2](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe)** · [Release notes](https://github.com/EinMM/lunaicore/releases/tag/desktop-win-v0.2.0) · [Project website](https://einmm.github.io/lunaicore/) · [Beta tester guide](TESTERS.md)
 
 ![Luna main chat window](assets/screenshots/Luna-AI-01-en.png)
 
@@ -32,7 +32,7 @@ Luna is a Windows desktop assistant that works with the files on your PC — and
 
 ![Luna settings: choose local or cloud AI and your privacy options](assets/screenshots/Luna-AI-03-en.png)
 
-## Install Luna Beta 0.1
+## Install Luna Beta 0.2
 
 1. Download [LunaSetup-0.2.0.exe](https://github.com/EinMM/lunaicore/releases/download/desktop-win-v0.2.0/LunaSetup-0.2.0.exe).
 2. **Recommended:** verify the download. Open PowerShell in your Downloads folder and run:
@@ -75,4 +75,4 @@ This repository contains Luna’s public website and release files. It does not 
 
 ### Project status
 
-Luna Beta 0.1 is available for Windows 11. Features and availability may change as development continues.
+Luna Beta 0.2 is available for Windows 11. Features and availability may change as development continues.
