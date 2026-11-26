@@ -6,7 +6,7 @@ import { getEntry, render } from "astro:content";
 import { meta } from "../../../i18n/en";
 
 export function getStaticPaths() {
-  return ["privacy", "terms", "security"].map((doc) => ({ params: { doc } }));
+  return ["privacy", "terms", "security", "website-privacy"].map((doc) => ({ params: { doc } }));
 }
 
 const { doc } = Astro.params;
@@ -15,7 +15,7 @@ if (!entry) throw new Error(`legal: docs entry legal-${doc}-en is missing (run s
 const { Content } = await render(entry);
 const title = entry.data.title as string;
 ---
-<Page lang="en" title={`${title} · Luna AI Desktop Assistant`} description={meta.description} path={`/legal/${doc}/`}>
+<Page lang="en" title={`${title} · Luna AI Desktop Assistant`} description={doc === "website-privacy" ? "What the website lunaicore.com does with visitor data: static pages, no analytics scripts, no cookies; hosting and email handling." : meta.description} path={`/legal/${doc}/`}>
   <section>
     <div class="container narrow prose">
       <h1>{title}</h1>

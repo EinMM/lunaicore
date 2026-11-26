@@ -44,18 +44,19 @@ const LEGAL = [
   { file: "PRIVACY.md", slug: "privacy", headings: 10, what: "short version + sections 1-9" },
   { file: "TERMS.md", slug: "terms", headings: 15, what: "sections 1-15" },
   { file: "SECURITY.md", slug: "security", headings: 5, what: "5 sections" },
+  { file: "WEBSITE_PRIVACY.md", slug: "website-privacy", headings: 6, what: "sections 1-6 (site only, not bundled in the app)" },
 ];
 const LABEL = { en: "## English", ar: "## العربية" };
 
 function rewriteLinks(md, lang, file) {
   const prefix = lang === "ar" ? "/ar" : "";
   const out = md.replace(/\]\(([^)\s]+)\)/g, (all, url) => {
-    const m = url.match(/^(PRIVACY|TERMS|SECURITY|TESTERS|TESTERS\.ar)\.md(#[\w-]+)?$/);
+    const m = url.match(/^(PRIVACY|TERMS|SECURITY|WEBSITE_PRIVACY|TESTERS|TESTERS\.ar)\.md(#[\w-]+)?$/);
     if (!m) return all;
     const [, name, hash = ""] = m;
     if (name.startsWith("TESTERS")) return `](${REPO_BLOB}/${name}.md${hash})`;
     if (hash && hash !== "#english" && hash !== "#arabic") die(`${file}: link ${url} has an anchor this script does not know`);
-    return `](${prefix}/legal/${name.toLowerCase()}/)`;
+    return `](${prefix}/legal/${name.toLowerCase().replace("_", "-")}/)`;
   });
   if (/\]\((?!https?:\/\/|mailto:|\/)[^)]*\)/.test(out)) {
     die(`${file} (${lang}): a relative or anchor link is left after rewriting: ${out.match(/\]\((?!https?:\/\/|mailto:|\/)[^)]*\)/)[0]}`);
