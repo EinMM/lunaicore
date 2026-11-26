@@ -1,0 +1,83 @@
+---
+// Thin layout for the subpages (downloads, changelog, legal). One language per page.
+// Shares the landing page's CSS source (site.css) and adds prose.css. No site.js and no GTM:
+// the landing script assumes landing-only elements, and tracking is not carried to subpages.
+import css from "../styles/site.css?raw";
+import prose from "../styles/prose.css?raw";
+import { ui, SITE } from "../i18n/page";
+
+const { lang, title, description, path, altPath } = Astro.props;
+const t = ui[lang as "en" | "ar"];
+const other = ui[t.switchLang as "en" | "ar"];
+const enPath = lang === "en" ? path : altPath;
+const arPath = lang === "ar" ? path : altPath;
+const styles = css.replaceAll('url("assets/', 'url("/assets/') + "\n" + prose;
+const year = new Date().getFullYear();
+---
+<!DOCTYPE html>
+<html lang={t.lang} dir={t.dir}>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b19">
+  <meta name="description" content={description}>
+  <link rel="canonical" href={`${SITE}${path}`}>
+  <link rel="alternate" hreflang="en" href={`${SITE}${enPath}`}>
+  <link rel="alternate" hreflang="ar" href={`${SITE}${arPath}`}>
+  <link rel="alternate" hreflang="x-default" href={`${SITE}${enPath}`}>
+  <title>{title}</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luna AI Desktop Assistant">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={`${SITE}${path}`}>
+  <meta property="og:locale" content={t.ogLocale}>
+  <meta property="og:image" content={`${SITE}/assets/social/luna-og.jpg`}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/logo/favicon.png" type="image/png" sizes="32x32">
+
+  <style is:inline set:html={styles}></style>
+</head>
+<body dir={t.dir}>
+  <a class="skip-link" href="#main">{t.skip}</a>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href={t.home} aria-label={t.brandAria}>
+        <img src="/assets/logo/luna-logo-flat.png" alt="Luna">
+      </a>
+
+      <nav class="page-nav" aria-label={t.navAria}>
+        {t.nav.map((item) => (
+          <a href={item.href} aria-current={item.href === path ? "page" : undefined}>{item.text}</a>
+        ))}
+      </nav>
+
+      <div class="nav-actions">
+        <a class="lang-button" href={altPath} hreflang={other.lang} lang={other.lang}>{t.switchText}</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="page-main">
+    <slot />
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand"><img class="footer-logo" src="/assets/logo/luna-logo-mono.png" alt="" aria-hidden="true">© {year} Luna AI Desktop Assistant</span>
+      <span>{t.builtBy}</span>
+      <a href="https://github.com/EinMM/lunaicore">GitHub ↗</a>
+    </div>
+
+    <nav class="container footer-links" aria-label={t.footerAria}>
+      {t.footerLinks.map((item) => <a href={item.href}>{item.text}</a>)}
+    </nav>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+/* Subpage additions (Page.astro only). The landing page does not load this file. */
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 22px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.page-nav a:hover { color: white; }
+.page-nav a[aria-current="page"] { color: white; }
+@media (max-width: 850px) {
+  .nav-inner { height: auto; min-height: 66px; flex-wrap: wrap; padding: 10px 0; }
+  .page-nav { order: 3; width: 100%; }
+}
+
+.page-main { padding: 64px 0 96px; }
+.page-main section { padding: 0; }
+.page-main .container { max-width: 860px; }
+.page-main h1 {
+  font-size: clamp(30px, 5vw, 44px);
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin: 0 0 28px;
+}
+body[dir="rtl"] .page-main h1 { letter-spacing: 0; }
+
+.prose { color: var(--muted); font-size: 15px; }
+.prose h2, .prose h3, .prose h4 { color: var(--text); line-height: 1.35; margin: 40px 0 12px; }
+.prose h2 { font-size: 26px; }
+.prose h3 { font-size: 19px; }
+.prose p, .prose ul, .prose ol, .prose table, .prose pre, .prose blockquote { margin: 0 0 16px; }
+.prose ul, .prose ol { padding-inline-start: 24px; }
+.prose li { margin: 4px 0; }
+.prose li > ul, .prose li > ol { margin: 6px 0 0; }
+.prose a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+.prose strong { color: var(--text); }
+.prose hr { border: 0; border-top: 1px solid var(--border); margin: 32px 0; }
+.prose code {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: .9em;
+  padding: 2px 6px;
+  background: rgba(0,0,0,.3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.prose pre { padding: 14px; overflow-x: auto; background: rgba(0,0,0,.3); border: 1px solid var(--border); border-radius: 10px; direction: ltr; }
+.prose pre code { padding: 0; border: 0; background: none; }
+.prose blockquote { padding: 4px 18px; border-inline-start: 3px solid var(--purple); background: rgba(255,255,255,.03); }
+.prose table { display: block; overflow-x: auto; border-collapse: collapse; width: 100%; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: start; vertical-align: top; }
+.prose th { color: var(--text); background: rgba(255,255,255,.04); }
+.prose .contains-task-list, .prose li.task-list-item { list-style: none; }
+.prose .contains-task-list { padding-inline-start: 4px; }
+.prose input[type="checkbox"] { margin-inline-end: 8px; accent-color: var(--cyan); }
+
+/* Release list (changelog) and download blocks */
+.release-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.release-entry { margin: 0; }
+.release-entry h2 { margin: 0 0 6px; font-size: 22px; }
+.release-entry time { color: var(--muted); font-size: 13px; }
+.release-entry p { margin: 10px 0 0; color: var(--muted); }
+.release-entry .cta-links { margin-top: 12px; justify-content: flex-start; }
+.page-block { margin: 0 0 56px; }
+.page-block .section-heading { text-align: start; margin-inline: 0; }
+.page-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin: 20px 0 8px; }
+.page-meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
